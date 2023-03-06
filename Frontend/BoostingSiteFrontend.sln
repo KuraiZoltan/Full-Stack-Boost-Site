@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "boostingsitefrontend", "boostingsitefrontend.esproj", "{28594B70-6FD8-4CBB-8F49-C126187544FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailSender", "..\..\email-sender\EmailSender\EmailSender.csproj", "{562180F0-C1B5-4880-B1EC-8ED11E81B35C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28594B70-6FD8-4CBB-8F49-C126187544FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28594B70-6FD8-4CBB-8F49-C126187544FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28594B70-6FD8-4CBB-8F49-C126187544FF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{28594B70-6FD8-4CBB-8F49-C126187544FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28594B70-6FD8-4CBB-8F49-C126187544FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28594B70-6FD8-4CBB-8F49-C126187544FF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{562180F0-C1B5-4880-B1EC-8ED11E81B35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562180F0-C1B5-4880-B1EC-8ED11E81B35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562180F0-C1B5-4880-B1EC-8ED11E81B35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562180F0-C1B5-4880-B1EC-8ED11E81B35C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBB37A12-C60A-4B98-B2C9-C7346F3CEACF}
+	EndGlobalSection
+EndGlobal
