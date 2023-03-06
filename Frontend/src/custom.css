@@ -1,0 +1,76 @@
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #E01A76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+html {
+    height: 100%
+}
+
+.description-component {
+    margin: 2rem
+}
+
+button {
+    margin: 0.75rem;
+}
+
+.select-from-buttons, .select-to-buttons {
+    border: 1px solid black;
+    width: 70%;
+    margin-bottom: 1rem;
+}
+
+.input-details-container {
+    border: 1px solid black;
+    width: 70%;
+    
+}
+
+.input-block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.page-content {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-details {
+    display: flex;
+    flex-direction:column;
+    margin: 2rem
+}
+
+label {
+    margin: 1rem
+}
+
+select {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+img {
+    max-width: 75px;
+    max-height: 75px
+}
+
+#order-submit-btn {
+    min-width: 75px;
+    max-width: 100px;
+}

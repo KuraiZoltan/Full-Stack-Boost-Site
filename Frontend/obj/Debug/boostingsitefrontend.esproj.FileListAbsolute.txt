@@ -1,0 +1,2 @@
+D:\Projects\SepBoostSite\BoostingSiteFrontend\obj\Debug\boostingsitefrontend.esproj.SuggestedBindingRedirects.cache
+D:\Projects\SepBoostSite\BoostingSiteFrontend\obj\Debug\boostingsitefrontend.esproj.CoreCompileInputs.cache
