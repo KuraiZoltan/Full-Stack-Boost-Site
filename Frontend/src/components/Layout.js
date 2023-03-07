@@ -6,7 +6,7 @@ export class Layout extends Component {
 
   render() {
     return (
-      <div>
+      <div className="page">
         <NavMenu />
         <div className="page-content">
           {this.props.children}
