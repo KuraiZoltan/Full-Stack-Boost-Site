@@ -1,11 +1,12 @@
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { AboutMePage } from "./components/AboutMePage";
-import { Home } from "./components/Home";
+import { LeagueOfLegends } from "./components/LeagueOfLegends";
+import { Main } from "./components/MainPage";
 
 const AppRoutes = [
   {
     index: true,
-    element: <Home />
+    element: <Main />
   },
   {
     path: '/about-me',
@@ -14,7 +15,12 @@ const AppRoutes = [
   {
     path: '/privacy-policy',
     element: <PrivacyPolicy />
+  },
+  {
+    path: '/league-of-legends',
+      element: <LeagueOfLegends />
   }
+
 ];
 
 export default AppRoutes;
