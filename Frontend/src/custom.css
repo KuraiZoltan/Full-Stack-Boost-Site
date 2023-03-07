@@ -25,22 +25,26 @@ button {
     margin: 0.75rem;
 }
 
-.select-from-buttons, .select-to-buttons {
-    border: 1px solid black;
-    width: 70%;
+.select-from-buttons, .select-to-buttons, .input-details-container {
+    color: black;
+    width: 35%;
     margin-bottom: 1rem;
-}
-
-.input-details-container {
-    border: 1px solid black;
-    width: 70%;
-    
+    margin-left: 2rem;
+    background-image: linear-gradient(#1e1e3be8, #4040837a);
+    border-radius: 1rem;
+    box-shadow: 4px 3px 4px #000000b0;
 }
 
 .input-block {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1rem;
+    justify-content: center;
+    margin: 1rem;
+    
+}
+
+input {
+  margin-left: 1rem; 
 }
 
 .page-content {
@@ -73,4 +77,32 @@ img {
 #order-submit-btn {
     min-width: 75px;
     max-width: 100px;
+}
+
+.page {
+  background-image: url("D:\Projects\Full-Stack-Boost-Site\Frontend\public\wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 52vw;
+}
+
+h1 {
+  color: white;
+}
+
+.nav-element, .navbar-brand {
+  color: white;
+}
+
+#submit-btn {
+  margin-left: 70%;
+}
+
+#submit-btn:hover {
+  background: #ffffffba;
+  box-shadow: 1px 1px 4px #ffffff;
+}
+
+#submit-btn:active {
+  background: #ffffff99;
 }
