@@ -37,6 +37,25 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
         setEmailInputState(event.target.value)
     }
 
+    const summaryComponent = (
+        <div className="summary-component">
+            <p>First Name: {firstNameInputState}</p>
+            <p>Last Name: {lastNameInputState}</p>
+            <p>Contact Email: {emailInputState}</p>
+            <p>Current Rank: {selectRankFrom} {dropdownOptionFromState}</p>
+            <p>Desired Rank: {selectRankTo} {dropdownOptionToState}</p>
+
+            <button id="submit-btn" onClick={() => handleOnClick(
+                selectRankFrom,
+                dropdownOptionFromState,
+                selectRankTo,
+                dropdownOptionToState,
+                firstNameInputState,
+                lastNameInputState,
+                emailInputState)}>Submit</button>
+        </div>
+    )
+
     const firstNameComponent = (
         <label>
             First Name:
@@ -65,21 +84,19 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
                 {lastNameComponent}
                 {emailComponent}
             </form>
-            <button id="submit-btn" onClick={() => handleOnClick(
-                selectRankFrom,
-                dropdownOptionFromState,
-                selectRankTo,
-                dropdownOptionToState,
-                firstNameInputState,
-                lastNameInputState,
-                emailInputState)}>Submit</button>
         </div>
         
-        )
+    )
+
     return (
         <div className="input-details-container">
             {inputFrom}
+            {summaryComponent}
         </div>
-        )
+    )
+    
+    
+
 }
+
 
