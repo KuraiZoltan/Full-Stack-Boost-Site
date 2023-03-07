@@ -27,12 +27,14 @@ button {
 
 .select-from-buttons, .select-to-buttons, .input-details-container {
     color: black;
-    width: 35%;
-    margin-bottom: 1rem;
-    margin-left: 2rem;
+    margin: 2rem;
     background-image: linear-gradient(#1e1e3be8, #4040837a);
     border-radius: 1rem;
     box-shadow: 4px 3px 4px #000000b0;
+}
+
+.input-details-container {
+  width: 110%
 }
 
 .input-block {
@@ -55,8 +57,13 @@ input {
 
 .order-details {
     display: flex;
-    flex-direction:column;
-    margin: 2rem
+    flex-direction:row;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 2rem;
+    max-width: 70%;
+    
+    
 }
 
 label {
@@ -90,9 +97,7 @@ h1 {
   color: white;
 }
 
-.nav-element, .navbar-brand {
-  color: white;
-}
+
 
 #submit-btn {
   margin-left: 70%;
@@ -106,3 +111,79 @@ h1 {
 #submit-btn:active {
   background: #ffffff99;
 }
+
+a {
+  font-family: "FF Mark W05",Arial,sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nav-element, .navbar-brand, .nav-element:focus {
+  color: white;
+  margin: 5px;
+}
+
+.nav-element:hover {
+  color: white;
+  background: #80808040;
+  outline: 1px white solid;
+  border-radius: 5px;
+}
+
+.navbar-brand:hover {
+  color: #dbdbdb
+}
+
+.navbar-brand:focus {
+  color: #ffffff
+}
+
+nav {
+  height: 4.5rem;
+}
+
+label {
+  color: white;
+}
+
+button:hover {
+  box-shadow: 1px 1px 4px white;
+}
+
+button:active {
+  box-shadow: 1px 1px 4px #ffffff8c;
+}
+
+.summary-component {
+  color: white;
+  margin: 2rem;
+}
+
+p, h2, a {
+  color: white;
+}
+
+a:hover {
+  color: #cfcfcfd9
+}
+
+.game-option {
+  all: unset;
+  
+}
+
+.game-select {
+  margin-top: 3rem
+}
+
+.select-game-btn {
+  all: unset;
+  color: white;
+  padding: 1rem;
+  border: 1px solid white;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background: #0000001f;
+  border-radius: 0.5rem
+}
+
