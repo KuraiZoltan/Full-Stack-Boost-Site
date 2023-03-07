@@ -5,7 +5,7 @@ let selectRankFrom = ""
 let selectRankTo = ""
 
 
-export function Home() {
+export function LeagueOfLegends() {
     const [dropdownOptionFromState, setDropdownOptionFromState] = useState("")
     const [dropdownOptionToState, setDropdownOptionToState] = useState("")
 
@@ -16,7 +16,7 @@ export function Home() {
     function getSelectRankTo(rank) {
         selectRankTo = rank
     }
-    
+
     const rankSelectFromBlock = (
         <div className="select-from-buttons">
             <button onClick={() => getSelectRankFrom("Iron")}><img src="https://boostroyal.no/assets/images/divisions/lol/iron.png"></img></button>
@@ -80,9 +80,6 @@ export function Home() {
 
                 <div className="order-details">
                     {rankSelectionBlock}
-                    <div className="selectionResultBlock">
-                        <p>From {selectRankFrom} {dropdownOptionFromState} To {selectRankTo} {dropdownOptionToState}</p>
-                    </div>
                     {UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState)}
                 </div>
             </div>
