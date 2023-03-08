@@ -34,14 +34,15 @@ button {
 }
 
 .input-details-container {
-  width: 110%
+  width: auto
 }
 
 .input-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+  width: 350px
     
 }
 

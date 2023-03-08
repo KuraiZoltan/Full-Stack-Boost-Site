@@ -23,7 +23,7 @@ export function LeagueOfLegends() {
     }
 
     const rankSelectFromBlock = (
-        <div className="select-from-buttons">
+        <div className="col select-from-buttons">
             <h2 className="rank-form-title">Select your current rank here!</h2>
             <button className="league-rank-button" onClick={() => getSelectRankFrom("Iron")}><img src="https://boostroyal.no/assets/images/divisions/lol/iron.png"></img></button>
             <button className="league-rank-button" onClick={() => getSelectRankFrom("Bronze")}><img src="https://boostroyal.no/assets/images/divisions/lol/bronze.png"></img></button>
@@ -50,7 +50,7 @@ export function LeagueOfLegends() {
         
     )
     const rankSelectToBlock = (
-        <div className="select-to-buttons">
+        <div className="col select-to-buttons">
             <h2 className="rank-form-title">Select your desired rank here!</h2>
             <button className="league-rank-button" onClick={() => getSelectRankTo("Iron")}><img src="https://boostroyal.no/assets/images/divisions/lol/iron.png"></img></button>
             <button className="league-rank-button" onClick={() => getSelectRankTo("Bronze")}><img src="https://boostroyal.no/assets/images/divisions/lol/bronze.png"></img></button>
@@ -74,7 +74,7 @@ export function LeagueOfLegends() {
     )
 
     const rankSelectionBlock = (
-        <div className="rank-selection-block">
+        <div className="row rank-selection-block">
             {rankSelectFromBlock}
             {rankSelectToBlock}
         </div>
