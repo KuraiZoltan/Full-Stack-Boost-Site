@@ -23,7 +23,7 @@ export function Valorant() {
     }
 
     const rankSelectFromBlock = (
-        <div className="select-from-buttons">
+        <div className="col select-from-buttons">
             <h2 className="rank-form-title">Select your current rank here!</h2>
             <button className="rank-button" onClick={() => getSelectRankFrom("Iron")}><img src="https://boostroyal.com/assets/images/divisions/valorant/ironiii.png"></img></button>
             <button className="rank-button" onClick={() => getSelectRankFrom("Bronze")}><img src="https://boostroyal.com/assets/images/divisions/valorant/bronzeiii.png"></img></button>
@@ -49,7 +49,7 @@ export function Valorant() {
 
     )
     const rankSelectToBlock = (
-        <div className="select-to-buttons">
+        <div className="col select-to-buttons">
             <h2 className="rank-form-title">Select your desired rank here!</h2>
             <button className="rank-button" onClick={() => getSelectRankFrom("Iron")}><img src="https://boostroyal.com/assets/images/divisions/valorant/ironiii.png"></img></button>
             <button className="rank-button" onClick={() => getSelectRankFrom("Bronze")}><img src="https://boostroyal.com/assets/images/divisions/valorant/bronzeiii.png"></img></button>
@@ -72,7 +72,7 @@ export function Valorant() {
     )
 
     const rankSelectionBlock = (
-        <div className="rank-selection-block">
+        <div className="row rank-selection-block">
             {rankSelectFromBlock}
             {rankSelectToBlock}
         </div>
