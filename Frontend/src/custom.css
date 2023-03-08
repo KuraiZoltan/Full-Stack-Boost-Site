@@ -25,10 +25,6 @@ button {
     margin: 0.75rem;
 }
 
-.select-from-buttons, .select-to-buttons, {
-  
-}
-
 .select-from-buttons, .select-to-buttons, .input-details-container {
     color: black;
     margin: 2rem;
