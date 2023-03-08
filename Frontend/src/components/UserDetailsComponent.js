@@ -50,7 +50,7 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
             <p>First Name: {firstNameInputState}</p>
             <p>Last Name: {lastNameInputState}</p>
             <p>Contact Email: {emailInputState}</p>
-            <p>Current Rank: {selectRankFrom} {dropdownOptionFromState} Lp: {currentLpInputState}</p>
+            <p>Current Rank: {selectRankFrom} {dropdownOptionFromState} {currentLpInputState}</p>
             <p>Desired Rank: {selectRankTo} {dropdownOptionToState}</p>
 
             <button id="submit-btn" onClick={() => handleOnClick(
@@ -98,7 +98,7 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
     )
 
     return (
-        <div className="input-details-container">
+        <div className="col input-details-container">
             {inputFrom}
             {summaryComponent}
         </div>
