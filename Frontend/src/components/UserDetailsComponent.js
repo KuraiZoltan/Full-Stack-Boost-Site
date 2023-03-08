@@ -1,28 +1,36 @@
 ﻿import React, { useState } from 'react';
 
-export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState) {
+export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentLpInputState) {
     const [firstNameInputState, setFirstNameInputState] = useState("")
     const [lastNameInputState, setLastNameInputState] = useState("")
     const [emailInputState, setEmailInputState] = useState("")
 
-    async function handleOnClick(selectRankFrom, dropDownFrom, selectRankTo, dropDownTo, firstName, lastName, email) {
-        let payload = {
-            CurrentRank: selectRankFrom,
-            CurrentRankLevel: dropDownFrom,
-            OrderedRank: selectRankTo,
-            OrderedRankLevel: dropDownTo,
-            FirstName: firstName,
-            LastName: lastName,
-            Email: email
+    async function handleOnClick(selectRankFrom, dropDownFrom, selectRankTo, dropDownTo, firstName, lastName, email, currentLpInputState) {
+        if (selectRankFrom && dropDownFrom && selectRankTo && dropDownTo && firstName && lastName && email && currentLpInputState) {
+            let payload = {
+                CurrentRank: selectRankFrom,
+                CurrentRankLevel: dropDownFrom,
+                CurrentLp: currentLpInputState,
+                OrderedRank: selectRankTo,
+                OrderedRankLevel: dropDownTo,
+                FirstName: firstName,
+                LastName: lastName,
+                Email: email
+            }
+
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }
+            console.log(payload)
+            await fetch(`https://localhost:7196/api/Email`, requestOptions)
+        } else {
+            alert("Missing Data! Please check if you gave us everything!"
+            )
         }
 
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        }
-        console.log(payload)
-        await fetch(`https://localhost:7196/api/Email`, requestOptions)
+        
     }
 
     const handleFirstNameOnChange = event => {
@@ -42,7 +50,7 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
             <p>First Name: {firstNameInputState}</p>
             <p>Last Name: {lastNameInputState}</p>
             <p>Contact Email: {emailInputState}</p>
-            <p>Current Rank: {selectRankFrom} {dropdownOptionFromState}</p>
+            <p>Current Rank: {selectRankFrom} {dropdownOptionFromState} Lp: {currentLpInputState}</p>
             <p>Desired Rank: {selectRankTo} {dropdownOptionToState}</p>
 
             <button id="submit-btn" onClick={() => handleOnClick(
@@ -52,7 +60,8 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
                 dropdownOptionToState,
                 firstNameInputState,
                 lastNameInputState,
-                emailInputState)}>Submit</button>
+                emailInputState,
+                currentLpInputState)}>Submit</button>
         </div>
     )
 
