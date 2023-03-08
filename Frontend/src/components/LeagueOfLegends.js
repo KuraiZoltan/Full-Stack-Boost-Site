@@ -24,7 +24,7 @@ export function LeagueOfLegends() {
 
     const rankSelectFromBlock = (
         <div className="select-from-buttons">
-            <h2>Select your current rank here!</h2>
+            <h2 className="rank-form-title">Select your current rank here!</h2>
             <button onClick={() => getSelectRankFrom("Iron")}><img src="https://boostroyal.no/assets/images/divisions/lol/iron.png"></img></button>
             <button onClick={() => getSelectRankFrom("Bronze")}><img src="https://boostroyal.no/assets/images/divisions/lol/bronze.png"></img></button>
             <button onClick={() => getSelectRankFrom("Silver")}><img src="https://boostroyal.no/assets/images/divisions/lol/silver.png"></img></button>
@@ -52,7 +52,7 @@ export function LeagueOfLegends() {
     )
     const rankSelectToBlock = (
         <div className="select-to-buttons">
-            <h2>Select your desired rank here!</h2>
+            <h2 className="rank-form-title">Select your desired rank here!</h2>
             <button onClick={() => getSelectRankTo("Iron")}><img src="https://boostroyal.no/assets/images/divisions/lol/iron.png"></img></button>
             <button onClick={() => getSelectRankTo("Bronze")}><img src="https://boostroyal.no/assets/images/divisions/lol/bronze.png"></img></button>
             <button onClick={() => getSelectRankTo("Silver")}><img src="https://boostroyal.no/assets/images/divisions/lol/silver.png"></img></button>

@@ -190,3 +190,7 @@ a:hover {
 .form-select {
   max-width: 200px;
 }
+
+.rank-form-title {
+  padding: 1rem
+}
