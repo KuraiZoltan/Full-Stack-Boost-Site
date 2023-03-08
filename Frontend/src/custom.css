@@ -86,13 +86,6 @@ img {
     max-width: 100px;
 }
 
-.page {
-  background-image: url("D:\Projects\Full-Stack-Boost-Site\Frontend\public\wallpaper.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  min-height: 52vw;
-}
-
 h1 {
   color: white;
 }
@@ -213,4 +206,11 @@ a:hover {
 
 .rank-button:active {
   background: #e07d31a8;
+}
+
+.page {
+  background-image: url("D:\Projects\Full-Stack-Boost-Site\Frontend\public\wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
