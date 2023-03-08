@@ -200,3 +200,18 @@ a:hover {
 .league-rank-button:active {
   background:#1c287ca3;
 }
+}
+
+.rank-button {
+  background: #83838321;
+  border-radius: 1rem;
+  border: none;
+}
+
+.rank-button:hover {
+  background: #e07d3175;
+}
+
+.rank-button:active {
+  background: #e07d31a8;
+}
