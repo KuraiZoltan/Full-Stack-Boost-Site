@@ -72,9 +72,12 @@ export function Valorant() {
     )
 
     const rankSelectionBlock = (
-        <div className="row rank-selection-block">
-            {rankSelectFromBlock}
-            {rankSelectToBlock}
+        <div className="col rank-selection-block">
+            <div className="row rank-selection-row">
+                {rankSelectFromBlock}
+                {rankSelectToBlock}
+            </div>
+            
         </div>
     )
 
@@ -85,7 +88,7 @@ export function Valorant() {
                     <h1>Boost your rank with Me!</h1>
                 </div>
 
-                <div className="order-details">
+                <div className="row order-details">
                     {rankSelectionBlock}
                     {UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentRRInputState)}
                 </div>
@@ -97,7 +100,7 @@ export function Valorant() {
                 <div className="title-content">
                     <h1>Boost your rank with Me!</h1>
                 </div>
-                <div className="order-details">
+                <div className="row order-details">
                     {rankSelectionBlock}
                     {UserDetailsComponent()}
                 </div>
