@@ -146,14 +146,6 @@ label {
   color: white;
 }
 
-button:hover {
-  box-shadow: 1px 1px 4px white;
-}
-
-button:active {
-  box-shadow: 1px 1px 4px #ffffff8c;
-}
-
 .summary-component {
   color: white;
   margin: 2rem;
@@ -193,4 +185,18 @@ a:hover {
 
 .rank-form-title {
   padding: 1rem
+}
+
+.rank-button {
+  background: #83838321;
+  border-radius: 1rem;
+  border: none;
+}
+
+.rank-button:hover {
+  background: #e07d3175;
+}
+
+.rank-button:active {
+  background: #e07d31a8;
 }
