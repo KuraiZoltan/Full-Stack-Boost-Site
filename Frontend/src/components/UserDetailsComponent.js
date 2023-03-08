@@ -53,7 +53,7 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
             <p>Current Rank: {selectRankFrom} {dropdownOptionFromState} {currentLpInputState}</p>
             <p>Desired Rank: {selectRankTo} {dropdownOptionToState}</p>
 
-            <button id="submit-btn" onClick={() => handleOnClick(
+            <button id="submit-btn" className="btn btn-light" onClick={() => handleOnClick(
                 selectRankFrom,
                 dropdownOptionFromState,
                 selectRankTo,
