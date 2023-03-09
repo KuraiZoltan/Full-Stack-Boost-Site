@@ -27,6 +27,7 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
             }
             console.log(payload)
             await fetch(`https://localhost:7196/api/Email`, requestOptions)
+            alert("We have sent a confirmation letter to your email!")
         } else {
             alert("Missing Data! Please check if you gave us everything!")
         }
