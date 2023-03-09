@@ -20,7 +20,7 @@ export function Valorant() {
     }
 
     const handleCurrentRRInputOnChange = event => {
-        setcurrentRRInputState(event.target.value)
+        setcurrentRRInputState(`(${event.target.value} RR)`)
     }
 
     const rankSelectFromBlock = (
@@ -95,7 +95,7 @@ export function Valorant() {
 
                 <div className="row order-details">
                     {rankSelectionBlock}
-                    {UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentRRInputState, selectedRegionState, true)}
+                    {UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentRRInputState, selectedRegionState, "Valorant")}
                 </div>
             </div>
         )

@@ -20,7 +20,7 @@ export function LeagueOfLegends() {
     }
 
     const handleCurrentLpInputOnChange = event => {
-        setcurrentLpInputState(event.target.value)
+        setcurrentLpInputState(`(${event.target.value} Lp)`)
     }
 
     const rankSelectFromBlock = (
@@ -97,7 +97,7 @@ export function LeagueOfLegends() {
 
                 <div className="row order-details">
                     {rankSelectionBlock}
-                    {UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentLpInputState, selectedRegionState)}
+                    {UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentLpInputState, selectedRegionState, "League of Legends")}
                 </div>
             </div>
         )

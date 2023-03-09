@@ -1,10 +1,9 @@
 ﻿import React, { useState } from 'react';
 
-export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentRankPoints, selectedRegionState, isPageValorant) {
+export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentRankPoints, selectedRegionState, game) {
     const [firstNameInputState, setFirstNameInputState] = useState("")
     const [lastNameInputState, setLastNameInputState] = useState("")
     const [emailInputState, setEmailInputState] = useState("")
-    const summaryComponent = null
 
     async function handleOnClick(selectRankFrom, dropDownFrom, selectRankTo, dropDownTo, firstName, lastName, email, currentRankPoints, selectedRegionState) {
         if (selectRankFrom && dropDownFrom && selectRankTo && dropDownTo && firstName && lastName && email && currentRankPoints && selectedRegionState) {
@@ -46,51 +45,27 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
         setEmailInputState(event.target.value)
     }
 
-    if (isPageValorant) {
-        summaryComponent = (
-            <div className="summary-component">
-                <p>First Name: {firstNameInputState}</p>
-                <p>Last Name: {lastNameInputState}</p>
-                <p>Contact Email: {emailInputState}</p>
-                <p>Current Rank: {selectRankFrom} {dropdownOptionFromState}, {currentRankPoints} RR</p>
-                <p>Desired Rank: {selectRankTo} {dropdownOptionToState}</p>
-                <p>Region: {selectedRegionState}</p>
+    const summaryComponent = (
+        <div className="summary-component">
+            <p>First Name: {firstNameInputState}</p>
+            <p>Last Name: {lastNameInputState}</p>
+            <p>Contact Email: {emailInputState}</p>
+            <p>Current Rank: {selectRankFrom} {dropdownOptionFromState} {currentRankPoints}</p>
+            <p>Desired Rank: {selectRankTo} {dropdownOptionToState}</p>
+            <p>Region: {selectedRegionState}</p>
 
-                <button id="submit-btn" className="btn btn-light" onClick={() => handleOnClick(
-                    selectRankFrom,
-                    dropdownOptionFromState,
-                    selectRankTo,
-                    dropdownOptionToState,
-                    firstNameInputState,
-                    lastNameInputState,
-                    emailInputState,
-                    currentRankPoints,
-                    selectedRegionState)}>Submit</button>
-            </div>
-        )
-    } else {
-        summaryComponent = (
-            <div className="summary-component">
-                <p>First Name: {firstNameInputState}</p>
-                <p>Last Name: {lastNameInputState}</p>
-                <p>Contact Email: {emailInputState}</p>
-                <p>Current Rank: {selectRankFrom} {dropdownOptionFromState}, {currentRankPoints} Lp</p>
-                <p>Desired Rank: {selectRankTo} {dropdownOptionToState}</p>
-                <p>Region: {selectedRegionState}</p>
-
-                <button id="submit-btn" className="btn btn-light" onClick={() => handleOnClick(
-                    selectRankFrom,
-                    dropdownOptionFromState,
-                    selectRankTo,
-                    dropdownOptionToState,
-                    firstNameInputState,
-                    lastNameInputState,
-                    emailInputState,
-                    currentRankPoints,
-                    selectedRegionState)}>Submit</button>
-            </div>
-        )
-    }
+            <button id="submit-btn" className="btn btn-light" onClick={() => handleOnClick(
+                selectRankFrom,
+                dropdownOptionFromState,
+                selectRankTo,
+                dropdownOptionToState,
+                firstNameInputState,
+                lastNameInputState,
+                emailInputState,
+                currentRankPoints,
+                selectedRegionState)}>Submit</button>
+        </div>
+    )
     
 
     const firstNameComponent = (
