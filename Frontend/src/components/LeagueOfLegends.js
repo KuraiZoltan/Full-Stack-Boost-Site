@@ -9,6 +9,7 @@ export function LeagueOfLegends() {
     const [dropdownOptionFromState, setDropdownOptionFromState] = useState("")
     const [dropdownOptionToState, setDropdownOptionToState] = useState("")
     const [currentLpInputState, setcurrentLpInputState] = useState("")
+    const [selectedRegionState, setSelectedRegionState] = useState("")
 
     function getSelectRankFrom(rank) {
         selectRankFrom = rank
@@ -46,6 +47,11 @@ export function LeagueOfLegends() {
                 Current Lp:
                 <input type="text" onChange={handleCurrentLpInputOnChange} />
             </label>
+            <select className="form-select" onChange={(e) => { let selectedRegion = e.target.value; setSelectedRegionState(selectedRegion) }}>
+                <option value="0">Nothing selected</option>
+                <option value="Europe West">Europe West</option>
+                <option value="Europe Nordic & East">Europe Nordic & East</option>
+            </select>
         </div>
         
     )
@@ -82,7 +88,7 @@ export function LeagueOfLegends() {
         </div>
         )
 
-    if (dropdownOptionFromState && dropdownOptionToState && selectRankFrom && selectRankTo) {
+    if (dropdownOptionFromState && dropdownOptionToState && selectRankFrom && selectRankTo && currentLpInputState && selectedRegionState) {
         return (
             <div className="home-page-content">
                 <div className="title-content">
@@ -91,7 +97,7 @@ export function LeagueOfLegends() {
 
                 <div className="row order-details">
                     {rankSelectionBlock}
-                    {UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentLpInputState)}
+                    {UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentLpInputState, selectedRegionState)}
                 </div>
             </div>
         )

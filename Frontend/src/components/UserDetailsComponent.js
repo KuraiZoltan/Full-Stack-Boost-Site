@@ -1,18 +1,19 @@
 ﻿import React, { useState } from 'react';
 
-export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentLpInputState) {
+export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentRankPoints, selectedRegionState) {
     const [firstNameInputState, setFirstNameInputState] = useState("")
     const [lastNameInputState, setLastNameInputState] = useState("")
     const [emailInputState, setEmailInputState] = useState("")
 
-    async function handleOnClick(selectRankFrom, dropDownFrom, selectRankTo, dropDownTo, firstName, lastName, email, currentLpInputState) {
-        if (selectRankFrom && dropDownFrom && selectRankTo && dropDownTo && firstName && lastName && email && currentLpInputState) {
+    async function handleOnClick(selectRankFrom, dropDownFrom, selectRankTo, dropDownTo, firstName, lastName, email, currentRankPoints, selectedRegionState) {
+        if (selectRankFrom && dropDownFrom && selectRankTo && dropDownTo && firstName && lastName && email && currentRankPoints && selectedRegionState) {
             let payload = {
                 CurrentRank: selectRankFrom,
                 CurrentRankLevel: dropDownFrom,
-                CurrentLp: currentLpInputState,
+                CurrentRankPoints: currentRankPoints,
                 OrderedRank: selectRankTo,
                 OrderedRankLevel: dropDownTo,
+                SelectedRegion: selectedRegionState,
                 FirstName: firstName,
                 LastName: lastName,
                 Email: email
@@ -26,8 +27,7 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
             console.log(payload)
             await fetch(`https://localhost:7196/api/Email`, requestOptions)
         } else {
-            alert("Missing Data! Please check if you gave us everything!"
-            )
+            alert("Missing Data! Please check if you gave us everything!")
         }
 
         
@@ -50,8 +50,9 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
             <p>First Name: {firstNameInputState}</p>
             <p>Last Name: {lastNameInputState}</p>
             <p>Contact Email: {emailInputState}</p>
-            <p>Current Rank: {selectRankFrom} {dropdownOptionFromState} {currentLpInputState}</p>
+            <p>Current Rank: {selectRankFrom} {dropdownOptionFromState} {currentRankPoints}</p>
             <p>Desired Rank: {selectRankTo} {dropdownOptionToState}</p>
+            <p>Region: {selectedRegionState}</p>
 
             <button id="submit-btn" className="btn btn-light" onClick={() => handleOnClick(
                 selectRankFrom,
@@ -61,7 +62,8 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
                 firstNameInputState,
                 lastNameInputState,
                 emailInputState,
-                currentLpInputState)}>Submit</button>
+                currentRankPoints,
+                selectedRegionState)}>Submit</button>
         </div>
     )
 
