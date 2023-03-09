@@ -46,6 +46,7 @@ export function Valorant() {
                 Current RR:
                 <input type="text" onChange={handleCurrentRRInputOnChange} />
             </label>
+            <h5>Select your region:</h5>
             <select className="form-select" onChange={(e) => { let selectedRegion = e.target.value; setSelectedRegionState(selectedRegion) }}>
                 <option value="0">Nothing selected</option>
                 <option value="Europe West">Europe West</option>
