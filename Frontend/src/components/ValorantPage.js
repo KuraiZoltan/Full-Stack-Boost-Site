@@ -19,18 +19,12 @@ export function Valorant() {
         selectRankTo = rank
     }
 
-    const handleCurrentLpInputOnChange = event => {
+    const handleCurrentRRInputOnChange = event => {
         setcurrentRRInputState(event.target.value)
     }
 
     const rankSelectFromBlock = (
         <div className="col select-from-buttons">
-            <h2>Select your region!</h2>
-            <select className="form-select" onChange={(e) => { let selectedRegion = e.target.value; setSelectedRegionState(selectedRegion) }}>
-                <option value="0">Nothing selected</option>
-                <option value="Europe West">Europe West</option>
-                <option value="Europe Nordic & East">Europe Nordic & East</option>
-            </select>
             <h2 className="rank-form-title">Select your current rank here!</h2>
             <button className="rank-button" onClick={() => getSelectRankFrom("Iron")}><img src="https://boostroyal.com/assets/images/divisions/valorant/ironiii.png"></img></button>
             <button className="rank-button" onClick={() => getSelectRankFrom("Bronze")}><img src="https://boostroyal.com/assets/images/divisions/valorant/bronzeiii.png"></img></button>
@@ -50,8 +44,14 @@ export function Valorant() {
             </div>
             <label>
                 Current RR:
-                <input type="text" onChange={handleCurrentLpInputOnChange} />
+                <input type="text" onChange={handleCurrentRRInputOnChange} />
             </label>
+            <h2>Select your region!</h2>
+            <select className="form-select" onChange={(e) => { let selectedRegion = e.target.value; setSelectedRegionState(selectedRegion) }}>
+                <option value="0">Nothing selected</option>
+                <option value="Europe West">Europe West</option>
+                <option value="Europe Nordic & East">Europe Nordic & East</option>
+            </select>
         </div>
 
     )
@@ -97,7 +97,7 @@ export function Valorant() {
 
                 <div className="row order-details">
                     {rankSelectionBlock}
-                    {UserDetailsComponent(dropdownOptionFromState && dropdownOptionToState && selectRankFrom && selectRankTo && currentRRInputState && selectedRegionState)}
+                    {UserDetailsComponent(selectRankFrom, dropdownOptionFromState, selectRankTo, dropdownOptionToState, currentRRInputState, selectedRegionState)}
                 </div>
             </div>
         )
