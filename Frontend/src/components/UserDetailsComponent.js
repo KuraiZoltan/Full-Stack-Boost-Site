@@ -16,7 +16,8 @@ export function UserDetailsComponent(selectRankFrom, dropdownOptionFromState, se
                 SelectedRegion: selectedRegionState,
                 FirstName: firstName,
                 LastName: lastName,
-                Email: email
+                Email: email,
+                GameName: game
             }
 
             const requestOptions = {
