@@ -98,7 +98,8 @@ export function Valorant() {
         return (
             <div className="home-page-content">
                 <div className="title-content">
-                    <h1>Boost your rank with Me!</h1>
+                    {/*<h1>Boost your rank with Me!</h1>*/}
+                    <h1>Under Development</h1>
                 </div>
                 <div className="row order-details">
                     {rankSelectionBlock}
