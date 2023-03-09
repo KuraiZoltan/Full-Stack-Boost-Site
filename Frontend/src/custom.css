@@ -26,7 +26,7 @@ button {
 }
 
 .select-from-buttons, .select-to-buttons, .input-details-container {
-    color: black;
+    color: white;
     margin: 2rem;
     background-image: linear-gradient(#1e1e3be8, #4040837a);
     border-radius: 1rem;
@@ -34,7 +34,15 @@ button {
     max-width: 400px;
 }
 
-
+.valorant-select-to-buttons, .valorant-select-from-buttons {
+    color: white;
+    margin: 2rem;
+    background-image: linear-gradient(#1e1e3be8, #4040837a);
+    border-radius: 1rem;
+    box-shadow: 4px 3px 8px #000000b0;
+    min-width: 350px;
+    max-width: 450px;
+}
 
 .input-block {
     margin: 1rem;
@@ -177,17 +185,20 @@ a:hover {
   background:#1c287ca3;
 }
 
-.rank-button {
+.valorant-rank-button {
   background: #83838321;
   border-radius: 1rem;
+  max-width: 76px;
+  max-height: 76px;
   border: none;
+  padding: 0
 }
 
-.rank-button:hover {
+.valorant-rank-button:hover {
   background: #e07d3175;
 }
 
-.rank-button:active {
+.valorant-rank-button:active {
   background: #e07d31a8;
 }
 
