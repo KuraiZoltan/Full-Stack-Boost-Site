@@ -24,7 +24,7 @@ namespace EmailSender.Controllers
                 $"<p><b>Last Name:</b> {orderDetails.LastName}</p> " +
                 $"<p><b>Game:</b> {orderDetails.GameName}</p> " +
                 $"<p><b>Region:</b> {orderDetails.SelectedRegion}</p>" +
-                $"<p><b>Boost From:</b> {orderDetails.CurrentRank} {orderDetails.CurrentRankLevel} ({orderDetails.CurrentRankPoints})</p> " +
+                $"<p><b>Boost From:</b> {orderDetails.CurrentRank} {orderDetails.CurrentRankLevel} {orderDetails.CurrentRankPoints}</p> " +
                 $"<p><b>Boost To:</b> {orderDetails.OrderedRank} {orderDetails.OrderedRankLevel}</p>" +
                 "<h2>Thank You for your order, FB will contact you soon!</h2>"
             };
