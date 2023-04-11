@@ -1,7 +1,11 @@
-﻿namespace EmailSender.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace EmailSender.Models
 {
     public class OrderDetails
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public string CurrentRank { get; set; }
         public string CurrentRankLevel { get; set; }
         public string CurrentRankPoints { get; set; }
