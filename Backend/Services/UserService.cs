@@ -9,12 +9,18 @@ namespace EmailSender.Services
     {
         private PasswordHasher<User> PasswordHasher { get; }
         private AppDbContext _context { get; set; }
-        public UserService() { }
+        public UserService(AppDbContext appDbContext) 
+        { 
+            _context = appDbContext;
+            PasswordHasher = new PasswordHasher<User>();
+        }
 
         public async Task AddUser(RegistrationCredentials registrationCredentials)
         {
             User user = new User()
             {
+                FirstName = registrationCredentials.FirstName,
+                LastName = registrationCredentials.LastName,
                 Username = registrationCredentials.Username,
                 Email = registrationCredentials.Email,
             };
