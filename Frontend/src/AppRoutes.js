@@ -2,7 +2,8 @@ import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { AboutMePage } from "./components/AboutMePage";
 import { LeagueOfLegends } from "./components/LeagueOfLegends";
 import { Main } from "./components/MainPage";
-import { Valorant } from "./components/ValorantPage"
+import { Valorant } from "./components/ValorantPage";
+import { Registration } from "./components/RegistrationPage"
 
 const AppRoutes = [
   {
@@ -16,15 +17,21 @@ const AppRoutes = [
   {
     path: '/privacy-policy',
     element: <PrivacyPolicy />
-    },
-    {
+  },
+  {
     path: '/valorant',
     element: <Valorant />
-    },
+  },
   {
     path: '/league-of-legends',
-      element: <LeagueOfLegends />
+    element: <LeagueOfLegends />
+  },
+  {
+    path: 'registration',
+    element: <Registration />
+
   }
+
 
 ];
 
