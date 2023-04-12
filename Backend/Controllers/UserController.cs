@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EmailSender.Controllers
 {
     [ApiController]
+    [Route("[controller]")]
     public class UserController : ControllerBase
     {
         private readonly UserService _userService;
@@ -14,7 +15,7 @@ namespace EmailSender.Controllers
             _userService = userService;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("registrate")]
         public async Task RegistrateUser([FromBody]RegistrationCredentials registrationCredentials)
         {
