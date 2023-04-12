@@ -26,9 +26,9 @@ builder.Services.AddAuthentication(options =>
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
 
-        ValidIssuer = builder.Configuration.GetValue<string>("Jwt: Issuer"),
-        ValidAudience = builder.Configuration.GetValue<string>("Jwt: Audience"),
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetValue<string>("Jwt: Key")))
+        ValidIssuer = "http://localhost:7196/",
+        ValidAudience = "http://localhost:7196/",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetValue<string>("Jwt:Key")))
     };
 });
 builder.Services.AddTransient<EmailService>();
