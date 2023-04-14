@@ -1,0 +1,44 @@
+.select-from-buttons, .select-to-buttons, .input-details-container {
+  color: white;
+  margin: 2rem;
+  background-image: linear-gradient(#1e1e3be8, #4040837a);
+  border-radius: 1rem;
+  box-shadow: 4px 3px 8px #000000b0;
+  max-width: 400px;
+}
+
+.input-block {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+  width: 350px
+}
+
+.league-rank-button {
+  background: #83838321;
+  border-radius: 1rem;
+  border: none;
+}
+
+  .league-rank-button:hover {
+    background: #1c287c6e;
+  }
+
+  .league-rank-button:active {
+    background: #1c287ca3;
+  }
+
+.order-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 2rem;
+  max-width: 70%;
+}
+
+.rank-form-title {
+  padding: 1rem
+}

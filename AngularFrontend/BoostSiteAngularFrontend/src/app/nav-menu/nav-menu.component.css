@@ -1,0 +1,45 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.nav-link, .navbar-brand, .nav-link:focus {
+  color: white;
+  margin: 5px;
+}
+
+.nav-link:hover {
+  color: white;
+  background: #80808040;
+  outline: 1px white solid;
+  border-radius: 5px;
+}
+
+.navbar-brand:hover {
+  color: #dbdbdb
+}
+
+.navbar-brand:focus {
+  color: #ffffff
+}
+
+nav {
+  height: 4.5rem;
+  color: white;
+}
+

@@ -1,0 +1,129 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.page-container {
+  width: 100%;
+  padding: 0
+}
+
+img {
+  max-width: 75px;
+  max-height: 75px
+}
+
+.game-option {
+  all: unset;
+}
+
+.form-select {
+  max-width: 200px;
+}
+
+.rank-form-title {
+  padding: 1rem
+}
+
+label {
+  margin: 1rem
+}
+
+select {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+img {
+  max-width: 75px;
+  max-height: 75px
+}
+
+#order-submit-btn {
+  min-width: 75px;
+  max-width: 100px;
+}
+
+h1 {
+  color: white;
+}
+
+#submit-btn {
+  margin-left: 70%;
+}
+
+#submit-btn:hover {
+  background: #ffffffba;
+  box-shadow: 1px 1px 4px #ffffff;
+}
+
+#submit-btn:active {
+  background: #ffffff99;
+}
+
+a {
+  font-family: "FF Mark W05",Arial,sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+label {
+  color: white;
+}
+
+.game-option {
+  all: unset;
+}
+
+html {
+    height: 100%;
+}
+
+.page {
+  background-image: url("D:\Projects\Full-Stack-Boost-Site\Frontend\public\wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%
+}
+
+.nav-link, .navbar-brand, .nav-link:focus {
+  color: white;
+  margin: 5px;
+}
+
+.page-container {
+    width: 100%;
+}
+
+.title-content {
+    margin-left: 5rem;
+}
+
+.home-page-content {
+  width: 100%
+}
+
+label {
+  margin: 1rem
+}
+
+select {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+button {
+    margin: 0.5rem
+}
