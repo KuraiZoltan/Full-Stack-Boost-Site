@@ -4,6 +4,7 @@ import { LeagueOfLegends } from "./components/LeagueOfLegends";
 import { Main } from "./components/MainPage";
 import { Valorant } from "./components/ValorantPage";
 import { Registration } from "./components/RegistrationPage"
+import { Login } from "./components/LoginPage"
 
 const AppRoutes = [
   {
@@ -29,9 +30,11 @@ const AppRoutes = [
   {
     path: 'registration',
     element: <Registration />
-
+  },
+  {
+    path: 'login',
+    element: <Login />
   }
-
 
 ];
 
