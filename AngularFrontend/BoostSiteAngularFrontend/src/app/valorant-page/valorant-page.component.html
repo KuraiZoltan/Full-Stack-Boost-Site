@@ -7,28 +7,22 @@
       <div class="row rank-selection-row">
         <div class="col select-from-buttons">
           <h2 class="rank-form-title">Select your current rank here!</h2>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/ironiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/bronzeiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/silveriii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/goldiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/platinumiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/diamondiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/ascendantiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/immortaliii.png"></button>
+          <button *ngFor="let rank of ranks" (click)="saveCurrentRank(rank.name)" class="valorant-rank-button"><img src="{{rank.image}}"></button>
           <div>
-            <select class="form-select">
+            <select class="form-select" (change)="saveCurrentRankLevel($event)">
               <option value="0">Nothing selected</option>
+              <option value="4">IV</option>
               <option value="3">III</option>
-              <option value="2">II</option>
+              <option value="2">II
               <option value="1">I</option>
             </select>
           </div>
           <label>
-            Current RR:
-            <input type="text" />
+            Current Rr:
+            <input type="text" (change)="saveCurrentLp($event)" />
           </label>
           <h5>Select your region:</h5>
-          <select class="form-select">
+          <select class="form-select" (change)="saveRegion($event)">
             <option value="0">Nothing selected</option>
             <option value="Europe West">Europe West</option>
             <option value="Europe Nordic & East">Europe Nordic & East</option>
@@ -36,52 +30,44 @@
         </div>
         <div class="col select-to-buttons">
           <h2 class="rank-form-title">Select your desired rank here!</h2>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/ironiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/bronzeiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/silveriii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/goldiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/platinumiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/diamondiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/ascendantiii.png"></button>
-          <button class="valorant-rank-button"><img src="https://boostroyal.com/assets/images/divisions/valorant/immortaliii.png"></button>
+          <button *ngFor="let rank of ranks" (click)="saveDesiredRank(rank.name)" class="valorant-rank-button"><img src="{{rank.image}}"></button>
           <div>
-            <select class="form-select">
+            <select class="form-select" (change)="saveDesiredRankLevel($event)">
               <option value="0">Nothing selected</option>
+              <option value="4">IV</option>
               <option value="3">III</option>
               <option value="2">II</option>
               <option value="1">I</option>
             </select>
           </div>
         </div>
-        <div class="col input-details-container">
-          <div>
-            <form class="input-block">
-              <label>
-                First Name:
-                <input type="text" name="firstName" required />
-              </label>
-              <label>
-                Last Name:
-                <input type="text" name="lastName" required />
-              </label>
-              <label>
-                Email:
-                <input type="email" name="email" required />
-              </label>
-            </form>
-          </div>
-          <div class="summary-component">
-            <p>First Name: </p>
-            <p>Last Name: </p>
-            <p>Contact Email: </p>
-            <p>Current Rank: </p>
-            <p>Desired Rank: </p>
-            <p>Region: </p>
-
-            <button id="submit-btn" class="btn btn-light">Submit
-            </button>
-          </div>
-        </div>
+      </div>
+    </div>
+    <div class="col input-details-container">
+      <div>
+        <form (ngSubmit)="sendOrder()" class="input-block">
+          <label>
+            First Name:
+            <input type="text" name="firstName" ngModel required (change)="saveFirstName($event)" />
+          </label>
+          <label>
+            Last Name:
+            <input type="text" name="lastName" ngModel required (change)="saveLastName($event)" />
+          </label>
+          <label>
+            Email:
+            <input type="email" name="email" ngModel required (change)="saveEmail($event)" />
+          </label>
+          <button type="submit" id="submit-btn" class="btn btn-light">Submit</button>
+        </form>
+      </div>
+      <div *ngIf="isOrderCorrect" class="summary-component">
+        <p>First Name: {{ order.FirstName }}</p>
+        <p>Last Name: {{ order.LastName }}</p>
+        <p>Contact Email: {{ order.Email }}</p>
+        <p>Current Rank: {{ order.CurrentRank }} {{ order.CurrentRankLevel }} {{ order.CurrentRankPoints }} RR</p>
+        <p>Desired Rank: {{ order.OrderedRank }} {{ order.OrderedRankLevel }}</p>
+        <p>Region: {{ order.SelectedRegion }}</p>
       </div>
     </div>
   </div>

@@ -22,13 +22,13 @@
   border: none;
 }
 
-  .league-rank-button:hover {
-    background: #1c287c6e;
-  }
+.league-rank-button:hover {
+  background: #1c287c6e;
+}
 
-  .league-rank-button:active {
-    background: #1c287ca3;
-  }
+.league-rank-button:active {
+  background: #1c287ca3;
+}
 
 .order-details {
   display: flex;
