@@ -4,7 +4,7 @@ using EmailSender.Services;
 
 namespace EmailSender.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class EmailController : ControllerBase
     {
@@ -15,6 +15,7 @@ namespace EmailSender.Controllers
         }
 
         [HttpPost]
+        [Route("sendEmail")]
         public IActionResult SendEmail([FromBody] OrderDetails orderDetails)
         {
             _emailService.SendEmail(orderDetails);
