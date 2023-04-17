@@ -14,6 +14,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { AuthGuard } from './guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -37,12 +38,12 @@ import { PrivacyComponent } from './privacy/privacy.component';
       { path: 'valorant', component: ValorantPageComponent },
       { path: 'registration', component: RegistrationPageComponent },
       { path: 'login', component: LoginPageComponent },
-      { path: 'about-me', component: AboutMeComponent },
+      { path: 'about-me', component: AboutMeComponent, canActivate: [AuthGuard] },
       { path: 'privacy-policy', component: PrivacyComponent },
     ]),
     NgbModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
