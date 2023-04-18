@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-league-page',
   templateUrl: './league-page.component.html',
   styleUrls: ['./league-page.component.css']
 })
-export class LeaguePageComponent {
+export class LeaguePageComponent implements OnInit {
   public order: Order = {
     CurrentRank: "",
     CurrentRankLevel: "",
@@ -17,7 +17,8 @@ export class LeaguePageComponent {
     FirstName: "",
     LastName: "",
     Email: "",
-    GameName: "League of Legends"
+    GameName: "League of Legends",
+    Status: "Proceeding"
   };
   public ranks: Rank[] = [
     { name: "Iron", image: "https://boostroyal.no/assets/images/divisions/lol/iron.png" },
@@ -29,11 +30,33 @@ export class LeaguePageComponent {
     { name: "Master", image: "https://boostroyal.no/assets/images/divisions/lol/master.png" },
     { name: "Grandmaster", image: "https://boostroyal.no/assets/images/divisions/lol/grandmaster.png" }
   ];
+  public isUserLoggedIn: boolean | undefined;
   public isOrderCorrect: boolean | undefined;
-  public wrongData: boolean | undefined;
+  public wrongData: boolean = false;
+  public loggedInUser: User = {
+    Email: "",
+    FirstName: "",
+    LastName: ""
+  }
 
   constructor(private http: HttpClient) {
     
+  }
+
+  ngOnInit() {
+    if (sessionStorage.getItem("jwt")) {
+      this.isUserLoggedIn = true
+      this.getUserDetails()
+      this.order.FirstName = this.loggedInUser.FirstName
+      this.order.LastName = this.loggedInUser.LastName
+      this.order.Email = this.loggedInUser.Email
+    }
+  }
+
+  getUserDetails() {
+    this.loggedInUser.FirstName = sessionStorage.getItem("firstName")
+    this.loggedInUser.LastName = sessionStorage.getItem("lastName")
+    this.loggedInUser.Email = sessionStorage.getItem("email")
   }
 
   submitDetails(ngForm: any) {
@@ -120,15 +143,21 @@ interface Rank {
 }
 
 interface Order {
-  CurrentRank: string;
-  CurrentRankLevel: string
-  CurrentRankPoints: string;
-  OrderedRank: string;
-  OrderedRankLevel: string
-  SelectedRegion: string;
-  FirstName: string;
-  LastName: string;
-  Email: string;
-  GameName: string;
+  CurrentRank: string | null;
+  CurrentRankLevel: string | null;
+  CurrentRankPoints: string | null;
+  OrderedRank: string | null;
+  OrderedRankLevel: string | null;
+  SelectedRegion: string | null;
+  FirstName: string | null;
+  LastName: string | null;
+  Email: string | null;
+  GameName: string | null;
+  Status: string | null
+}
 
+interface User {
+  FirstName: string | null;
+  LastName: string | null;
+  Email: string | null;
 }
