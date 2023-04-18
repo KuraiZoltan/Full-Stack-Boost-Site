@@ -30,6 +30,7 @@ export class LeaguePageComponent {
     { name: "Grandmaster", image: "https://boostroyal.no/assets/images/divisions/lol/grandmaster.png" }
   ];
   public isOrderCorrect: boolean | undefined;
+  public wrongData: boolean | undefined;
 
   constructor(private http: HttpClient) {
     
@@ -92,12 +93,13 @@ export class LeaguePageComponent {
   sendOrder() {
     if (this.verifyOrder()) {
       this.isOrderCorrect = true
+      this.wrongData = false
       let payload = this.order
       const headers = { 'Content-Type': 'application/json' }
       const body = JSON.stringify(payload)
       this.http.post("https://localhost:7196/Email/sendEmail", body, { 'headers': headers }).subscribe(r => { console.log(r) })
     } else {
-      this.isOrderCorrect = false
+      this.wrongData = true
     }
   }
 
