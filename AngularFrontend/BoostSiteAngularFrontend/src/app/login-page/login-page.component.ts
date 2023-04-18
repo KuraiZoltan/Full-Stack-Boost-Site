@@ -24,6 +24,10 @@ export class LoginPageComponent {
         const token = (<any>response)
         sessionStorage.setItem("jwt", token.access_token)
         sessionStorage.setItem("jwtExpiresAt", token.expiresAt)
+        sessionStorage.setItem("username", token.username)
+        sessionStorage.setItem("email", token.email)
+        sessionStorage.setItem("firstName", token.firstName)
+        sessionStorage.setItem("lastName", token.lastName)
         this.invalidLogin = false
         window.location.href = "/"
       }, err => {
