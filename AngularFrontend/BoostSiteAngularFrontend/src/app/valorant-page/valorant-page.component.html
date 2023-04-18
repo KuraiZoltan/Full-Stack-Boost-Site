@@ -69,6 +69,20 @@
         <p>Desired Rank: {{ order.OrderedRank }} {{ order.OrderedRankLevel }}</p>
         <p>Region: {{ order.SelectedRegion }}</p>
       </div>
+      <div *ngIf="wrongData" class="alert alert-danger">
+        <p>Missing or wrong data!</p>
+      </div>
+      <div *ngIf="wrongData" class="summary-component">
+        <p *ngIf="!order.FirstName">First Name</p>
+        <p *ngIf="!order.LastName">Last Name</p>
+        <p *ngIf="!order.Email">Email</p>
+        <p *ngIf="!order.CurrentRank">Current Rank</p>
+        <p *ngIf="!order.OrderedRank">Desired Rank</p>
+        <p *ngIf="!order.SelectedRegion">Region</p>
+        <p *ngIf="!order.CurrentRankLevel">Rank level</p>
+        <p *ngIf="!order.CurrentRankPoints">Current RR</p>
+        <p *ngIf="!order.OrderedRankLevel">Desired Rank Level</p>
+      </div>
     </div>
   </div>
 </div>
