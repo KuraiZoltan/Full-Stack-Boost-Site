@@ -32,7 +32,7 @@
             <a class="nav-link" [routerLink]="['/privacy-policy']">Privacy</a>
           </li>
           <li *ngIf="userLoggedIn" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/']" (click)="onLogout()">Log out</a>
+            <a class="nav-link" [routerLink]="['/']" (click)="onLogout()">Log out</a>
           </li>
         </ul>
       </div>
