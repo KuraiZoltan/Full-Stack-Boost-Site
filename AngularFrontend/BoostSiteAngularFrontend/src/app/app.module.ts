@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { AuthGuard } from './guards/auth-guard.service';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthGuard } from './guards/auth-guard.service';
     RegistrationPageComponent,
     LoginPageComponent,
     AboutMeComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -40,6 +42,7 @@ import { AuthGuard } from './guards/auth-guard.service';
       { path: 'login', component: LoginPageComponent },
       { path: 'about-me', component: AboutMeComponent, canActivate: [AuthGuard] },
       { path: 'privacy-policy', component: PrivacyComponent },
+      { path: 'profile', component: UserProfileComponent }
     ]),
     NgbModule
   ],
