@@ -8,14 +8,30 @@ import { Component } from '@angular/core';
 })
 export class UserProfileComponent {
   public orders: Order[] = [];
+  public loggedInUser: User = {
+    Email: "",
+    FirstName: "",
+    LastName: "",
+    UserId: 0,
+    Username: null
+  }
 
   constructor(private http: HttpClient) {
-    this.http.get<Order[]>("https://localhost:7196/Order/getAllOrders").subscribe(result => {
+    this.getUserDetails()
+    this.http.get<Order[]>(`https://localhost:7196/Order/getOrders/${this.loggedInUser.UserId}`).subscribe(result => {
       var ordersObject = result;
       for (let i = 0; i < ordersObject.length; i++) {
         this.orders.push(ordersObject[i])
       }
     }, error => console.error(error));
+  }
+
+  getUserDetails() {
+    this.loggedInUser.FirstName = sessionStorage.getItem("first_name")
+    this.loggedInUser.LastName = sessionStorage.getItem("last_name")
+    this.loggedInUser.Email = sessionStorage.getItem("email")
+    this.loggedInUser.UserId = parseInt(sessionStorage.getItem("user_id") as string)
+    this.loggedInUser.Username = sessionStorage.getItem("username")
   }
 }
 
@@ -32,4 +48,12 @@ interface Order {
   email: string;
   selectedRegion: string;
   status: string;
+}
+
+interface User {
+  FirstName: string | null;
+  LastName: string | null;
+  Email: string | null;
+  UserId: number
+  Username: string | null;
 }
