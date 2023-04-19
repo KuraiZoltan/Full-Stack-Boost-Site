@@ -41,7 +41,7 @@ namespace EmailSender.Controllers
         {
             if (await _userService.LoginIsValid(loginData))
             {
-                var user = await _userService.GetUser(loginData);
+                var user = await _userService.GetUser(loginData.Username);
                 var claims = await _userService.CreateClaims(loginData);
 
                 var expireTime = DateTime.Now.AddHours(1);
@@ -53,7 +53,8 @@ namespace EmailSender.Controllers
                     username = user.Username,
                     firstName = user.FirstName,
                     lastName = user.LastName,
-                    email = user.Email
+                    email = user.Email,
+                    userId = user.UserId
                 });
             }
             ModelState.AddModelError("Unauthorized", "You are not authorized to access the endpoint.");
