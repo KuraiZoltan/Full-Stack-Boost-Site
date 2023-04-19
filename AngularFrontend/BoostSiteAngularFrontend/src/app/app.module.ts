@@ -36,8 +36,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: MainPageComponent, pathMatch: 'full' },
-      { path: 'league-of-legends', component: LeaguePageComponent },
-      { path: 'valorant', component: ValorantPageComponent },
+      { path: 'league-of-legends', component: LeaguePageComponent, canActivate: [AuthGuard] },
+      { path: 'valorant', component: ValorantPageComponent, canActivate: [AuthGuard] },
       { path: 'registration', component: RegistrationPageComponent },
       { path: 'login', component: LoginPageComponent },
       { path: 'about-me', component: AboutMeComponent, canActivate: [AuthGuard] },
