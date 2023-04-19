@@ -18,7 +18,7 @@ export class LeaguePageComponent implements OnInit {
     LastName: "",
     Email: "",
     GameName: "League of Legends",
-    Status: "Proceeding"
+    Status: "Processing"
   };
   public ranks: Rank[] = [
     { name: "Iron", image: "https://boostroyal.no/assets/images/divisions/lol/iron.png" },
