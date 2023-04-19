@@ -17,7 +17,8 @@ export class ValorantPageComponent {
     FirstName: "",
     LastName: "",
     Email: "",
-    GameName: "Valorant"
+    GameName: "Valorant",
+    Status: "Processing"
   };
   public ranks: Rank[] = [
     { name: "Iron", image: "https://boostroyal.com/assets/images/divisions/valorant/ironiii.png" },
@@ -29,12 +30,34 @@ export class ValorantPageComponent {
     { name: "Ascendant", image: "https://boostroyal.com/assets/images/divisions/valorant/ascendantiii.png" },
     { name: "Immortal", image: "https://boostroyal.com/assets/images/divisions/valorant/immortaliii.png" }
   ];
+  public isUserLoggedIn: boolean | undefined;
   public isOrderCorrect: boolean | undefined;
   public wrongData: boolean | undefined;
+  public loggedInUser: User = {
+    Email: "",
+    FirstName: "",
+    LastName: ""
+  }
 
 
   constructor(private http: HttpClient) {
 
+  }
+
+  ngOnInit() {
+    if (sessionStorage.getItem("jwt")) {
+      this.isUserLoggedIn = true
+      this.getUserDetails()
+      this.order.FirstName = this.loggedInUser.FirstName
+      this.order.LastName = this.loggedInUser.LastName
+      this.order.Email = this.loggedInUser.Email
+    }
+  }
+
+  getUserDetails() {
+    this.loggedInUser.FirstName = sessionStorage.getItem("firstName")
+    this.loggedInUser.LastName = sessionStorage.getItem("lastName")
+    this.loggedInUser.Email = sessionStorage.getItem("email")
   }
 
   submitDetails(ngForm: any) {
@@ -121,15 +144,21 @@ interface Rank {
 }
 
 interface Order {
-  CurrentRank: string;
-  CurrentRankLevel: string
-  CurrentRankPoints: string;
-  OrderedRank: string;
-  OrderedRankLevel: string
-  SelectedRegion: string;
-  FirstName: string;
-  LastName: string;
-  Email: string;
-  GameName: string;
+  CurrentRank: string | null;
+  CurrentRankLevel: string | null;
+  CurrentRankPoints: string | null;
+  OrderedRank: string | null;
+  OrderedRankLevel: string | null;
+  SelectedRegion: string | null;
+  FirstName: string | null;
+  LastName: string | null;
+  Email: string | null;
+  GameName: string | null;
+  Status: string | null
+}
 
+interface User {
+  FirstName: string | null;
+  LastName: string | null;
+  Email: string | null;
 }
