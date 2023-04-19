@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class ValorantPageComponent {
   public order: Order = {
+    UserId: 0,
+    Username: "",
     CurrentRank: "",
     CurrentRankLevel: "",
     CurrentRankPoints: "",
@@ -36,7 +38,9 @@ export class ValorantPageComponent {
   public loggedInUser: User = {
     Email: "",
     FirstName: "",
-    LastName: ""
+    LastName: "",
+    UserId: 0,
+    Username: null
   }
 
 
@@ -51,13 +55,17 @@ export class ValorantPageComponent {
       this.order.FirstName = this.loggedInUser.FirstName
       this.order.LastName = this.loggedInUser.LastName
       this.order.Email = this.loggedInUser.Email
+      this.order.UserId = this.loggedInUser.UserId
+      this.order.Username = this.loggedInUser.Username
     }
   }
 
   getUserDetails() {
-    this.loggedInUser.FirstName = sessionStorage.getItem("firstName")
-    this.loggedInUser.LastName = sessionStorage.getItem("lastName")
+    this.loggedInUser.FirstName = sessionStorage.getItem("first_name")
+    this.loggedInUser.LastName = sessionStorage.getItem("last_name")
     this.loggedInUser.Email = sessionStorage.getItem("email")
+    this.loggedInUser.UserId = parseInt(sessionStorage.getItem("user_id") as string)
+    this.loggedInUser.Username = sessionStorage.getItem("username")
   }
 
   submitDetails(ngForm: any) {
@@ -144,6 +152,8 @@ interface Rank {
 }
 
 interface Order {
+  UserId: number;
+  Username: string | null;
   CurrentRank: string | null;
   CurrentRankLevel: string | null;
   CurrentRankPoints: string | null;
@@ -154,11 +164,13 @@ interface Order {
   LastName: string | null;
   Email: string | null;
   GameName: string | null;
-  Status: string | null
+  Status: string | null;
 }
 
 interface User {
   FirstName: string | null;
   LastName: string | null;
   Email: string | null;
+  UserId: number;
+  Username: string | null;
 }

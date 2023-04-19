@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeaguePageComponent implements OnInit {
   public order: Order = {
+    UserId: 0,
+    Username: "",
     CurrentRank: "",
     CurrentRankLevel: "",
     CurrentRankPoints: "",
@@ -18,7 +20,7 @@ export class LeaguePageComponent implements OnInit {
     LastName: "",
     Email: "",
     GameName: "League of Legends",
-    Status: "Processing"
+    Status: "Processing",
   };
   public ranks: Rank[] = [
     { name: "Iron", image: "https://boostroyal.no/assets/images/divisions/lol/iron.png" },
@@ -36,11 +38,14 @@ export class LeaguePageComponent implements OnInit {
   public loggedInUser: User = {
     Email: "",
     FirstName: "",
-    LastName: ""
+    LastName: "",
+    UserId: 0,
+    Username: null
   }
 
+
   constructor(private http: HttpClient) {
-    
+
   }
 
   ngOnInit() {
@@ -50,13 +55,17 @@ export class LeaguePageComponent implements OnInit {
       this.order.FirstName = this.loggedInUser.FirstName
       this.order.LastName = this.loggedInUser.LastName
       this.order.Email = this.loggedInUser.Email
+      this.order.UserId = this.loggedInUser.UserId
+      this.order.Username = this.loggedInUser.Username
     }
   }
 
   getUserDetails() {
-    this.loggedInUser.FirstName = sessionStorage.getItem("firstName")
-    this.loggedInUser.LastName = sessionStorage.getItem("lastName")
+    this.loggedInUser.FirstName = sessionStorage.getItem("first_name")
+    this.loggedInUser.LastName = sessionStorage.getItem("last_name")
     this.loggedInUser.Email = sessionStorage.getItem("email")
+    this.loggedInUser.UserId = parseInt(sessionStorage.getItem("user_id") as string)
+    this.loggedInUser.Username = sessionStorage.getItem("username")
   }
 
   submitDetails(ngForm: any) {
@@ -143,6 +152,8 @@ interface Rank {
 }
 
 interface Order {
+  Username: string | null;
+  UserId: number
   CurrentRank: string | null;
   CurrentRankLevel: string | null;
   CurrentRankPoints: string | null;
@@ -160,4 +171,6 @@ interface User {
   FirstName: string | null;
   LastName: string | null;
   Email: string | null;
+  UserId: number
+  Username: string | null;
 }

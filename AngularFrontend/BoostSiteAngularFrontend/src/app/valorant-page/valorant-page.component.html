@@ -19,7 +19,7 @@
           </div>
           <label>
             Current Rr:
-            <input type="text" (change)="saveCurrentLp($event)" />
+            <input type="number" (change)="saveCurrentLp($event)" />
           </label>
           <h5>Select your region:</h5>
           <select class="form-select" (change)="saveRegion($event)">
@@ -46,18 +46,6 @@
     <div class="col input-details-container">
       <div>
         <form (ngSubmit)="sendOrder()" class="input-block">
-          <label *ngIf="!isUserLoggedIn">
-            First Name:
-            <input *ngIf="!isUserLoggedIn" type="text" name="firstName" ngModel required (change)="saveFirstName($event)" />
-          </label>
-          <label *ngIf="!isUserLoggedIn">
-            Last Name:
-            <input *ngIf="!isUserLoggedIn" type="text" name="lastName" ngModel required (change)="saveLastName($event)" />
-          </label>
-          <label *ngIf="!isUserLoggedIn">
-            Email:
-            <input *ngIf="!isUserLoggedIn" type="email" name="email" ngModel required (change)="saveEmail($event)" />
-          </label>
           <div>
             <h4 *ngIf="isUserLoggedIn">First name: <h3>{{ loggedInUser.FirstName }}</h3></h4>
             <h4 *ngIf="isUserLoggedIn">Last name: <h3>{{ loggedInUser.LastName }}</h3></h4>
