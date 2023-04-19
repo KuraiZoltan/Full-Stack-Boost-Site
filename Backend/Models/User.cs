@@ -11,5 +11,6 @@ namespace EmailSender.Models
         public string Username { get; set; }
         public string Email { get; set; }
         public string HashedPassword { get; set; }
+        public IEnumerable<OrderDetails> Orders { get; set; }
     }
 }
