@@ -1,0 +1,14 @@
+<h1>Orders</h1>
+<div class="orders">
+  <div class="order card" *ngFor="let order of orders">
+    <p>Order Id: {{ order.id }}</p>
+    <p>First name: {{ order.firstName }}</p>
+    <p>Last name: {{ order.lastName }}</p>
+    <p>Email: {{ order.email }}</p>
+    <p>Game: {{ order.gameName }}</p>
+    <p>Current rank: {{ order.currentRank }} {{ order.currentRankLevel }}, {{ order.currentRankPoints }} </p>
+    <p>Ordered rank: {{ order.orderedRank }} {{ order.orderedRankLevel }}</p>
+    <p>Region: {{ order.selectedRegion }}</p>
+    <p>Status: {{ order.status }}</p>
+  </div>
+</div>
