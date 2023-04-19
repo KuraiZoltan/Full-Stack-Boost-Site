@@ -1,5 +1,6 @@
 ﻿using EmailSender.Data;
 using EmailSender.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmailSender.Services
 {
@@ -21,6 +22,11 @@ namespace EmailSender.Services
         public IEnumerable<OrderDetails> GetAllOrders()
         {
             return _context.Orders.ToList();
+        }
+
+        public IEnumerable<OrderDetails> GetOrdersById(int userId)
+        {
+            return _context.Orders.Where(order => order.UserId == userId).ToList();
         }
     }
 }
