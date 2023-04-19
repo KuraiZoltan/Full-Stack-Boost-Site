@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EmailSender.Models
 {
@@ -6,6 +7,8 @@ namespace EmailSender.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public int UserId { get; set; }
+        public string Username { get; set; }
         public string CurrentRank { get; set; }
         public string CurrentRankLevel { get; set; }
         public string CurrentRankPoints { get; set; }
