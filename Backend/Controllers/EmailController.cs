@@ -9,15 +9,18 @@ namespace EmailSender.Controllers
     public class EmailController : ControllerBase
     {
         private EmailService _emailService;
-        public EmailController(EmailService emailService) 
+        private OrderService _orderService;
+        public EmailController(EmailService emailService, OrderService orderService) 
         {
             _emailService = emailService;
+            _orderService = orderService;
         }
 
         [HttpPost]
         [Route("sendEmail")]
-        public IActionResult SendEmail([FromBody] OrderDetails orderDetails)
+        public async Task<IActionResult> SendEmail([FromBody] OrderDetails orderDetails)
         {
+            await _orderService.SaveOrder(orderDetails);
             _emailService.SendEmail(orderDetails);
             return Ok();
         }
