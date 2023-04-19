@@ -23,5 +23,12 @@ namespace EmailSender.Controllers
         {
             return _orderService.GetAllOrders();
         }
+
+        [HttpGet("{userId}")]
+        [Route("getOrders/{userId}")]
+        public IEnumerable<OrderDetails> GetOrdersById(int userId)
+        {
+            return _orderService.GetOrdersById(userId);
+        }
     }
 }
