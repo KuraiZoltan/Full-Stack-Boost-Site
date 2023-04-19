@@ -33,6 +33,7 @@ builder.Services.AddAuthentication(options =>
 });
 builder.Services.AddTransient<EmailService>();
 builder.Services.AddTransient<UserService>();
+builder.Services.AddTransient<OrderService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
