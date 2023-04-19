@@ -35,14 +35,14 @@ namespace EmailSender.Services
             return false;
         }
 
-        public async Task<User?> GetUser(LoginCredentials loginCredentials)
+        public async Task<User?> GetUser(string username)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Username == loginCredentials.Username);
+            return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
         }
 
         public async Task<IEnumerable<Claim>> CreateClaims(LoginCredentials loginCredentials)
         {
-            var user = await GetUser(loginCredentials);
+            var user = await GetUser(loginCredentials.Username);
 
             var claims = new List<Claim>
             {
@@ -56,7 +56,7 @@ namespace EmailSender.Services
 
         public async Task<bool> LoginIsValid(LoginCredentials loginData)
         {
-            var user = await GetUser(loginData);
+            var user = await GetUser(loginData.Username);
             if (user == null)
             {
                 return false;
