@@ -20,7 +20,7 @@
     </div>
     <div class="col game-select">
       <h3>Select the game you play</h3>
-      <p>You have to be logged in to access:</p>
+      <p *ngIf="!userLoggedIn">You have to be logged in to access:</p>
       <a href="/league-of-legends" class="game-option">
         <button class="select-game-btn">League of Legends</button>
       </a>

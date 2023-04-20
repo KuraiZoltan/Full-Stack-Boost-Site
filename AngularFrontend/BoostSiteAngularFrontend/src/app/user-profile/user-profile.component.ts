@@ -15,6 +15,7 @@ export class UserProfileComponent {
     UserId: 0,
     Username: null
   }
+  public adminUser: boolean | undefined
 
   constructor(private http: HttpClient) {
     this.getUserDetails()
@@ -32,6 +33,9 @@ export class UserProfileComponent {
     this.loggedInUser.Email = sessionStorage.getItem("email")
     this.loggedInUser.UserId = parseInt(sessionStorage.getItem("user_id") as string)
     this.loggedInUser.Username = sessionStorage.getItem("username")
+    if (this.loggedInUser.Username === "Zolika1022" && this.loggedInUser.Email === "kz1022@gmail.com") {
+      this.adminUser = true
+    }
   }
 }
 
