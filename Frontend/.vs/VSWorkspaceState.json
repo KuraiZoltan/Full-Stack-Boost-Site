@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\obj"
+    "\\obj",
+    "\\src",
+    "\\src\\components"
   ],
-  "SelectedNode": "\\BoostingSiteFrontend.sln",
+  "SelectedNode": "\\src\\components\\UserDetailsComponent.js",
   "PreviewInSolutionExplorer": false
 }
