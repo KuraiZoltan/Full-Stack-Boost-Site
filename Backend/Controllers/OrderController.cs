@@ -28,7 +28,14 @@ namespace EmailSender.Controllers
         [Route("getOrders/{userId}")]
         public IEnumerable<OrderDetails> GetOrdersById(int userId)
         {
-            return _orderService.GetOrdersById(userId);
+            return _orderService.GetOrdersByUserId(userId);
+        }
+
+        [HttpPut]
+        [Route("changeStatus")]
+        public async Task ChangeStatus([FromBody] SaveStatus saveStatus)
+        {
+            await _orderService.ChangeStatus(saveStatus);
         }
     }
 }
