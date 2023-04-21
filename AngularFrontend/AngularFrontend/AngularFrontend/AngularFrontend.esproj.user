@@ -7,7 +7,7 @@
   "type": "chrome",
   "request": "launch",
   "url": "http://localhost:4200",
-  "webRoot": "D:\\Projects\\Full-Stack-Boost-Site\\AngularFrontend\\AngularFrontend"
+  "webRoot": "D:\\Projects\\Full-Stack-Boost-Site\\AngularFrontend\\AngularFrontend\\AngularFrontend"
 }</LaunchJsonTarget>
   </PropertyGroup>
 </Project>
