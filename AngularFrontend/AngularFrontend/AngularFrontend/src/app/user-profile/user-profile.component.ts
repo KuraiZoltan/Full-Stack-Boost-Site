@@ -37,6 +37,18 @@ export class UserProfileComponent {
       this.adminUser = true
     }
   }
+
+  saveStatus(event: any, orderId: any) {
+    console.log(event.currentTarget.value, orderId)
+    let payload = {
+      Status: event.currentTarget.value,
+      OrderId: orderId
+    }
+    const headers = { 'Content-Type': 'application/json' }
+    this.http.put('https://localhost:7196/Order/changeStatus', payload, { 'headers': headers }).subscribe(response => {
+      console.log(response)
+    })
+  }
 }
 
 interface Order {
