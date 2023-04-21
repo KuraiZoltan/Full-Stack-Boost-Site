@@ -24,9 +24,21 @@ namespace EmailSender.Services
             return _context.Orders.ToList();
         }
 
-        public IEnumerable<OrderDetails> GetOrdersById(int userId)
+        public IEnumerable<OrderDetails> GetOrdersByUserId(int userId)
         {
             return _context.Orders.Where(order => order.UserId == userId).ToList();
+        }
+
+        public async Task<OrderDetails> GetOrderByOrderId(int orderId)
+        {
+            return await _context.Orders.FirstOrDefaultAsync(order => order.Id == orderId);
+        }
+
+        public async Task ChangeStatus(SaveStatus saveStatus)
+        {
+            var order = await GetOrderByOrderId(saveStatus.OrderId);
+            order.Status = saveStatus.Status;
+            await _context.SaveChangesAsync();
         }
     }
 }
