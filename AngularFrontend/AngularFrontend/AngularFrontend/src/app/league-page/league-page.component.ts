@@ -127,7 +127,7 @@ export class LeaguePageComponent implements OnInit {
       this.isOrderCorrect = true
       this.wrongData = false
       let payload = this.order
-      const headers = { 'Content-Type': 'application/json' }
+      const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${sessionStorage.getItem("jwt")}` }
       const body = JSON.stringify(payload)
       this.http.post("https://localhost:7196/Email/sendEmail", body, { 'headers': headers }).subscribe(r => { console.log(r) })
     } else {
