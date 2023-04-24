@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using EmailSender.Models;
 using EmailSender.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmailSender.Controllers
 {
@@ -17,6 +18,7 @@ namespace EmailSender.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("sendEmail")]
         public async Task<IActionResult> SendEmail([FromBody] OrderDetails orderDetails)
         {
