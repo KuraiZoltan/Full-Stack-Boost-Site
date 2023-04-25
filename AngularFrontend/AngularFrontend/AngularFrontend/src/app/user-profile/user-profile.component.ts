@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-user-profile',
@@ -19,6 +20,7 @@ export class UserProfileComponent {
 
   constructor(private http: HttpClient) {
     this.getUserDetails()
+    this.isAdminUser()
     this.http.get<Order[]>(`https://localhost:7196/Order/getOrders/${this.loggedInUser.UserId}`).subscribe(result => {
       var ordersObject = result;
       for (let i = 0; i < ordersObject.length; i++) {
@@ -35,6 +37,16 @@ export class UserProfileComponent {
     this.loggedInUser.Username = sessionStorage.getItem("username")
     if (this.loggedInUser.Username === "Zolika1022" && this.loggedInUser.Email === "kz1022@gmail.com") {
       this.adminUser = true
+    }
+  }
+
+  isAdminUser() {
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(sessionStorage.getItem("jwt") as string);
+    if (decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] === 'Admin') {
+      this.adminUser = true
+    } else {
+      this.adminUser = false
     }
   }
 
