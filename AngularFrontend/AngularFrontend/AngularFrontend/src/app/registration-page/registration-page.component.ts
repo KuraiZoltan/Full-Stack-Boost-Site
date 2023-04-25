@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class RegistrationPageComponent {
   constructor(private http: HttpClient) { }
 
-  async submit(userForm: any) {
+  submit(userForm: any) {
     let payload: User = {
       FirstName: userForm.form.controls["first-name"].value,
       LastName: userForm.form.controls["last-name"].value,
@@ -20,7 +20,7 @@ export class RegistrationPageComponent {
     }
     const headers = { 'Content-Type': 'application/json' }
     const body = JSON.stringify(payload)
-    return await this.http.post("https://localhost:7196/User/registrate", body, { 'headers': headers }).subscribe(r => { this.checkResponse(r) })
+    return this.http.post("https://localhost:7196/User/registrate", body, { 'headers': headers }).subscribe(r => { this.checkResponse(r) })
   }
 
   checkResponse(result: any) {
