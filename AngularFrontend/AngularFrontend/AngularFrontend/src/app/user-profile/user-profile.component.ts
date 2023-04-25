@@ -44,7 +44,10 @@ export class UserProfileComponent {
       Status: event.currentTarget.value,
       OrderId: orderId
     }
-    const headers = { 'Content-Type': 'application/json' }
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${sessionStorage.getItem("jwt")}`
+    }
     this.http.put('https://localhost:7196/Order/changeStatus', payload, { 'headers': headers }).subscribe(response => {
       console.log(response)
     })
