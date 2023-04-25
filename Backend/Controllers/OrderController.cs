@@ -18,7 +18,7 @@ namespace EmailSender.Controllers
 
         [HttpGet]
         [Route("getAllOrders")]
-        //[Authorize(Users = "Fake, Zolika1022")]
+        [Authorize(Roles = "Admin")]
         public IEnumerable<OrderDetails> GetAllOrders()
         {
             return _orderService.GetAllOrders();
@@ -32,6 +32,7 @@ namespace EmailSender.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         [Route("changeStatus")]
         public async Task ChangeStatus([FromBody] SaveStatus saveStatus)
         {
