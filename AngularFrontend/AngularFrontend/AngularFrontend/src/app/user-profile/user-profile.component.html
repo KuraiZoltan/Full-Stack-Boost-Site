@@ -20,7 +20,7 @@
         <td class="table-data">{{ order.currentRank }} {{ order.currentRankLevel }}, {{ order.currentRankPoints }}</td>
         <td class="table-data">{{ order.orderedRank }} {{ order.orderedRankLevel }}</td>
         <td class="table-data">{{ order.selectedRegion }}</td>
-        <td class="table-data">
+        <td *ngIf="adminUser" class="table-data">
           <select (change)="saveStatus($event, order.id)">
             <option>{{ order.status }}</option>
             <option *ngIf="order.status !== 'Boosting'">Boosting</option>
@@ -28,7 +28,7 @@
             <option *ngIf="order.status !== 'Finished'">Finished</option>
           </select>
         </td>
-        <td class="table-data" *ngIf="adminUser"><button class="btn-primary btn">Edit</button></td>
+        <td class="table-data" *ngIf="!adminUser">{{ order.status }}</td>
       </tr>
     </table>
   </div>
