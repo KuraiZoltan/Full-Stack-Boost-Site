@@ -27,10 +27,12 @@ namespace EmailSender.Services
                     LastName = registrationCredentials.LastName,
                     Username = registrationCredentials.Username,
                     Email = registrationCredentials.Email,
+                    Role = "User"
                 };
                 user.HashedPassword = PasswordHasher.HashPassword(user, registrationCredentials.Password);
                 await _context.Users.AddAsync(user);
                 await _context.SaveChangesAsync();
+                return true;
             }
             return false;
         }
@@ -48,6 +50,7 @@ namespace EmailSender.Services
             {
                 new (ClaimTypes.Name, user.Username),
                 new (ClaimTypes.Email, user.Email),
+                new (ClaimTypes.Role, user.Role),
                 new ("UserId", user.UserId.ToString()),
             };
 
