@@ -42,7 +42,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
       { path: 'login', component: LoginPageComponent },
       { path: 'about-me', component: AboutMeComponent, canActivate: [AuthGuard] },
       { path: 'privacy-policy', component: PrivacyComponent },
-      { path: 'profile', component: UserProfileComponent }
+      { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard] }
     ]),
     NgbModule
   ],
