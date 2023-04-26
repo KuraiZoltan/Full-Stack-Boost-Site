@@ -88,8 +88,12 @@ export class LeaguePageComponent implements OnInit {
   }
 
   saveCurrentLp(event: any) {
-    this.order.CurrentRankPoints = event.currentTarget.value
-    console.log(this.order)
+    if (parseInt(event.currentTarget.value) <= 100 && parseInt(event.currentTarget.value) >= 0) {
+      this.order.CurrentRankPoints = event.currentTarget.value
+      console.log(this.order)
+    } else {
+      alert("Wrong Current LP input")
+    }
   }
 
   saveDesiredRank(OrderedRank: any) {
