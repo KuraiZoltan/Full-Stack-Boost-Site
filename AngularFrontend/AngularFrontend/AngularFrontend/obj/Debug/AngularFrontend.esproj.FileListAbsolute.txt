@@ -1,6 +1,0 @@
-D:\Projects\Full-Stack-Boost-Site\AngularFrontend\AngularFrontend\obj\Debug\AngularFrontend.esproj.SuggestedBindingRedirects.cache
-D:\Projects\Full-Stack-Boost-Site\AngularFrontend\AngularFrontend\obj\Debug\AngularFrontend.esproj.CoreCompileInputs.cache
-D:\Projects\Full-Stack-Boost-Site\AngularFrontend\AngularFrontend\AngularFrontend\obj\Debug\AngularFrontend.esproj.SuggestedBindingRedirects.cache
-D:\Projects\Full-Stack-Boost-Site\AngularFrontend\AngularFrontend\AngularFrontend\obj\Debug\AngularFrontend.esproj.CoreCompileInputs.cache
-D:\Projects\Full-Stack-Boost-Site\Full-Stack-Boost-Site\AngularFrontend\AngularFrontend\AngularFrontend\obj\Debug\AngularFrontend.esproj.SuggestedBindingRedirects.cache
-D:\Projects\Full-Stack-Boost-Site\Full-Stack-Boost-Site\AngularFrontend\AngularFrontend\AngularFrontend\obj\Debug\AngularFrontend.esproj.CoreCompileInputs.cache
