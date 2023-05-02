@@ -25,6 +25,7 @@ namespace EmailSender.Controllers
         }
 
         [HttpGet("{userId}")]
+        [Authorize]
         [Route("getOrders/{userId}")]
         public IEnumerable<OrderDetails> GetOrdersById(int userId)
         {
