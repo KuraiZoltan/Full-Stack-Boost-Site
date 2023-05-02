@@ -2,6 +2,7 @@ a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  padding: 5px
 }
 
 html {
@@ -18,7 +19,7 @@ html {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-.nav-link, .navbar-brand, .nav-link:focus {
+.nav-link, .navbar-brand, .nav-link-main, .nav-link:focus {
   color: white;
   margin: 5px;
 }
@@ -43,3 +44,16 @@ nav {
   color: white;
 }
 
+.nav-link-main:hover, .navbar-brand:hover {
+  color: white;
+  background: #80808040;
+  outline: 1px white solid;
+  border-radius: 5px;
+}
+
+.nav-link-main {
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 17px;
+}
