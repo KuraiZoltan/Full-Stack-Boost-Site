@@ -1,0 +1,47 @@
+<div class="coaching-component">
+  <div class="coaching-details">
+    <h3>Whad do you have to know about coaching?</h3>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  </div>
+  <div class="input-details">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <table>
+        <tr>
+          <td>Discord name</td>
+        </tr>
+        <tr>
+          <td><input type="text" name="discord-name" class="discord-name-input" ngModel></td>
+          <td><input type="text" name="discord-tag" class="discord-tag-input" value="#" ngModel></td>
+        </tr>
+      </table>
+      <p>The lane you play:</p>
+      <select>
+        <option *ngFor="let lane of laneOptions" (change)="saveLane($event)">{{ lane }}</option>
+      </select>
+      <table>
+        <tr>
+          <td>Your rank:</td>
+        </tr>
+        <tr>
+          <td>
+            <select>
+              <option *ngFor="let rank of rankOptions" (change)="saveRank($event)">{{ rank }}</option>
+            </select>
+          </td>
+          <td>
+            <select>
+              <option *ngFor="let lpRange of lpRangeOptions" (change)="saveLpRange($event)">{{ lpRange }} lp</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <p>How many sessions do you want to reserve?</p>
+      <select>
+        <option *ngFor="let sessionOption of sessionOptions" (change)="saveSessionCount($event)">{{ sessionOption }} hour</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+    
+  </div>
+</div>
+
