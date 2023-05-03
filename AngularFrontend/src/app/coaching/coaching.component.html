@@ -1,0 +1,47 @@
+<div class="coaching-component row">
+  <div class="coaching-details col">
+    <h3>Whad do you have to know about coaching?</h3>
+    How Does League of Legends Coaching Help? League Coaching helps you by letting a highly skilled player give you his insight and advice on how to improve. Also it lets you understand your mistakes and fix them accordingly. This is how players improve and climb faster when they get coached.
+  </div>
+  <div class="input-details col">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <table>
+        <tr>
+          <td>Discord name</td>
+        </tr>
+        <tr>
+          <td><input type="text" name="discord-name" class="discord-name-input" ngModel></td>
+          <td><input type="text" name="discord-tag" class="discord-tag-input" value="#" ngModel></td>
+        </tr>
+      </table>
+      <p>The lane you play:</p>
+      <select (change)="saveLane($event)">
+        <option *ngFor="let lane of laneOptions" >{{ lane }}</option>
+      </select>
+      <table>
+        <tr>
+          <td>Your rank:</td>
+        </tr>
+        <tr>
+          <td>
+            <select (change)="saveRank($event)">
+              <option *ngFor="let rank of rankOptions" >{{ rank }}</option>
+            </select>
+          </td>
+          <td>
+            <select (change)="saveLpRange($event)">
+              <option *ngFor="let lpRange of lpRangeOptions" >{{ lpRange }} lp</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <p>How many sessions do you want to reserve?</p>
+      <select (change)="saveSessionCount($event)">
+        <option *ngFor="let sessionOption of sessionOptions" >{{ sessionOption }} hour</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+    
+  </div>
+</div>
+

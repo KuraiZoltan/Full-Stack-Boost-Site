@@ -23,7 +23,17 @@ namespace EmailSender.Controllers
         public async Task<IActionResult> SendEmail([FromBody] OrderDetails orderDetails)
         {
             await _orderService.SaveOrder(orderDetails);
-            _emailService.SendEmail(orderDetails);
+            _emailService.SendBoostingEmail(orderDetails);
+            return Ok();
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("sendCoachingEmail")]
+        public async Task<IActionResult> SendCoachingEmail([FromBody] CoachingOrderDetails orderDetails)
+        {
+            await _orderService.SaveCoachingOrder(orderDetails);
+            _emailService.SendCoachingEmail(orderDetails);
             return Ok();
         }
     }

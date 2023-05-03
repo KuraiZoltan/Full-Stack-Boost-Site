@@ -21,12 +21,24 @@ export class UserProfileComponent {
   constructor(private http: HttpClient) {
     this.getUserDetails()
     this.isAdminUser()
-    this.http.get<Order[]>(`https://localhost:7196/Order/getOrders/${this.loggedInUser.UserId}`).subscribe(result => {
-      var ordersObject = result;
-      for (let i = 0; i < ordersObject.length; i++) {
-        this.orders.push(ordersObject[i])
-      }
-    }, error => console.error(error));
+    if (this.adminUser) {
+      const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${sessionStorage.getItem("jwt")}` }
+      this.http.get<Order[]>(`https://localhost:7196/Order/getAllOrders`, { 'headers': headers }).subscribe(result => {
+        var ordersObject = result;
+        for (let i = 0; i < ordersObject.length; i++) {
+          this.orders.push(ordersObject[i])
+        }
+      }, error => console.error(error));
+    } else {
+      const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${sessionStorage.getItem("jwt")}` }
+      this.http.get<Order[]>(`https://localhost:7196/Order/getOrders/${this.loggedInUser.UserId}`, { 'headers': headers }).subscribe(result => {
+        var ordersObject = result;
+        for (let i = 0; i < ordersObject.length; i++) {
+          this.orders.push(ordersObject[i])
+        }
+      }, error => console.error(error));
+    }
+    
   }
 
   getUserDetails() {
@@ -35,9 +47,6 @@ export class UserProfileComponent {
     this.loggedInUser.Email = sessionStorage.getItem("email")
     this.loggedInUser.UserId = parseInt(sessionStorage.getItem("user_id") as string)
     this.loggedInUser.Username = sessionStorage.getItem("username")
-    if (this.loggedInUser.Username === "Zolika1022" && this.loggedInUser.Email === "kz1022@gmail.com") {
-      this.adminUser = true
-    }
   }
 
   isAdminUser() {

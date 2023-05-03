@@ -16,6 +16,8 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { AuthGuard } from './guards/auth-guard.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { CoachingComponent } from './coaching/coaching.component';
+import { BoostingComponent } from './boosting/boosting.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     LoginPageComponent,
     AboutMeComponent,
     PrivacyComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CoachingComponent,
+    BoostingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -42,7 +46,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
       { path: 'login', component: LoginPageComponent },
       { path: 'about-me', component: AboutMeComponent, canActivate: [AuthGuard] },
       { path: 'privacy-policy', component: PrivacyComponent },
-      { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard] }
+      { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard] },
+      { path: 'coaching', component: CoachingComponent, canActivate: [AuthGuard] },
+      { path: 'boosting', component: BoostingComponent },
     ]),
     NgbModule
   ],
