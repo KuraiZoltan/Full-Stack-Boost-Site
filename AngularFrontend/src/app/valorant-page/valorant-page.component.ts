@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./valorant-page.component.css']
 })
 export class ValorantPageComponent {
+  public rRRangeOptions = ["0-20", "21-40", "41-60", "61-80", "81-100"]
   public order: Order = {
     UserId: 0,
     Username: "",
@@ -16,8 +17,7 @@ export class ValorantPageComponent {
     OrderedRank: "",
     OrderedRankLevel: "",
     SelectedRegion: "",
-    FirstName: "",
-    LastName: "",
+    DiscordName: "",
     Email: "",
     GameName: "Valorant",
     Status: "Processing"
@@ -37,8 +37,7 @@ export class ValorantPageComponent {
   public wrongData: boolean | undefined;
   public loggedInUser: User = {
     Email: "",
-    FirstName: "",
-    LastName: "",
+    DiscordName: "",
     UserId: 0,
     Username: null
   }
@@ -52,8 +51,7 @@ export class ValorantPageComponent {
     if (sessionStorage.getItem("jwt")) {
       this.isUserLoggedIn = true
       this.getUserDetails()
-      this.order.FirstName = this.loggedInUser.FirstName
-      this.order.LastName = this.loggedInUser.LastName
+      this.order.DiscordName = this.loggedInUser.DiscordName
       this.order.Email = this.loggedInUser.Email
       this.order.UserId = this.loggedInUser.UserId
       this.order.Username = this.loggedInUser.Username
@@ -61,8 +59,7 @@ export class ValorantPageComponent {
   }
 
   getUserDetails() {
-    this.loggedInUser.FirstName = sessionStorage.getItem("first_name")
-    this.loggedInUser.LastName = sessionStorage.getItem("last_name")
+    this.loggedInUser.DiscordName = sessionStorage.getItem("discord_name")
     this.loggedInUser.Email = sessionStorage.getItem("email")
     this.loggedInUser.UserId = parseInt(sessionStorage.getItem("user_id") as string)
     this.loggedInUser.Username = sessionStorage.getItem("username")
@@ -70,8 +67,7 @@ export class ValorantPageComponent {
 
   submitDetails(ngForm: any) {
     let user = ngForm.form.controls
-    this.order.FirstName = user.FirstName.value
-    this.order.LastName = user.LastName.value
+    this.order.DiscordName = user.DiscordName.value
     this.order.Email = user.Email.value
     console.log(this.order)
   }
@@ -87,12 +83,11 @@ export class ValorantPageComponent {
     console.log(this.order)
   }
 
-  saveCurrentLp(event: any) {
-    if (parseInt(event.currentTarget.value) <= 100 && parseInt(event.currentTarget.value) >= 0) {
-      this.order.CurrentRankPoints = event.currentTarget.value
-      console.log(this.order)
+  saveRrRange(event: any) {
+    if (event.currentTarget.value === 0) {
+      alert("Please select a valid option!")
     } else {
-      alert("Wrong Current RR input")
+      this.order.CurrentRankPoints = event.currentTarget.value
     }
   }
 
@@ -108,21 +103,6 @@ export class ValorantPageComponent {
 
   saveRegion(event: any) {
     this.order.SelectedRegion = event.currentTarget.value
-    console.log(this.order)
-  }
-
-  saveFirstName(event: any) {
-    this.order.FirstName = event.currentTarget.value
-    console.log(this.order)
-  }
-
-  saveLastName(event: any) {
-    this.order.LastName = event.currentTarget.value
-    console.log(this.order)
-  }
-
-  saveEmail(event: any) {
-    this.order.Email = event.currentTarget.value
     console.log(this.order)
   }
 
@@ -145,7 +125,7 @@ export class ValorantPageComponent {
   verifyOrder() {
     if (this.order.CurrentRank && this.order.CurrentRankLevel && this.order.CurrentRankPoints && this.order.SelectedRegion &&
       this.order.OrderedRank && this.order.OrderedRankLevel &&
-      this.order.Email && this.order.FirstName && this.order.LastName
+      this.order.Email && this.order.DiscordName
     ) {
       return true
     }
@@ -167,16 +147,14 @@ interface Order {
   OrderedRank: string | null;
   OrderedRankLevel: string | null;
   SelectedRegion: string | null;
-  FirstName: string | null;
-  LastName: string | null;
+  DiscordName: string | null;
   Email: string | null;
   GameName: string | null;
   Status: string | null;
 }
 
 interface User {
-  FirstName: string | null;
-  LastName: string | null;
+  DiscordName: string | null;
   Email: string | null;
   UserId: number;
   Username: string | null;

@@ -23,8 +23,7 @@ namespace EmailSender.Services
             {
                 User user = new User()
                 {
-                    FirstName = registrationCredentials.FirstName,
-                    LastName = registrationCredentials.LastName,
+                    DiscordName = registrationCredentials.DiscordName,
                     Username = registrationCredentials.Username,
                     Email = registrationCredentials.Email,
                     Role = "User"

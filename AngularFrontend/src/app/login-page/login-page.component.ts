@@ -26,8 +26,7 @@ export class LoginPageComponent {
         sessionStorage.setItem("jwtExpiresAt", token.expiresAt)
         sessionStorage.setItem("username", token.username)
         sessionStorage.setItem("email", token.email)
-        sessionStorage.setItem("first_name", token.firstName)
-        sessionStorage.setItem("last_name", token.lastName)
+        sessionStorage.setItem("discord_name", token.discordName)
         sessionStorage.setItem("user_id", token.userId)
         this.invalidLogin = false
         window.location.href = "/"

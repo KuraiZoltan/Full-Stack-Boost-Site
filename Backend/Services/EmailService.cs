@@ -16,8 +16,7 @@ namespace EmailSender.Services
             {
                 Text =
                 $"<h1>FB Order Details</h1> " +
-                $"<p><b>First Name:</b> {orderDetails.FirstName}</p> " +
-                $"<p><b>Last Name:</b> {orderDetails.LastName}</p> " +
+                $"<p><b>Discord Name:</b> {orderDetails.DiscordName}</p> " +
                 $"<p><b>Game:</b> {orderDetails.GameName}</p> " +
                 $"<p><b>Region:</b> {orderDetails.SelectedRegion}</p>" +
                 $"<p><b>Boost From:</b> {orderDetails.CurrentRank} {orderDetails.CurrentRankLevel} {orderDetails.CurrentRankPoints}</p> " +

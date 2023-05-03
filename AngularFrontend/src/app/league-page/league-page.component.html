@@ -9,6 +9,7 @@
           <h2 class="rank-form-title">Select your current rank here!</h2>
           <button *ngFor="let rank of ranks" (click)="saveCurrentRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
           <div>
+            <h5>Current level:</h5>
             <select class="form-select" (change)="saveCurrentRankLevel($event)">
               <option value="0">Nothing selected</option>
               <option value="4">IV</option>
@@ -17,10 +18,11 @@
               <option value="1">I</option>
             </select>
           </div>
-          <label>
-            Current Lp:
-            <input type="text" (change)="saveCurrentLp($event)" />
-          </label>
+          <h5>Current LP:</h5>
+          <select class="form-select" (change)="saveLpRange($event)">
+            <option value="0">Nothing selected</option>
+            <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
+          </select>
           <h5>Select your region:</h5>
           <select class="form-select" (change)="saveRegion($event)">
             <option value="0">Nothing selected</option>
@@ -47,8 +49,7 @@
       <div>
         <form (ngSubmit)="sendOrder()" class="input-block">
           <div>
-            <h4 *ngIf="isUserLoggedIn">First name: <h3>{{ loggedInUser.FirstName }}</h3></h4>
-            <h4 *ngIf="isUserLoggedIn">Last name: <h3>{{ loggedInUser.LastName }}</h3></h4>
+            <h4 *ngIf="isUserLoggedIn">Discord name: <h3>{{ loggedInUser.DiscordName }}</h3></h4>
             <h4 *ngIf="isUserLoggedIn">Email: <h3>{{ loggedInUser.Email }}</h3></h4>
           </div>
           <button type="submit" id="submit-btn" class="btn btn-light">Submit</button>
@@ -56,8 +57,7 @@
       </div>
       <div *ngIf="isOrderCorrect" class="summary-component">
         <h3>Order sent</h3>
-        <p>First Name: {{ order.FirstName }}</p>
-        <p>Last Name: {{ order.LastName }}</p>
+        <p>Discord Name: {{ order.DiscordName }}</p>
         <p>Contact Email: {{ order.Email }}</p>
         <p>Current Rank: {{ order.CurrentRank }} {{ order.CurrentRankLevel }}, {{ order.CurrentRankPoints }} LP</p>
         <p>Desired Rank: {{ order.OrderedRank }} {{ order.OrderedRankLevel }}</p>
@@ -67,8 +67,7 @@
         <p>Missing or wrong data!</p>
       </div>
       <div *ngIf="wrongData" class="summary-component">
-        <p *ngIf="!order.FirstName">First Name</p>
-        <p *ngIf="!order.LastName">Last Name</p>
+        <p *ngIf="!order.DiscordName">Discord Name</p>
         <p *ngIf="!order.Email">Email</p>
         <p *ngIf="!order.CurrentRank">Current Rank</p>
         <p *ngIf="!order.OrderedRank">Desired Rank</p>

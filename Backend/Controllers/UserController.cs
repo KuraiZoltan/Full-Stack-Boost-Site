@@ -50,9 +50,7 @@ namespace EmailSender.Controllers
                 {
                     access_token = CreateToken(claims, expireTime),
                     expiresAt = expireTime,
-                    username = user.Username,
-                    firstName = user.FirstName,
-                    lastName = user.LastName,
+                    discordName = user.DiscordName,
                     email = user.Email,
                     userId = user.UserId
                 });

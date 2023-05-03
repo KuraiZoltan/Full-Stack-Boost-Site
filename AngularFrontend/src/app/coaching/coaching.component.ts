@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class CoachingComponent {
   public order: Order = {
-    DiscordName: "",
+    DiscordName: sessionStorage.getItem("discord_name") as string,
     Rank: "",
     Lane: "",
     SessionCount: "",
@@ -43,7 +43,6 @@ export class CoachingComponent {
   }
 
   onSubmit(form: NgForm) {
-    this.order.DiscordName = `${form.form.controls["discord-name"].value} ${form.form.controls["discord-tag"].value}`
     let payload = {
       UserId: parseInt(sessionStorage.getItem("user_id") as string),
       Email: this.order.Email,

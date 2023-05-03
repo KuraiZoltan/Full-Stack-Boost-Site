@@ -11,8 +11,7 @@ export class RegistrationPageComponent {
 
   submit(userForm: any) {
     let payload: User = {
-      FirstName: userForm.form.controls["first-name"].value,
-      LastName: userForm.form.controls["last-name"].value,
+      DiscordName: `${userForm.form.controls["discord-name"].value}#${userForm.form.controls["discord-tag"].value}`,
       Username: userForm.form.controls["username"].value,
       Email: userForm.form.controls["email"].value,
       Password: userForm.form.controls["password"].value,
@@ -34,8 +33,7 @@ export class RegistrationPageComponent {
 }
 
 interface User {
-  FirstName: string;
-  LastName: string;
+  DiscordName: string;
   Username: string;
   Email: string;
   Password: string;
