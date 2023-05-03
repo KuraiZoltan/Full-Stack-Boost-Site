@@ -15,8 +15,8 @@
         </tr>
       </table>
       <p>The lane you play:</p>
-      <select>
-        <option *ngFor="let lane of laneOptions" (change)="saveLane($event)">{{ lane }}</option>
+      <select (change)="saveLane($event)">
+        <option *ngFor="let lane of laneOptions" >{{ lane }}</option>
       </select>
       <table>
         <tr>
@@ -24,20 +24,20 @@
         </tr>
         <tr>
           <td>
-            <select>
-              <option *ngFor="let rank of rankOptions" (change)="saveRank($event)">{{ rank }}</option>
+            <select (change)="saveRank($event)">
+              <option *ngFor="let rank of rankOptions" >{{ rank }}</option>
             </select>
           </td>
           <td>
-            <select>
-              <option *ngFor="let lpRange of lpRangeOptions" (change)="saveLpRange($event)">{{ lpRange }} lp</option>
+            <select (change)="saveLpRange($event)">
+              <option *ngFor="let lpRange of lpRangeOptions" >{{ lpRange }} lp</option>
             </select>
           </td>
         </tr>
       </table>
       <p>How many sessions do you want to reserve?</p>
-      <select>
-        <option *ngFor="let sessionOption of sessionOptions" (change)="saveSessionCount($event)">{{ sessionOption }} hour</option>
+      <select (change)="saveSessionCount($event)">
+        <option *ngFor="let sessionOption of sessionOptions" >{{ sessionOption }} hour</option>
       </select>
       <button type="submit">Submit</button>
     </form>

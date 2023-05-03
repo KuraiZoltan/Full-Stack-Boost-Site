@@ -12,7 +12,8 @@ export class CoachingComponent {
     DiscordName: "",
     Rank: "",
     Lane: "",
-    SessionCount: ""
+    SessionCount: "",
+    Email: sessionStorage.getItem("email")
   }
   public rank: Rank = {
     Lp: "",
@@ -43,10 +44,18 @@ export class CoachingComponent {
 
   onSubmit(form: NgForm) {
     this.order.DiscordName = `${form.form.controls["discord-name"].value} ${form.form.controls["discord-tag"].value}`
-    let payload = this.order
+    let payload = {
+      UserId: parseInt(sessionStorage.getItem("user_id") as string),
+      Email: this.order.Email,
+      DiscordName: this.order.DiscordName,
+      PlayedLane: this.order.Lane,
+      Rank: this.order.Rank = `${this.rank.Rank} ${this.rank.Lp}`,
+      SessionCount: this.order.SessionCount,
+      SessionsFinished: "0 hours"
+    }
     const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${sessionStorage.getItem("jwt")}` }
     const body = JSON.stringify(payload)
-    this.http.post('https://localhost:7196/Coaching/sendOrder', body, { 'headers': headers }).subscribe(response => {console.log(response) })
+    this.http.post("https://localhost:7196/Email/sendCoachingEmail", body, { 'headers': headers }).subscribe(r => { console.log(r) })
   }
 }
 
@@ -55,6 +64,7 @@ interface Order {
   Rank: string;
   Lane: string;
   SessionCount: string;
+  Email: any;
 }
 
 interface Rank {
