@@ -23,6 +23,15 @@
             </select>
           </td>
           <td>
+            <select class="form-select" (change)="saveRankLevel($event)">
+              <option value="0">Nothing selected</option>
+              <option *ngFor="let rankLevel of rankLevelOptions">{{ rankLevel }}</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Your current Lp:
             <select class="form-select" (change)="saveLpRange($event)">
               <option value="0">Nothing selected</option>
               <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>

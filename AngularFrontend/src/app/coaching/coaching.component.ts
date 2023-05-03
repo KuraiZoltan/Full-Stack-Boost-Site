@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./coaching.component.css']
 })
 export class CoachingComponent {
+  public rankLevelOptions = ["I", "II", "III", "IV"]
   public order: Order = {
     DiscordName: sessionStorage.getItem("discord_name") as string,
     Rank: "",
@@ -34,6 +35,11 @@ export class CoachingComponent {
   saveRank(event: any) {
     this.rank.Rank = event.currentTarget.value
   }
+
+  saveRankLevel(event: any) {
+    this.rank.Rank += ` ${event.currentTarget.value}`
+  }
+
   saveLpRange(event: any) {
     this.rank.Lp = event.currentTarget.value
   }
