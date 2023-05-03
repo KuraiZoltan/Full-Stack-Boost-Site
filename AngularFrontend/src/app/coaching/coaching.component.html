@@ -4,8 +4,10 @@
     How Does League of Legends Coaching Help? League Coaching helps you by letting a highly skilled player give you his insight and advice on how to improve. Also it lets you understand your mistakes and fix them accordingly. This is how players improve and climb faster when they get coached.
   </div>
   <div class="input-details col">
+    <div *ngIf="incorrectData" class="alert alert-danger">Invalid Data!</div>
+    <div *ngIf="incorrectOption" class="alert alert-danger">Option can't be selected!</div>
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-      
+
       <p>The lane you play:</p>
       <select class="form-select" (change)="saveLane($event)">
         <option value="0">Nothing selected</option>
@@ -41,11 +43,13 @@
       </table>
       <p>How many sessions do you want to reserve?</p>
       <select class="form-select" (change)="saveSessionCount($event)">
-        <option *ngFor="let sessionOption of sessionOptions" >{{ sessionOption }} hour</option>
+        <option value="0">Nothing selected</option>
+        <option *ngFor="let sessionOption of sessionOptions">{{ sessionOption }} hour</option>
       </select>
       <button type="submit" class="btn btn-light">Submit</button>
     </form>
-    
+
   </div>
+
 </div>
 
