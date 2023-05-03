@@ -44,3 +44,4 @@ Thumbs.db
 .vs
 obj/
 AngularFrontend.esproj.user
+*.suo
