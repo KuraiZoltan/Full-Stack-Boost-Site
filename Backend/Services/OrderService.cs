@@ -15,29 +15,35 @@ namespace EmailSender.Services
 
         public async Task SaveOrder(OrderDetails orderDetails)
         {
-            _context.Orders.Add(orderDetails);
+            _context.BoostingOrders.Add(orderDetails);
             await _context.SaveChangesAsync();
         }
 
         public IEnumerable<OrderDetails> GetAllOrders()
         {
-            return _context.Orders.ToList();
+            return _context.BoostingOrders.ToList();
         }
 
         public IEnumerable<OrderDetails> GetOrdersByUserId(int userId)
         {
-            return _context.Orders.Where(order => order.UserId == userId).ToList();
+            return _context.BoostingOrders.Where(order => order.UserId == userId).ToList();
         }
 
         public async Task<OrderDetails> GetOrderByOrderId(int orderId)
         {
-            return await _context.Orders.FirstOrDefaultAsync(order => order.Id == orderId);
+            return await _context.BoostingOrders.FirstOrDefaultAsync(order => order.Id == orderId);
         }
 
         public async Task ChangeStatus(SaveStatus saveStatus)
         {
             var order = await GetOrderByOrderId(saveStatus.OrderId);
             order.Status = saveStatus.Status;
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task SaveCoachingOrder(CoachingOrderDetails orderDetails)
+        {
+            _context.CoachingOrders.Add(orderDetails);
             await _context.SaveChangesAsync();
         }
     }
