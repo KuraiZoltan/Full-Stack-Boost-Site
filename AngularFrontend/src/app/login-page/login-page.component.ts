@@ -17,14 +17,11 @@ export class LoginPageComponent {
       Username: loginCredentials.form.controls["username"].value,
       Password: loginCredentials.form.controls["password"].value
     }
-    const headers = { 'Content-Type': 'application/json' }
+    const headers = { 'Content-Type': 'application/json',  }
     const body = JSON.stringify(payload)
-    this.http.post("https://localhost:7196/User/loginUser", body, { "headers": headers })
+    this.http.post("https://localhost:7196/User/loginUser", body, { "headers": headers, withCredentials: true, observe: 'response' as 'response' })
       .subscribe(response => {
-        const token = (<any>response)
-        sessionStorage.setItem("jwt", token.access_token)
-        sessionStorage.setItem("jwtExpiresAt", token.expiresAt)
-        sessionStorage.setItem("username", token.username)
+        const token = (response.body as any)
         sessionStorage.setItem("email", token.email)
         sessionStorage.setItem("discord_name", token.discordName)
         sessionStorage.setItem("user_id", token.userId)

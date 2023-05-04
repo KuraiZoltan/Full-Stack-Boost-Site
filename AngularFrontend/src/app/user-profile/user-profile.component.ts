@@ -19,43 +19,22 @@ export class UserProfileComponent {
   public adminUser: boolean | undefined
 
   constructor(private http: HttpClient) {
-    this.getUserDetails()
-    this.isAdminUser()
     if (this.adminUser) {
-      const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${sessionStorage.getItem("jwt")}` }
-      this.http.get<Order[]>(`https://localhost:7196/Order/getAllOrders`, { 'headers': headers }).subscribe(result => {
+      const headers = { 'Content-Type': 'application/json' }
+      this.http.get<Order[]>(`https://localhost:7196/Order/getAllOrders`, { 'headers': headers, withCredentials: true }).subscribe(result => {
         var ordersObject = result;
         for (let i = 0; i < ordersObject.length; i++) {
           this.orders.push(ordersObject[i])
         }
       }, error => console.error(error));
     } else {
-      const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${sessionStorage.getItem("jwt")}` }
-      this.http.get<Order[]>(`https://localhost:7196/Order/getOrders/${this.loggedInUser.UserId}`, { 'headers': headers }).subscribe(result => {
+      const headers = { 'Content-Type': 'application/json' }
+      this.http.get<Order[]>(`https://localhost:7196/Order/getOrders/${sessionStorage.getItem("user_id")}`, { 'headers': headers, withCredentials: true }).subscribe(result => {
         var ordersObject = result;
         for (let i = 0; i < ordersObject.length; i++) {
           this.orders.push(ordersObject[i])
         }
       }, error => console.error(error));
-    }
-    
-  }
-
-  getUserDetails() {
-    this.loggedInUser.FirstName = sessionStorage.getItem("first_name")
-    this.loggedInUser.LastName = sessionStorage.getItem("last_name")
-    this.loggedInUser.Email = sessionStorage.getItem("email")
-    this.loggedInUser.UserId = parseInt(sessionStorage.getItem("user_id") as string)
-    this.loggedInUser.Username = sessionStorage.getItem("username")
-  }
-
-  isAdminUser() {
-    const helper = new JwtHelperService();
-    const decodedToken = helper.decodeToken(sessionStorage.getItem("jwt") as string);
-    if (decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] === 'Admin') {
-      this.adminUser = true
-    } else {
-      this.adminUser = false
     }
   }
 
@@ -67,9 +46,8 @@ export class UserProfileComponent {
     }
     const headers = {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${sessionStorage.getItem("jwt")}`
     }
-    this.http.put('https://localhost:7196/Order/changeStatus', payload, { 'headers': headers }).subscribe(response => {
+    this.http.put('https://localhost:7196/Order/changeStatus', payload, { 'headers': headers, withCredentials: true }).subscribe(response => {
       console.log(response)
     })
   }

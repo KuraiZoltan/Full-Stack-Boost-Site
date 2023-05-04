@@ -113,10 +113,9 @@ export class ValorantPageComponent {
       let payload = this.order
       const headers = {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${sessionStorage.getItem("jwt")}`
       }
       const body = JSON.stringify(payload)
-      this.http.post("https://localhost:7196/Email/sendEmail", body, { 'headers': headers }).subscribe(r => { console.log(r) })
+      this.http.post("https://localhost:7196/Email/sendEmail", body, { 'headers': headers, withCredentials: true }).subscribe(r => { console.log(r) })
     } else {
       this.wrongData = true
     }

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -40,19 +41,19 @@ import { BoostingComponent } from './boosting/boosting.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: MainPageComponent, pathMatch: 'full' },
-      { path: 'league-of-legends', component: LeaguePageComponent, canActivate: [AuthGuard] },
-      { path: 'valorant', component: ValorantPageComponent, canActivate: [AuthGuard] },
+      { path: 'league-of-legends', component: LeaguePageComponent/*, canActivate: [AuthGuard]*/ },
+      { path: 'valorant', component: ValorantPageComponent/*, canActivate: [AuthGuard]*/ },
       { path: 'registration', component: RegistrationPageComponent },
       { path: 'login', component: LoginPageComponent },
-      { path: 'about-me', component: AboutMeComponent, canActivate: [AuthGuard] },
+      { path: 'about-me', component: AboutMeComponent/*, canActivate: [AuthGuard]*/ },
       { path: 'privacy-policy', component: PrivacyComponent },
-      { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard] },
-      { path: 'coaching', component: CoachingComponent, canActivate: [AuthGuard] },
+      { path: 'profile', component: UserProfileComponent/*, canActivate: [AuthGuard] */},
+      { path: 'coaching', component: CoachingComponent/*, canActivate: [AuthGuard]*/ },
       { path: 'boosting', component: BoostingComponent },
     ]),
     NgbModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
