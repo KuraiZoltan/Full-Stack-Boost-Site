@@ -1,7 +1,5 @@
-﻿using EmailSender.Data;
-using EmailSender.Models.Credentials;
+﻿using EmailSender.Models.Credentials;
 using EmailSender.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -45,11 +43,10 @@ namespace EmailSender.Controllers
                 var claims = await _userService.CreateClaims(loginData);
 
                 var expireTime = DateTime.Now.AddHours(1);
-
+                CreateToken(claims, expireTime);
+                
                 return Ok(new 
                 {
-                    access_token = CreateToken(claims, expireTime),
-                    expiresAt = expireTime,
                     discordName = user.DiscordName,
                     email = user.Email,
                     userId = user.UserId
@@ -71,8 +68,20 @@ namespace EmailSender.Controllers
                     expires: expiresAt,
                     signingCredentials: signingCredentials
             );
+            var token = new JwtSecurityTokenHandler().WriteToken(jwt);
 
-            return new JwtSecurityTokenHandler().WriteToken(jwt);
+            HttpContext.Response.Cookies.Append("token", token,
+                new CookieOptions
+                {
+                    Domain = "localhost",
+                    Expires = expiresAt,
+                    HttpOnly = true,
+                    Secure = true,
+                    IsEssential = true,
+                    SameSite = SameSiteMode.None
+                });
+
+            return token;
         }
     }
 }
