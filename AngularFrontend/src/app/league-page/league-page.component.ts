@@ -48,7 +48,7 @@ export class LeaguePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (sessionStorage.getItem("jwt")) {
+    if (sessionStorage.getItem("username")) {
       this.isUserLoggedIn = true
       this.getUserDetails()
       this.order.DiscordName = this.loggedInUser.DiscordName
@@ -116,9 +116,9 @@ export class LeaguePageComponent implements OnInit {
       this.isOrderCorrect = true
       this.wrongData = false
       let payload = this.order
-      const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${sessionStorage.getItem("jwt")}` }
+      const headers = { 'Content-Type': 'application/json'}
       const body = JSON.stringify(payload)
-      this.http.post("https://localhost:7196/Email/sendEmail", body, { 'headers': headers }).subscribe(r => { console.log(r) })
+      this.http.post("https://localhost:7196/Email/sendEmail", body, { 'headers': headers, withCredentials: true }).subscribe(r => { console.log(r) })
     } else {
       this.wrongData = true
     }

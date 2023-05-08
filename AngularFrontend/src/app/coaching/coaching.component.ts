@@ -87,9 +87,9 @@ export class CoachingComponent {
         SessionCount: this.order.SessionCount,
         SessionsFinished: "0 hours"
       }
-      const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${sessionStorage.getItem("jwt")}` }
+      const headers = { 'Content-Type': 'application/json' }
       const body = JSON.stringify(payload)
-      this.http.post("https://localhost:7196/Email/sendCoachingEmail", body, { 'headers': headers }).subscribe(r => { console.log(r) })
+      this.http.post("https://localhost:7196/Email/sendCoachingEmail", body, { 'headers': headers, withCredentials: true }).subscribe(r => { console.log(r) })
     } else {
       this.incorrectData = true
     }

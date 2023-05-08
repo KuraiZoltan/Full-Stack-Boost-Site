@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthGuard } from '../guards/auth-guard.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -10,10 +11,10 @@ export class NavMenuComponent implements OnInit {
   isExpanded = false;
   userLoggedIn: boolean | undefined;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private guard: AuthGuard) { }
 
   ngOnInit() {
-    if (sessionStorage.getItem("jwt")) {
+    if (this.guard.canActivate()) {
       this.userLoggedIn = true
     }
   }
@@ -28,7 +29,10 @@ export class NavMenuComponent implements OnInit {
 
   onLogout() {
     window.location.reload()
-    sessionStorage.removeItem("jwt")
-    sessionStorage.removeItem("jwtExpiresAt")
+    sessionStorage.removeItem("email")
+    sessionStorage.removeItem("discord_name")
+    sessionStorage.removeItem("user_id")
+    sessionStorage.removeItem("role")
+    sessionStorage.removeItem("username")
   }
 }
