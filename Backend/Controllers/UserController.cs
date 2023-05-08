@@ -1,7 +1,5 @@
-﻿using EmailSender.Data;
-using EmailSender.Models.Credentials;
+﻿using EmailSender.Models.Credentials;
 using EmailSender.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -46,10 +44,17 @@ namespace EmailSender.Controllers
 
                 var expireTime = DateTime.Now.AddHours(1);
 
+                var token = CreateToken(claims, expireTime);
+
+                var handler = new JwtSecurityTokenHandler();
+                var jwtSecurityToken = handler.ReadJwtToken(token);
+                var role = jwtSecurityToken.Claims.First(claim => claim.Type == ClaimTypes.Role).Value;
                 return Ok(new 
                 {
-                    access_token = CreateToken(claims, expireTime),
+                    access_token = token,
                     expiresAt = expireTime,
+                    role = role,
+                    username = user.Username,
                     discordName = user.DiscordName,
                     email = user.Email,
                     userId = user.UserId
