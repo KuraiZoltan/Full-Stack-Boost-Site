@@ -72,7 +72,20 @@ namespace EmailSender.Controllers
                     signingCredentials: signingCredentials
             );
 
-            return new JwtSecurityTokenHandler().WriteToken(jwt);
+            var token = new JwtSecurityTokenHandler().WriteToken(jwt);
+
+            HttpContext.Response.Cookies.Append("token", token,
+                new CookieOptions
+                {
+                    Domain = "localhost",
+                    Expires = expiresAt,
+                    HttpOnly = true,
+                    Secure = true,
+                    IsEssential = true,
+                    SameSite = SameSiteMode.None
+                });
+
+            return token;
         }
     }
 }
