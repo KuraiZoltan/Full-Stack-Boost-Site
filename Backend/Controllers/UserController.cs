@@ -2,6 +2,7 @@
 using EmailSender.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using RestSharp;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -31,6 +32,24 @@ namespace EmailSender.Controllers
                 return Ok(newUser);
             }
             return BadRequest("Passwords not matching");
+        }
+
+        [HttpGet]
+        [Route("logout")]
+        public IActionResult Logout()
+        {
+            var expiresAt = System.DateTime.UtcNow;
+            HttpContext.Response.Cookies.Delete("token", 
+                new CookieOptions
+                {
+                    Domain = "localhost",
+                    Expires = expiresAt,
+                    HttpOnly = true,
+                    Secure = true,
+                    IsEssential = true,
+                    SameSite = SameSiteMode.None
+                });
+            return Ok();
         }
 
         [HttpPost]
