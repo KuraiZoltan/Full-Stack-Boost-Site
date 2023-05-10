@@ -46,5 +46,12 @@ namespace EmailSender.Services
             _context.CoachingOrders.Add(orderDetails);
             await _context.SaveChangesAsync();
         }
+
+        public async Task DeleteOrder(int orderId)
+        {
+            var order = _context.BoostingOrders.FirstOrDefault(order => order.Id == orderId);
+            _context.BoostingOrders.Remove(order);
+            await _context.SaveChangesAsync();
+        }
     }
 }
