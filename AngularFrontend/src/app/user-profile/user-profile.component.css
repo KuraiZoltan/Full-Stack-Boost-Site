@@ -19,5 +19,15 @@ h1 {
     margin: 2rem
 }
 
+.order-card {
+  color: white;
+  margin: 2rem;
+  background-image: linear-gradient(#1e1e3be8, #4040837a);
+  border-radius: 1rem;
+  box-shadow: 4px 3px 8px #000000b0;
+  max-width: 400px;
+  padding: 1rem;
+}
+
 :host {
 }

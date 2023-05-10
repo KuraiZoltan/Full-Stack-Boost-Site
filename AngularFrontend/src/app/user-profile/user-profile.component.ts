@@ -69,6 +69,14 @@ export class UserProfileComponent {
       console.log(response)
     })
   }
+
+  deleteOrder(orderId: any) {
+    const headers = { 'Content-Type': 'application/json' }
+    this.http.post('https://localhost:7196/Order/deleteOrder', orderId, { 'headers': headers, withCredentials: true }).subscribe(response => {
+      console.log(response)
+      window.location.reload()
+    })
+  }
 }
 
 interface Order {
