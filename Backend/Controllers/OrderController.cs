@@ -39,5 +39,13 @@ namespace EmailSender.Controllers
         {
             await _orderService.ChangeStatus(saveStatus);
         }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        [Route("deleteOrder")]
+        public async Task DeleteOrder([FromBody] int orderId)
+        {
+            await _orderService.DeleteOrder(orderId);
+        }
     }
 }
