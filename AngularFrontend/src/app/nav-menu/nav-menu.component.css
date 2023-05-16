@@ -20,15 +20,15 @@ html {
 }
 
 .nav-link, .navbar-brand, .nav-link-main, .nav-link:focus {
-  color: white;
+  color: black;
   margin: 5px;
 }
 
 .nav-link:hover {
-  color: white;
+  color: black;
   background: #80808040;
   outline: 1px white solid;
-  border-radius: 5px;
+  border-radius: 1rem;
 }
 
 .navbar-brand:hover {
@@ -45,10 +45,10 @@ nav {
 }
 
 .nav-link-main:hover, .navbar-brand:hover {
-  color: white;
+  color: black;
   background: #80808040;
   outline: 1px white solid;
-  border-radius: 5px;
+  border-radius: 1rem;
 }
 
 .nav-link-main {
