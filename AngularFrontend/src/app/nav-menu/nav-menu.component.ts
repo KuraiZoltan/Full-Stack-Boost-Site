@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthGuard } from '../guards/auth-guard.service';
+
 
 @Component({
   selector: 'app-nav-menu',
@@ -38,4 +39,17 @@ export class NavMenuComponent implements OnInit {
     sessionStorage.removeItem("username")
     window.location.reload()
   }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    let element = document.querySelector('.navbar') as HTMLElement;
+    if (window.pageYOffset > element.clientHeight) {
+      element.classList.add('navbar-shrink');
+    } else {
+      element.classList.remove('navbar-shrink');
+    }
+  }
 }
+//navbar navbar-expand-lg navbar-dark fixed-top
+
+//navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink
