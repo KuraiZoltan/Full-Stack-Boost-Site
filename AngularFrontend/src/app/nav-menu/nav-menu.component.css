@@ -1,4 +1,5 @@
 a.navbar-brand {
+  font-size: 20px;
   white-space: normal;
   text-align: center;
   word-break: break-all;
@@ -20,19 +21,17 @@ html {
 }
 
 .nav-link, .navbar-brand, .nav-link-main, .nav-link:focus {
-  color: black;
+  font-size: 18px;
+  color: #8ab4f8;
   margin: 5px;
 }
 
 .nav-link:hover {
-  color: black;
-  background: #80808040;
-  outline: 1px white solid;
-  border-radius: 1rem;
+  color: #6187c5
 }
 
 .navbar-brand:hover {
-  color: #dbdbdb
+  color: #6187c5
 }
 
 .navbar-brand:focus {
@@ -44,16 +43,14 @@ nav {
   color: white;
 }
 
-.nav-link-main:hover, .navbar-brand:hover {
-  color: black;
-  background: #80808040;
-  outline: 1px white solid;
-  border-radius: 1rem;
+.navbar-shrink {
+  background-color: #1b1b1b !important;
+  height: 60px !important;
+  transition: background-color 250ms linear;
+  transition: height 250ms linear;
 }
 
-.nav-link-main {
-  text-align: center;
-  padding: 10px;
-  text-decoration: none;
-  font-size: 17px;
+.navbar {
+  transition: background-color 250ms linear;
+  transition: height 250ms linear;
 }
