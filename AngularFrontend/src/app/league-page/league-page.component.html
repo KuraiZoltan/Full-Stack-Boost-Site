@@ -1,81 +1,153 @@
-<div class="home-page-content">
-  <div class="title-content">
-    <h1>Boost your rank with Me!</h1>
-  </div>
-  <div class="row order-details">
-    <div class="col rank-selection-block">
-      <div class="row rank-selection-row">
-        <div class="col select-from-buttons">
-          <h2 class="rank-form-title">Select your current rank here!</h2>
-          <button *ngFor="let rank of ranks" (click)="saveCurrentRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
-          <div>
-            <h5>Current level:</h5>
-            <select class="form-select" (change)="saveCurrentRankLevel($event)">
-              <option value="0">Nothing selected</option>
-              <option value="4">IV</option>
-              <option value="3">III</option>
-              <option value="2">II
-              <option value="1">I</option>
-            </select>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Agency - Start Bootstrap Theme</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="./league-page.component.css" rel="stylesheet" />
+</head>
+  <header class="masthead">
+    <div class="container">
+      <div class="masthead-subheading">Welcome To FakeB Boosting!</div>
+    </div>
+  </header>
+  <!--SERVICES-->
+  <section class="page-section" id="services">
+    <div class="container text-center row">
+      <div class="col block-container">
+        <div class="text-center row">
+          <div class="select-from-buttons">
+            <div>
+              <h2 class="rank-form-title">Select your current rank here!</h2>
+              <button *ngFor="let rank of ranks" (click)="saveCurrentRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
+              <div>
+                <button class="rank-level-btn" *ngFor="let level of rankLevels" (click)="saveCurrentRankLevel(level)">{{ level }}</button>
+              </div>
+              <select class="form-select" (change)="saveLpRange($event)">
+                <option value="0">Nothing selected</option>
+                <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
+              </select>
+            </div>
           </div>
-          <h5>Current LP:</h5>
-          <select class="form-select" (change)="saveLpRange($event)">
-            <option value="0">Nothing selected</option>
-            <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
-          </select>
-          <h5>Select your region:</h5>
-          <select class="form-select" (change)="saveRegion($event)">
-            <option value="0">Nothing selected</option>
-            <option value="Europe West">Europe West</option>
-            <option value="Europe Nordic & East">Europe Nordic & East</option>
-          </select>
+          <div class="row select-to-buttons">
+            <div>
+              <h2 class="rank-form-title">Select your desired rank here!</h2>
+              <button *ngFor="let rank of ranks" (click)="saveDesiredRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
+              <div>
+                <button class="rank-level-btn" *ngFor="let level of rankLevels" (click)="saveDesiredRankLevel(level)">{{ level }}</button>
+                <div class="region-select">
+                  <select class="form-select select-field" (change)="saveRegion($event)">
+                    <option value="0">Nothing selected</option>
+                    <option value="Europe West">Europe West</option>
+                    <option value="Europe Nordic & East">Europe Nordic & East</option>
+                  </select>
+                  <div>
+                    <label>
+                      <h5>Solo/Duo</h5>
+                      <input type="radio" />
+                    </label>
+                    <label>
+                      <h5>Flex</h5>
+                      <input type="radio" />
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col select-to-buttons">
-          <h2 class="rank-form-title">Select your desired rank here!</h2>
-          <button *ngFor="let rank of ranks" (click)="saveDesiredRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
+      </div>
+      <div class="col input-details-container block-container">
+        <div class="input-block">
           <div>
-            <select class="form-select" (change)="saveDesiredRankLevel($event)">
-              <option value="0">Nothing selected</option>
-              <option value="4">IV</option>
-              <option value="3">III</option>
-              <option value="2">II</option>
-              <option value="1">I</option>
-            </select>
+            <form (ngSubmit)="sendOrder()" class="input-block">
+              <div>
+                <h4 *ngIf="isUserLoggedIn">Discord name: <h3>{{ loggedInUser.DiscordName }}</h3></h4>
+                <h4 *ngIf="isUserLoggedIn">Email: <h3>{{ loggedInUser.Email }}</h3></h4>
+              </div>
+              <button type="submit" id="submit-btn" class="btn btn-light">Submit</button>
+            </form>
+          </div>
+          <div *ngIf="isOrderCorrect" class="summary-component">
+            <h3>Order sent</h3>
+            <p>Discord Name: {{ order.DiscordName }}</p>
+            <p>Contact Email: {{ order.Email }}</p>
+            <p>Current Rank: {{ order.CurrentRank }} {{ order.CurrentRankLevel }}, {{ order.CurrentRankPoints }} LP</p>
+            <p>Desired Rank: {{ order.OrderedRank }} {{ order.OrderedRankLevel }}</p>
+            <p>Region: {{ order.SelectedRegion }}</p>
+          </div>
+          <div *ngIf="wrongData" class="alert alert-danger">
+            <p>Missing or wrong data!</p>
+          </div>
+          <div *ngIf="wrongData" class="summary-component">
+            <p *ngIf="!order.DiscordName">Discord Name</p>
+            <p *ngIf="!order.Email">Email</p>
+            <p *ngIf="!order.CurrentRank">Current Rank</p>
+            <p *ngIf="!order.OrderedRank">Desired Rank</p>
+            <p *ngIf="!order.SelectedRegion">Region</p>
+            <p *ngIf="!order.CurrentRankLevel">Rank level</p>
+            <p *ngIf="!order.CurrentRankPoints">Current LP</p>
+            <p *ngIf="!order.OrderedRankLevel">Desired Rank Level</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="col input-details-container">
-      <div>
-        <form (ngSubmit)="sendOrder()" class="input-block">
-          <div>
-            <h4 *ngIf="isUserLoggedIn">Discord name: <h3>{{ loggedInUser.DiscordName }}</h3></h4>
-            <h4 *ngIf="isUserLoggedIn">Email: <h3>{{ loggedInUser.Email }}</h3></h4>
+  </section>
+  <section class="page-section dark-section" id="about">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading text-uppercase">About</h2>
+        <h3 class="section-subheading text-muted-dark-bg">What you have to know about our services.</h3>
+      </div>
+      <ul class="timeline">
+        <li>
+          <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://en.pimg.jp/068/947/235/1/68947235.jpg" alt="..." /></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="subheading">Boosting</h4>
+            </div>
+            <div class="timeline-body">Boosting is the process of improving your ranked division in LoL by giving access of your account to a professional player who spends all his time playing at a high level and boosting league of legends accounts.<p class="text-muted"></p></div>
           </div>
-          <button type="submit" id="submit-btn" class="btn btn-light">Submit</button>
-        </form>
-      </div>
-      <div *ngIf="isOrderCorrect" class="summary-component">
-        <h3>Order sent</h3>
-        <p>Discord Name: {{ order.DiscordName }}</p>
-        <p>Contact Email: {{ order.Email }}</p>
-        <p>Current Rank: {{ order.CurrentRank }} {{ order.CurrentRankLevel }}, {{ order.CurrentRankPoints }} LP</p>
-        <p>Desired Rank: {{ order.OrderedRank }} {{ order.OrderedRankLevel }}</p>
-        <p>Region: {{ order.SelectedRegion }}</p>
-      </div>
-      <div *ngIf="wrongData" class="alert alert-danger">
-        <p>Missing or wrong data!</p>
-      </div>
-      <div *ngIf="wrongData" class="summary-component">
-        <p *ngIf="!order.DiscordName">Discord Name</p>
-        <p *ngIf="!order.Email">Email</p>
-        <p *ngIf="!order.CurrentRank">Current Rank</p>
-        <p *ngIf="!order.OrderedRank">Desired Rank</p>
-        <p *ngIf="!order.SelectedRegion">Region</p>
-        <p *ngIf="!order.CurrentRankLevel">Rank level</p>
-        <p *ngIf="!order.CurrentRankPoints">Current LP</p>
-        <p *ngIf="!order.OrderedRankLevel">Desired Rank Level</p>
-      </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://media.istockphoto.com/id/491843348/vector/bold-question-mark-sign-drawing.jpg?s=612x612&w=0&k=20&c=lGCwDO8-yPh_khS6BEyBjB1eHCCBTw7O0FGLN47RddY=" alt="..." /></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="subheading">Why choose us?</h4>
+            </div>
+            <div class="timeline-body"><p class="text-muted-dark-bg">We concentrate on finishing every orders as soon as possible with our best knowledge in both League and Valorant as well.</p></div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://static.vecteezy.com/system/resources/previews/006/152/493/non_2x/illustration-of-line-drawing-a-gesturing-young-businessman-giving-a-presentation-and-strategy-data-on-the-board-a-coach-presenting-data-on-a-screen-during-a-meeting-in-an-office-isolated-on-a-white-free-vector.jpg" alt="..." /></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="subheading">Coaching</h4>
+            </div>
+            <div class="timeline-body">How Does League of Legends Coaching Help? League Coaching helps you by letting a highly skilled player give you his insight and advice on how to improve. Also it lets you understand your mistakes and fix them accordingly. This is how players improve and climb faster when they get coached.<p class="text-muted"></p></div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-image">
+            <h4>
+              Be Part
+              <br />
+              Of Our
+              <br />
+              Story!
+            </h4>
+          </div>
+        </li>
+      </ul>
     </div>
-  </div>
-</div>
+  </section>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -30,8 +30,10 @@ export class LeaguePageComponent implements OnInit {
     { name: "Platinum", image: "https://boostroyal.no/assets/images/divisions/lol/platinum.png" },
     { name: "Diamond", image: "https://boostroyal.no/assets/images/divisions/lol/diamond.png" },
     { name: "Master", image: "https://boostroyal.no/assets/images/divisions/lol/master.png" },
-    { name: "Grandmaster", image: "https://boostroyal.no/assets/images/divisions/lol/grandmaster.png" }
   ];
+  public rankOptions: string[] = ['Solo/Duo', 'Flex']
+
+  public rankLevels: string[] = ['I', 'II', 'III', 'IV']
   public isUserLoggedIn: boolean | undefined;
   public isOrderCorrect: boolean | undefined;
   public wrongData: boolean = false;
@@ -77,9 +79,8 @@ export class LeaguePageComponent implements OnInit {
     console.log(this.order)
   }
 
-  saveCurrentRankLevel(event:any) {
-    
-    this.order.CurrentRankLevel = event.currentTarget.value
+  saveCurrentRankLevel(level: any) {
+    this.order.CurrentRankLevel = level
     console.log(this.order)
   }
 
@@ -96,9 +97,9 @@ export class LeaguePageComponent implements OnInit {
     console.log(this.order)
   }
 
-  saveDesiredRankLevel(event: any) {
-    this.order.OrderedRankLevel = event.currentTarget.value
-    console.log(this.order)
+  saveDesiredRankLevel(level: any) {
+    this.order.OrderedRankLevel = level
+    console.log(event)
   }
 
   saveRegion(event: any) {
@@ -109,6 +110,10 @@ export class LeaguePageComponent implements OnInit {
   saveEmail(event: any) {
     this.order.Email = event.currentTarget.value
     console.log(this.order)
+  }
+
+  setRankedOption(event: any) {
+    console.log(event)
   }
 
   sendOrder() {
