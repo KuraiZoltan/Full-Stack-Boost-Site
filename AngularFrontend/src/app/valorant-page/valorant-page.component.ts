@@ -30,7 +30,6 @@ export class ValorantPageComponent {
     { name: "Platinum", image: "https://boostroyal.com/assets/images/divisions/valorant/platinumiii.png" },
     { name: "Diamond", image: "https://boostroyal.com/assets/images/divisions/valorant/diamondiii.png" },
     { name: "Ascendant", image: "https://boostroyal.com/assets/images/divisions/valorant/ascendantiii.png" },
-    { name: "Immortal", image: "https://boostroyal.com/assets/images/divisions/valorant/immortaliii.png" }
   ];
   public rankOptions: string[] = ['Solo/Duo', 'Flex']
 
