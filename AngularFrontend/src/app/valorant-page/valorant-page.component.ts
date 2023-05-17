@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./valorant-page.component.css']
 })
 export class ValorantPageComponent {
-  public rRRangeOptions = ["0-20", "21-40", "41-60", "61-80", "81-100"]
+  public rrRangeOptions = ["0-20", "21-40", "41-60", "61-80", "81-100"]
   public order: Order = {
     UserId: 0,
     Username: "",
@@ -32,6 +32,9 @@ export class ValorantPageComponent {
     { name: "Ascendant", image: "https://boostroyal.com/assets/images/divisions/valorant/ascendantiii.png" },
     { name: "Immortal", image: "https://boostroyal.com/assets/images/divisions/valorant/immortaliii.png" }
   ];
+  public rankOptions: string[] = ['Solo/Duo', 'Flex']
+
+  public rankLevels: string[] = ['I', 'II', 'III', 'IV']
   public isUserLoggedIn: boolean | undefined;
   public isOrderCorrect: boolean | undefined;
   public wrongData: boolean | undefined;
@@ -77,9 +80,9 @@ export class ValorantPageComponent {
     console.log(this.order)
   }
 
-  saveCurrentRankLevel(event: any) {
+  saveCurrentRankLevel(level: any) {
 
-    this.order.CurrentRankLevel = event.currentTarget.value
+    this.order.CurrentRankLevel = level
     console.log(this.order)
   }
 
@@ -96,8 +99,8 @@ export class ValorantPageComponent {
     console.log(this.order)
   }
 
-  saveDesiredRankLevel(event: any) {
-    this.order.OrderedRankLevel = event.currentTarget.value
+  saveDesiredRankLevel(level: any) {
+    this.order.OrderedRankLevel = level
     console.log(this.order)
   }
 
