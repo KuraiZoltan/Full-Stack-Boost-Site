@@ -22,20 +22,16 @@ html {
 
 .nav-link, .navbar-brand, .nav-link-main, .nav-link:focus {
   font-size: 18px;
-  color: #8ab4f8;
+  color: #ffffff;
   margin: 5px;
 }
 
 .nav-link:hover {
-  color: #6187c5
+  color: #a4a4a4
 }
 
 .navbar-brand:hover {
-  color: #6187c5
-}
-
-.navbar-brand:focus {
-  color: #ffffff
+  color: #a4a4a4
 }
 
 nav {
