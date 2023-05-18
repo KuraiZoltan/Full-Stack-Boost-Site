@@ -1,55 +1,130 @@
-<div class="coaching-component row">
-  <div class="coaching-details col">
-    <h3>Whad do you have to know about coaching?</h3>
-    How Does League of Legends Coaching Help? League Coaching helps you by letting a highly skilled player give you his insight and advice on how to improve. Also it lets you understand your mistakes and fix them accordingly. This is how players improve and climb faster when they get coached.
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="./coaching.component.css" rel="stylesheet" />
+</head>
+<header class="masthead">
+  <div class="container">
+    <div class="masthead-subheading">Welcome To FakeB Boosting!</div>
   </div>
-  <div class="input-details col">
-    <div *ngIf="incorrectData" class="alert alert-danger">Invalid Data!</div>
-    <div *ngIf="incorrectOption" class="alert alert-danger">Option can't be selected!</div>
-    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+</header>
+<!--SERVICES-->
+<section class="page-section" id="services">
+  <div class="container">
+    <div class="block-container">
+      <div>
+        <div class="coaching-component row">
+          <div class="col">
+            <div class="coaching-details">
+              <h3>Whad do you have to know about coaching?</h3>
+              How Does League of Legends Coaching Help? League Coaching helps you by letting a highly skilled player give you his insight and advice on how to improve. Also it lets you understand your mistakes and fix them accordingly. This is how players improve and climb faster when they get coached.
+            </div>
+            <div class="input-details">
+              <div *ngIf="incorrectData" class="alert alert-danger">Invalid Data!</div>
+              <div *ngIf="incorrectOption" class="alert alert-danger">Option can't be selected!</div>
+              <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <p>The lane you play:</p>
+                <select class="form-select" (change)="saveLane($event)">
+                  <option value="0">Nothing selected</option>
+                  <option *ngFor="let lane of laneOptions">{{ lane }}</option>
+                </select>
+                <table>
+                  <tr>
+                    <td>Your rank:</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <select class="form-select" (change)="saveRank($event)">
+                        <option value="0">Nothing selected</option>
+                        <option *ngFor="let rank of rankOptions">{{ rank }}</option>
+                      </select>
+                    </td>
+                    <td>
+                      <select class="form-select" (change)="saveRankLevel($event)">
+                        <option value="0">Nothing selected</option>
+                        <option *ngFor="let rankLevel of rankLevelOptions">{{ rankLevel }}</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Your current Lp:
+                      <select class="form-select" (change)="saveLpRange($event)">
+                        <option value="0">Nothing selected</option>
+                        <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+                <p>How many sessions do you want to reserve?</p>
+                <select class="form-select" (change)="saveSessionCount($event)">
+                  <option value="0">Nothing selected</option>
+                  <option *ngFor="let sessionOption of sessionOptions">{{ sessionOption }} hour</option>
+                </select>
+                <button type="submit" class="btn btn-light">Submit</button>
+              </form>
+            </div>
+          </div>
+          <div class="coaching-details col">
 
-      <p>The lane you play:</p>
-      <select class="form-select" (change)="saveLane($event)">
-        <option value="0">Nothing selected</option>
-        <option *ngFor="let lane of laneOptions">{{ lane }}</option>
-      </select>
-      <table>
-        <tr>
-          <td>Your rank:</td>
-        </tr>
-        <tr>
-          <td>
-            <select class="form-select" (change)="saveRank($event)">
-              <option value="0">Nothing selected</option>
-              <option *ngFor="let rank of rankOptions">{{ rank }}</option>
-            </select>
-          </td>
-          <td>
-            <select class="form-select" (change)="saveRankLevel($event)">
-              <option value="0">Nothing selected</option>
-              <option *ngFor="let rankLevel of rankLevelOptions">{{ rankLevel }}</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Your current Lp:
-            <select class="form-select" (change)="saveLpRange($event)">
-              <option value="0">Nothing selected</option>
-              <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
-            </select>
-          </td>
-        </tr>
-      </table>
-      <p>How many sessions do you want to reserve?</p>
-      <select class="form-select" (change)="saveSessionCount($event)">
-        <option value="0">Nothing selected</option>
-        <option *ngFor="let sessionOption of sessionOptions">{{ sessionOption }} hour</option>
-      </select>
-      <button type="submit" class="btn btn-light">Submit</button>
-    </form>
-
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-</div>
-
+</section>
+<section class="page-section dark-section" id="about">
+  <div class="container">
+    <div>
+      <h2 class="section-heading text-uppercase">Our Features</h2>
+      <h3 class="section-subheading text-muted-dark-bg">Extra services we offer when you make an order.</h3>
+    </div>
+    <ul class="timeline">
+      <li>
+        <div class="timeline-image"></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="subheading">Appear Offline</h4>
+          </div>
+          <div class="timeline-body"><p class="text-muted-dark-bg">None of your friends will see the booster playing on your account.</p></div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image"></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="subheading">Order Tracking</h4>
+          </div>
+          <div class="timeline-body"><p class="text-muted-dark-bg">Track your order efficiently and effortlessly through this website.</p></div>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-image"></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="subheading">24/7 Live Support</h4>
+          </div>
+          <div class="timeline-body">Rely on our professional support team 24/7.<p class="text-muted"></p></div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <h4>
+            Be Part
+            <br />
+            Of Our
+            <br />
+            Story!
+          </h4>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
