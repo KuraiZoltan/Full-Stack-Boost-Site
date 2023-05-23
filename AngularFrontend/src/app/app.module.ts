@@ -24,6 +24,8 @@ import { AboutComponent } from './main-page/about/about.component';
 import { TeamComponent } from './main-page/team/team.component';
 import { ContactComponent } from './main-page/contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
+import { BoostingFeaturesComponent } from './boosting/boosting-features/boosting-features.component';
+import { BoostingHeaderComponent } from './boosting/boosting-header/boosting-header.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { FooterComponent } from './footer/footer.component';
     AboutComponent,
     TeamComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    BoostingFeaturesComponent,
+    BoostingHeaderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
