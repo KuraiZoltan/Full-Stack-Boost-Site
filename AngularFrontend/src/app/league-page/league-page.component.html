@@ -1,153 +1,135 @@
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <title>Agency - Start Bootstrap Theme</title>
-  <!-- Favicon-->
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <!-- Font Awesome icons (free version)-->
-  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-  <!-- Google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-  <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="./league-page.component.css" rel="stylesheet" />
-</head>
-  <header class="masthead">
-    <div class="container">
-      <div class="masthead-subheading">Welcome To FakeB Boosting!</div>
-    </div>
-  </header>
-  <!--SERVICES-->
-  <section class="page-section" id="services">
-    <div class="container text-center row">
-      <div class="col block-container">
-        <div class="text-center row">
-          <div class="select-from-buttons">
+<header class="masthead">
+  <div class="container">
+    <div class="masthead-subheading">Welcome To FakeB Boosting!</div>
+  </div>
+</header>
+<!--SERVICES-->
+<section class="page-section" id="services">
+  <div class="container text-center row">
+    <div class="col block-container">
+      <div class="text-center row">
+        <div class="select-from-buttons">
+          <div>
+            <h2 class="rank-form-title">Select your current rank here!</h2>
+            <button *ngFor="let rank of ranks" (click)="saveCurrentRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
             <div>
-              <h2 class="rank-form-title">Select your current rank here!</h2>
-              <button *ngFor="let rank of ranks" (click)="saveCurrentRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
-              <div>
-                <button class="rank-level-btn" *ngFor="let level of rankLevels" (click)="saveCurrentRankLevel(level)">{{ level }}</button>
-              </div>
-              <select class="form-select" (change)="saveLpRange($event)">
-                <option value="0">Nothing selected</option>
-                <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
-              </select>
+              <button class="rank-level-btn" *ngFor="let level of rankLevels" (click)="saveCurrentRankLevel(level)">{{ level }}</button>
             </div>
+            <select class="form-select" (change)="saveLpRange($event)">
+              <option value="0">Nothing selected</option>
+              <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
+            </select>
           </div>
-          <div class="row select-to-buttons">
+        </div>
+        <div class="row select-to-buttons">
+          <div>
+            <h2 class="rank-form-title">Select your desired rank here!</h2>
+            <button *ngFor="let rank of ranks" (click)="saveDesiredRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
             <div>
-              <h2 class="rank-form-title">Select your desired rank here!</h2>
-              <button *ngFor="let rank of ranks" (click)="saveDesiredRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
-              <div>
-                <button class="rank-level-btn" *ngFor="let level of rankLevels" (click)="saveDesiredRankLevel(level)">{{ level }}</button>
-                <div class="region-select">
-                  <select class="form-select select-field" (change)="saveRegion($event)">
-                    <option value="0">Nothing selected</option>
-                    <option value="Europe West">Europe West</option>
-                    <option value="Europe Nordic & East">Europe Nordic & East</option>
-                  </select>
-                  <div>
-                    <label>
-                      <h5>Solo/Duo</h5>
-                      <input type="radio" />
-                    </label>
-                    <label>
-                      <h5>Flex</h5>
-                      <input type="radio" />
-                    </label>
-                  </div>
+              <button class="rank-level-btn" *ngFor="let level of rankLevels" (click)="saveDesiredRankLevel(level)">{{ level }}</button>
+              <div class="region-select">
+                <select class="form-select select-field" (change)="saveRegion($event)">
+                  <option value="0">Nothing selected</option>
+                  <option value="Europe West">Europe West</option>
+                  <option value="Europe Nordic & East">Europe Nordic & East</option>
+                </select>
+                <div>
+                  <label>
+                    <h5>Solo/Duo</h5>
+                    <input type="radio" />
+                  </label>
+                  <label>
+                    <h5>Flex</h5>
+                    <input type="radio" />
+                  </label>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col input-details-container block-container">
-        <div class="input-block">
-          <div>
-            <form (ngSubmit)="sendOrder()" class="input-block">
-              <div>
-                <h4 *ngIf="isUserLoggedIn">Discord name: <h3>{{ loggedInUser.DiscordName }}</h3></h4>
-                <h4 *ngIf="isUserLoggedIn">Email: <h3>{{ loggedInUser.Email }}</h3></h4>
-              </div>
-              <button type="submit" id="submit-btn" class="btn btn-light">Submit</button>
-            </form>
-          </div>
-          <div *ngIf="isOrderCorrect" class="summary-component">
-            <h3>Order sent</h3>
-            <p>Discord Name: {{ order.DiscordName }}</p>
-            <p>Contact Email: {{ order.Email }}</p>
-            <p>Current Rank: {{ order.CurrentRank }} {{ order.CurrentRankLevel }}, {{ order.CurrentRankPoints }} LP</p>
-            <p>Desired Rank: {{ order.OrderedRank }} {{ order.OrderedRankLevel }}</p>
-            <p>Region: {{ order.SelectedRegion }}</p>
-          </div>
-          <div *ngIf="wrongData" class="alert alert-danger">
-            <p>Missing or wrong data!</p>
-          </div>
-          <div *ngIf="wrongData" class="summary-component">
-            <p *ngIf="!order.DiscordName">Discord Name</p>
-            <p *ngIf="!order.Email">Email</p>
-            <p *ngIf="!order.CurrentRank">Current Rank</p>
-            <p *ngIf="!order.OrderedRank">Desired Rank</p>
-            <p *ngIf="!order.SelectedRegion">Region</p>
-            <p *ngIf="!order.CurrentRankLevel">Rank level</p>
-            <p *ngIf="!order.CurrentRankPoints">Current LP</p>
-            <p *ngIf="!order.OrderedRankLevel">Desired Rank Level</p>
-          </div>
+    </div>
+    <div class="col input-details-container block-container">
+      <div class="input-block">
+        <div>
+          <form (ngSubmit)="sendOrder()" class="input-block">
+            <div>
+              <h4 *ngIf="isUserLoggedIn">Discord name: <h3>{{ loggedInUser.DiscordName }}</h3></h4>
+              <h4 *ngIf="isUserLoggedIn">Email: <h3>{{ loggedInUser.Email }}</h3></h4>
+            </div>
+            <button type="submit" id="submit-btn" class="btn btn-light">Submit</button>
+          </form>
+        </div>
+        <div *ngIf="isOrderCorrect" class="summary-component">
+          <h3>Order sent</h3>
+          <p>Discord Name: {{ order.DiscordName }}</p>
+          <p>Contact Email: {{ order.Email }}</p>
+          <p>Current Rank: {{ order.CurrentRank }} {{ order.CurrentRankLevel }}, {{ order.CurrentRankPoints }} LP</p>
+          <p>Desired Rank: {{ order.OrderedRank }} {{ order.OrderedRankLevel }}</p>
+          <p>Region: {{ order.SelectedRegion }}</p>
+        </div>
+        <div *ngIf="wrongData" class="alert alert-danger">
+          <p>Missing or wrong data!</p>
+        </div>
+        <div *ngIf="wrongData" class="summary-component">
+          <p *ngIf="!order.DiscordName">Discord Name</p>
+          <p *ngIf="!order.Email">Email</p>
+          <p *ngIf="!order.CurrentRank">Current Rank</p>
+          <p *ngIf="!order.OrderedRank">Desired Rank</p>
+          <p *ngIf="!order.SelectedRegion">Region</p>
+          <p *ngIf="!order.CurrentRankLevel">Rank level</p>
+          <p *ngIf="!order.CurrentRankPoints">Current LP</p>
+          <p *ngIf="!order.OrderedRankLevel">Desired Rank Level</p>
         </div>
       </div>
     </div>
-  </section>
-  <section class="page-section dark-section" id="about">
-    <div class="container">
-      <div class="text-center">
-        <h2 class="section-heading text-uppercase">Our Features</h2>
-        <h3 class="section-subheading text-muted-dark-bg">Extra services we offer when you make an order.</h3>
-      </div>
-      <ul class="timeline">
-        <li>
-          <div class="timeline-image"></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="subheading">Appear Offline</h4>
-            </div>
-            <div class="timeline-body"><p class="text-muted-dark-bg">None of your friends will see the booster playing on your account.</p></div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-image"></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="subheading">Order Tracking</h4>
-            </div>
-            <div class="timeline-body"><p class="text-muted-dark-bg">Track your order efficiently and effortlessly through this website.</p></div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-image"></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="subheading">24/7 Live Support</h4>
-            </div>
-            <div class="timeline-body">Rely on our professional support team 24/7.<p class="text-muted"></p></div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-image">
-            <h4>
-              Be Part
-              <br />
-              Of Our
-              <br />
-              Story!
-            </h4>
-          </div>
-        </li>
-      </ul>
+  </div>
+</section>
+<section class="page-section dark-section" id="about">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">Our Features</h2>
+      <h3 class="section-subheading text-muted-dark-bg">Extra services we offer when you make an order.</h3>
     </div>
-  </section>
-  <!-- Bootstrap core JS-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <ul class="timeline">
+      <li>
+        <div class="timeline-image"></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="subheading">Appear Offline</h4>
+          </div>
+          <div class="timeline-body"><p class="text-muted-dark-bg">None of your friends will see the booster playing on your account.</p></div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image"></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="subheading">Order Tracking</h4>
+          </div>
+          <div class="timeline-body"><p class="text-muted-dark-bg">Track your order efficiently and effortlessly through this website.</p></div>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-image"></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="subheading">24/7 Live Support</h4>
+          </div>
+          <div class="timeline-body">Rely on our professional support team 24/7.<p class="text-muted"></p></div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <h4>
+            Be Part
+            <br />
+            Of Our
+            <br />
+            Story!
+          </h4>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
