@@ -1,0 +1,81 @@
+<section class="page-section" id="services">
+  <div class="container text-center row">
+    <div class="col block-container">
+      <div class="text-center row">
+        <div class="select-from-buttons">
+          <div>
+            <h2 class="rank-form-title">Select your current rank here!</h2>
+            <button *ngFor="let rank of ranks" (click)="saveCurrentRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
+            <div>
+              <button class="rank-level-btn" *ngFor="let level of rankLevels" (click)="saveCurrentRankLevel(level)">{{ level }}</button>
+            </div>
+            <select class="form-select" (change)="saveLpRange($event)">
+              <option value="0">Nothing selected</option>
+              <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
+            </select>
+          </div>
+        </div>
+        <div class="row select-to-buttons">
+          <div>
+            <h2 class="rank-form-title">Select your desired rank here!</h2>
+            <button *ngFor="let rank of ranks" (click)="saveDesiredRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
+            <div>
+              <button class="rank-level-btn" *ngFor="let level of rankLevels" (click)="saveDesiredRankLevel(level)">{{ level }}</button>
+              <div class="region-select">
+                <select class="form-select select-field" (change)="saveRegion($event)">
+                  <option value="0">Nothing selected</option>
+                  <option value="Europe West">Europe West</option>
+                  <option value="Europe Nordic & East">Europe Nordic & East</option>
+                </select>
+                <div>
+                  <label>
+                    <h5>Solo/Duo</h5>
+                    <input type="radio" />
+                  </label>
+                  <label>
+                    <h5>Flex</h5>
+                    <input type="radio" />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col input-details-container block-container">
+      <div class="input-block">
+        <div>
+          <form (ngSubmit)="sendOrder()" class="input-block">
+            <div>
+              <h4 *ngIf="isUserLoggedIn">Discord name: <h3>{{ loggedInUser.DiscordName }}</h3></h4>
+              <h4 *ngIf="isUserLoggedIn">Email: <h3>{{ loggedInUser.Email }}</h3></h4>
+            </div>
+            <button type="submit" id="submit-btn" class="btn btn-light">Submit</button>
+          </form>
+        </div>
+        <div *ngIf="isOrderCorrect" class="summary-component">
+          <h3>Order sent</h3>
+          <p>Discord Name: {{ order.DiscordName }}</p>
+          <p>Contact Email: {{ order.Email }}</p>
+          <p>Current Rank: {{ order.CurrentRank }} {{ order.CurrentRankLevel }}, {{ order.CurrentRankPoints }} LP</p>
+          <p>Desired Rank: {{ order.OrderedRank }} {{ order.OrderedRankLevel }}</p>
+          <p>Region: {{ order.SelectedRegion }}</p>
+        </div>
+        <div *ngIf="wrongData" class="alert alert-danger">
+          <p>Missing or wrong data!</p>
+        </div>
+        <div *ngIf="wrongData" class="summary-component">
+          <p *ngIf="!order.DiscordName">Discord Name</p>
+          <p *ngIf="!order.Email">Email</p>
+          <p *ngIf="!order.CurrentRank">Current Rank</p>
+          <p *ngIf="!order.OrderedRank">Desired Rank</p>
+          <p *ngIf="!order.SelectedRegion">Region</p>
+          <p *ngIf="!order.CurrentRankLevel">Rank level</p>
+          <p *ngIf="!order.CurrentRankPoints">Current LP</p>
+          <p *ngIf="!order.OrderedRankLevel">Desired Rank Level</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
