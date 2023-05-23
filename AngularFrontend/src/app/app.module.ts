@@ -29,6 +29,9 @@ import { BoostingHeaderComponent } from './boosting/boosting-header/boosting-hea
 import { CoachingHeaderComponent } from './coaching/coaching-header/coaching-header.component';
 import { CoachingServicesComponent } from './coaching/coaching-services/coaching-services.component';
 import { CoachingFeaturesComponent } from './coaching/coaching-features/coaching-features.component';
+import { LeagueHeaderComponent } from './league-page/league-header/league-header.component';
+import { LeagueServicesComponent } from './league-page/league-services/league-services.component';
+import { LeagueFeaturesComponent } from './league-page/league-features/league-features.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { CoachingFeaturesComponent } from './coaching/coaching-features/coaching
     BoostingHeaderComponent,
     CoachingHeaderComponent,
     CoachingServicesComponent,
-    CoachingFeaturesComponent
+    CoachingFeaturesComponent,
+    LeagueHeaderComponent,
+    LeagueServicesComponent,
+    LeagueFeaturesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
