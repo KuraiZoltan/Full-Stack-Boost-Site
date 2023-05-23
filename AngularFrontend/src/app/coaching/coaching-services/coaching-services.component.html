@@ -1,0 +1,63 @@
+<section class="page-section" id="services">
+  <div class="container">
+    <div class="block-container">
+      <div>
+        <div class="coaching-component row">
+          <div class="col">
+            <div class="coaching-details">
+              <h3>Whad do you have to know about coaching?</h3>
+              How Does League of Legends Coaching Help? League Coaching helps you by letting a highly skilled player give you his insight and advice on how to improve. Also it lets you understand your mistakes and fix them accordingly. This is how players improve and climb faster when they get coached.
+            </div>
+            <div class="input-details">
+              <div *ngIf="incorrectData" class="alert alert-danger">Invalid Data!</div>
+              <div *ngIf="incorrectOption" class="alert alert-danger">Option can't be selected!</div>
+              <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <p>The lane you play:</p>
+                <select class="form-select" (change)="saveLane($event)">
+                  <option value="0">Nothing selected</option>
+                  <option *ngFor="let lane of laneOptions">{{ lane }}</option>
+                </select>
+                <table>
+                  <tr>
+                    <td>Your rank:</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <select class="form-select" (change)="saveRank($event)">
+                        <option value="0">Nothing selected</option>
+                        <option *ngFor="let rank of rankOptions">{{ rank }}</option>
+                      </select>
+                    </td>
+                    <td>
+                      <select class="form-select" (change)="saveRankLevel($event)">
+                        <option value="0">Nothing selected</option>
+                        <option *ngFor="let rankLevel of rankLevelOptions">{{ rankLevel }}</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Your current Lp:
+                      <select class="form-select" (change)="saveLpRange($event)">
+                        <option value="0">Nothing selected</option>
+                        <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+                <p>How many sessions do you want to reserve?</p>
+                <select class="form-select" (change)="saveSessionCount($event)">
+                  <option value="0">Nothing selected</option>
+                  <option *ngFor="let sessionOption of sessionOptions">{{ sessionOption }} hour</option>
+                </select>
+                <button type="submit" class="btn btn-light">Submit</button>
+              </form>
+            </div>
+          </div>
+          <div class="coaching-details col">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
