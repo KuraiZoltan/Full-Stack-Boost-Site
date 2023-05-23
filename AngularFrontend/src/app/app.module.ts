@@ -18,6 +18,12 @@ import { AuthGuard } from './guards/auth-guard.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CoachingComponent } from './coaching/coaching.component';
 import { BoostingComponent } from './boosting/boosting.component';
+import { HeaderComponent } from './main-page/header/header.component';
+import { ServicesComponent } from './main-page/services/services.component';
+import { AboutComponent } from './main-page/about/about.component';
+import { TeamComponent } from './main-page/team/team.component';
+import { ContactComponent } from './main-page/contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,13 @@ import { BoostingComponent } from './boosting/boosting.component';
     PrivacyComponent,
     UserProfileComponent,
     CoachingComponent,
-    BoostingComponent
+    BoostingComponent,
+    HeaderComponent,
+    ServicesComponent,
+    AboutComponent,
+    TeamComponent,
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
