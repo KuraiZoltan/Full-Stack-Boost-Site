@@ -32,6 +32,9 @@ import { CoachingFeaturesComponent } from './coaching/coaching-features/coaching
 import { LeagueHeaderComponent } from './league-page/league-header/league-header.component';
 import { LeagueServicesComponent } from './league-page/league-services/league-services.component';
 import { LeagueFeaturesComponent } from './league-page/league-features/league-features.component';
+import { ValorantFeaturesComponent } from './valorant-page/valorant-features/valorant-features.component';
+import { ValorantHeaderComponent } from './valorant-page/valorant-header/valorant-header.component';
+import { ValorantServicesComponent } from './valorant-page/valorant-services/valorant-services.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,10 @@ import { LeagueFeaturesComponent } from './league-page/league-features/league-fe
     CoachingFeaturesComponent,
     LeagueHeaderComponent,
     LeagueServicesComponent,
-    LeagueFeaturesComponent
+    LeagueFeaturesComponent,
+    ValorantFeaturesComponent,
+    ValorantHeaderComponent,
+    ValorantServicesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
