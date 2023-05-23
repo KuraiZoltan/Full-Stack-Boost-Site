@@ -26,6 +26,9 @@ import { ContactComponent } from './main-page/contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { BoostingFeaturesComponent } from './boosting/boosting-features/boosting-features.component';
 import { BoostingHeaderComponent } from './boosting/boosting-header/boosting-header.component';
+import { CoachingHeaderComponent } from './coaching/coaching-header/coaching-header.component';
+import { CoachingServicesComponent } from './coaching/coaching-services/coaching-services.component';
+import { CoachingFeaturesComponent } from './coaching/coaching-features/coaching-features.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { BoostingHeaderComponent } from './boosting/boosting-header/boosting-hea
     ContactComponent,
     FooterComponent,
     BoostingFeaturesComponent,
-    BoostingHeaderComponent
+    BoostingHeaderComponent,
+    CoachingHeaderComponent,
+    CoachingServicesComponent,
+    CoachingFeaturesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
