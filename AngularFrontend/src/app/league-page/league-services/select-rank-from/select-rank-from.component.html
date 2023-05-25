@@ -1,0 +1,11 @@
+<div>
+  <h2 class="rank-form-title">Select your current rank here!</h2>
+  <button *ngFor="let rank of ranks" (click)="saveCurrentRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
+  <div>
+    <button class="rank-level-btn" *ngFor="let level of rankLevels" (click)="saveCurrentRankLevel(level)">{{ level }}</button>
+  </div>
+  <select class="form-select" (change)="saveLpRange($event)">
+    <option value="0">Nothing selected</option>
+    <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
+  </select>
+</div>
