@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./valorant-services.component.css']
 })
 export class ValorantServicesComponent {
-  public rrRangeOptions = ["0-20", "21-40", "41-60", "61-80", "81-100"]
   public order: Order = {
     UserId: 0,
     Username: "",
@@ -42,95 +41,6 @@ export class ValorantServicesComponent {
     DiscordName: "",
     UserId: 0,
     Username: null
-  }
-
-
-  constructor(private http: HttpClient) {
-
-  }
-
-  ngOnInit() {
-    if (sessionStorage.getItem("username")) {
-      this.isUserLoggedIn = true
-      this.getUserDetails()
-      this.order.DiscordName = this.loggedInUser.DiscordName
-      this.order.Email = this.loggedInUser.Email
-      this.order.UserId = this.loggedInUser.UserId
-      this.order.Username = this.loggedInUser.Username
-    }
-  }
-
-  getUserDetails() {
-    this.loggedInUser.DiscordName = sessionStorage.getItem("discord_name")
-    this.loggedInUser.Email = sessionStorage.getItem("email")
-    this.loggedInUser.UserId = parseInt(sessionStorage.getItem("user_id") as string)
-    this.loggedInUser.Username = sessionStorage.getItem("username")
-  }
-
-  submitDetails(ngForm: any) {
-    let user = ngForm.form.controls
-    this.order.DiscordName = user.DiscordName.value
-    this.order.Email = user.Email.value
-    console.log(this.order)
-  }
-
-  saveCurrentRank(CurrentRank: any) {
-    this.order.CurrentRank = CurrentRank
-    console.log(this.order)
-  }
-
-  saveCurrentRankLevel(level: any) {
-
-    this.order.CurrentRankLevel = level
-    console.log(this.order)
-  }
-
-  saveRrRange(event: any) {
-    if (event.currentTarget.value === 0) {
-      alert("Please select a valid option!")
-    } else {
-      this.order.CurrentRankPoints = event.currentTarget.value
-    }
-  }
-
-  saveDesiredRank(OrderedRank: any) {
-    this.order.OrderedRank = OrderedRank
-    console.log(this.order)
-  }
-
-  saveDesiredRankLevel(level: any) {
-    this.order.OrderedRankLevel = level
-    console.log(this.order)
-  }
-
-  saveRegion(event: any) {
-    this.order.SelectedRegion = event.currentTarget.value
-    console.log(this.order)
-  }
-
-  sendOrder() {
-    if (this.verifyOrder()) {
-      this.isOrderCorrect = true
-      this.wrongData = false
-      let payload = this.order
-      const headers = {
-        'Content-Type': 'application/json',
-      }
-      const body = JSON.stringify(payload)
-      this.http.post("https://localhost:7196/Email/sendEmail", body, { 'headers': headers, withCredentials: true }).subscribe(r => { console.log(r) })
-    } else {
-      this.wrongData = true
-    }
-  }
-
-  verifyOrder() {
-    if (this.order.CurrentRank && this.order.CurrentRankLevel && this.order.CurrentRankPoints && this.order.SelectedRegion &&
-      this.order.OrderedRank && this.order.OrderedRankLevel &&
-      this.order.Email && this.order.DiscordName
-    ) {
-      return true
-    }
-    return false
   }
 }
 
