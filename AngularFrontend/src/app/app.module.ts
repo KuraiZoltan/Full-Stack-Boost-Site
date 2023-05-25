@@ -38,6 +38,9 @@ import { ValorantServicesComponent } from './valorant-page/valorant-services/val
 import { SelectRankFromComponent } from './league-page/league-services/select-rank-from/select-rank-from.component';
 import { SelectRankToComponent } from './league-page/league-services/select-rank-to/select-rank-to.component';
 import { ConfirmOrderComponent } from './league-page/league-services/confirm-order/confirm-order.component';
+import { ValorantSelectRankToComponent } from './valorant-page/valorant-services/valorant-select-rank-to/valorant-select-rank-to.component';
+import { ValorantSelectRankFromComponent } from './valorant-page/valorant-services/valorant-select-rank-from/valorant-select-rank-from.component';
+import { ValorantConfirmOrderComponent } from './valorant-page/valorant-services/valorant-confirm-order/valorant-confirm-order.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +75,10 @@ import { ConfirmOrderComponent } from './league-page/league-services/confirm-ord
     ValorantServicesComponent,
     SelectRankFromComponent,
     SelectRankToComponent,
-    ConfirmOrderComponent
+    ConfirmOrderComponent,
+    ValorantSelectRankToComponent,
+    ValorantSelectRankFromComponent,
+    ValorantConfirmOrderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
