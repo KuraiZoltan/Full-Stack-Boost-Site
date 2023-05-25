@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-valorant-confirm-order',
   templateUrl: './valorant-confirm-order.component.html',
   styleUrls: ['../valorant-services.component.css']
 })
-export class ValorantConfirmOrderComponent {
+export class ValorantConfirmOrderComponent implements OnInit {
   @Input() order!: Order
 
   public isOrderCorrect: boolean | undefined;
