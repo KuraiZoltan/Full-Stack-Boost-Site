@@ -1,0 +1,5 @@
+<p>How many sessions do you want to reserve?</p>
+<select class="form-select" (change)="saveSessionCount($event)">
+  <option value="0">Nothing selected</option>
+  <option *ngFor="let sessionOption of sessionOptions">{{ sessionOption }} hour</option>
+</select>
