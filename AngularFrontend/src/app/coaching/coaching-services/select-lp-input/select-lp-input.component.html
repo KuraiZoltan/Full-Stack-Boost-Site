@@ -1,0 +1,5 @@
+Your current Lp:
+<select class="form-select" (change)="saveLpRange($event)">
+  <option value="0">Nothing selected</option>
+  <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
+</select>
