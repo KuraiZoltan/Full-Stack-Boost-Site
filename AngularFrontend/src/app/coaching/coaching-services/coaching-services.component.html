@@ -11,45 +11,27 @@
             <div class="input-details">
               <div *ngIf="incorrectData" class="alert alert-danger">Invalid Data!</div>
               <div *ngIf="incorrectOption" class="alert alert-danger">Option can't be selected!</div>
-              <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-                <p>The lane you play:</p>
-                <select class="form-select" (change)="saveLane($event)">
-                  <option value="0">Nothing selected</option>
-                  <option *ngFor="let lane of laneOptions">{{ lane }}</option>
-                </select>
+              <form (ngSubmit)="onSubmit()">
+                <app-select-lane-input [order]="order" [incorrectOption]="incorrectOption"></app-select-lane-input>
                 <table>
                   <tr>
                     <td>Your rank:</td>
                   </tr>
                   <tr>
                     <td>
-                      <select class="form-select" (change)="saveRank($event)">
-                        <option value="0">Nothing selected</option>
-                        <option *ngFor="let rank of rankOptions">{{ rank }}</option>
-                      </select>
+                      <app-select-rank-input [rank]="rank"></app-select-rank-input>
                     </td>
                     <td>
-                      <select class="form-select" (change)="saveRankLevel($event)">
-                        <option value="0">Nothing selected</option>
-                        <option *ngFor="let rankLevel of rankLevelOptions">{{ rankLevel }}</option>
-                      </select>
+                      <app-select-rank-level-input [rank]="rank"></app-select-rank-level-input>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      Your current Lp:
-                      <select class="form-select" (change)="saveLpRange($event)">
-                        <option value="0">Nothing selected</option>
-                        <option *ngFor="let lpRange of lpRangeOptions">{{ lpRange }} lp</option>
-                      </select>
+                      <app-select-lp-input [rank]="rank"></app-select-lp-input>
                     </td>
                   </tr>
                 </table>
-                <p>How many sessions do you want to reserve?</p>
-                <select class="form-select" (change)="saveSessionCount($event)">
-                  <option value="0">Nothing selected</option>
-                  <option *ngFor="let sessionOption of sessionOptions">{{ sessionOption }} hour</option>
-                </select>
+                <app-select-session-count-input [order]="order"></app-select-session-count-input>
                 <button type="submit" class="btn btn-light">Submit</button>
               </form>
             </div>
