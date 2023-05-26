@@ -1,0 +1,5 @@
+<p>The lane you play:</p>
+<select class="form-select" (change)="saveLane($event)">
+  <option value="0">Nothing selected</option>
+  <option *ngFor="let lane of laneOptions">{{ lane }}</option>
+</select>
