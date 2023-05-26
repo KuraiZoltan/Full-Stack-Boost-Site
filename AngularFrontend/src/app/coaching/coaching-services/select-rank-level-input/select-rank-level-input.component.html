@@ -1,0 +1,4 @@
+<select class="form-select" (change)="saveRankLevel($event)">
+  <option value="0">Nothing selected</option>
+  <option *ngFor="let rankLevel of rankLevelOptions">{{ rankLevel }}</option>
+</select>
