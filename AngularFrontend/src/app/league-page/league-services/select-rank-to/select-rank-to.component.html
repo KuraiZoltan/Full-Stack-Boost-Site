@@ -1,24 +1,22 @@
+<h2 class="rank-form-title">Select your desired rank here!</h2>
+<button *ngFor="let rank of ranks" (click)="saveDesiredRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
 <div>
-  <h2 class="rank-form-title">Select your desired rank here!</h2>
-  <button *ngFor="let rank of ranks" (click)="saveDesiredRank(rank.name)" class="league-rank-button"><img src="{{rank.image}}"></button>
-  <div>
-    <button class="rank-level-btn" *ngFor="let level of rankLevels" (click)="saveDesiredRankLevel(level)">{{ level }}</button>
-    <div class="region-select">
-      <select class="form-select select-field" (change)="saveRegion($event)">
-        <option value="0">Nothing selected</option>
-        <option value="Europe West">Europe West</option>
-        <option value="Europe Nordic & East">Europe Nordic & East</option>
-      </select>
-      <div>
-        <label>
-          <h5>Solo/Duo</h5>
-          <input type="radio" />
-        </label>
-        <label>
-          <h5>Flex</h5>
-          <input type="radio" />
-        </label>
-      </div>
+  <button class="rank-level-btn" *ngFor="let level of rankLevels" (click)="saveDesiredRankLevel(level)">{{ level }}</button>
+  <div class="region-select">
+    <select class="form-select select-field" (change)="saveRegion($event)">
+      <option value="0">Nothing selected</option>
+      <option value="Europe West">Europe West</option>
+      <option value="Europe Nordic & East">Europe Nordic & East</option>
+    </select>
+    <div>
+      <label>
+        <h5>Solo/Duo</h5>
+        <input type="radio" />
+      </label>
+      <label>
+        <h5>Flex</h5>
+        <input type="radio" />
+      </label>
     </div>
   </div>
 </div>
