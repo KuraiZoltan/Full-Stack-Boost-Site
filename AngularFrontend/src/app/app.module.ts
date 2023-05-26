@@ -41,6 +41,11 @@ import { ConfirmOrderComponent } from './league-page/league-services/confirm-ord
 import { ValorantSelectRankToComponent } from './valorant-page/valorant-services/valorant-select-rank-to/valorant-select-rank-to.component';
 import { ValorantSelectRankFromComponent } from './valorant-page/valorant-services/valorant-select-rank-from/valorant-select-rank-from.component';
 import { ValorantConfirmOrderComponent } from './valorant-page/valorant-services/valorant-confirm-order/valorant-confirm-order.component';
+import { SelectRankInputComponent } from './coaching/coaching-services/select-rank-input/select-rank-input.component';
+import { SelectLaneInputComponent } from './coaching/coaching-services/select-lane-input/select-lane-input.component';
+import { SelectRankLevelInputComponent } from './coaching/coaching-services/select-rank-level-input/select-rank-level-input.component';
+import { SelectLpInputComponent } from './coaching/coaching-services/select-lp-input/select-lp-input.component';
+import { SelectSessionCountInputComponent } from './coaching/coaching-services/select-session-count-input/select-session-count-input.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +83,12 @@ import { ValorantConfirmOrderComponent } from './valorant-page/valorant-services
     ConfirmOrderComponent,
     ValorantSelectRankToComponent,
     ValorantSelectRankFromComponent,
-    ValorantConfirmOrderComponent
+    ValorantConfirmOrderComponent,
+    SelectRankInputComponent,
+    SelectLaneInputComponent,
+    SelectRankLevelInputComponent,
+    SelectLpInputComponent,
+    SelectSessionCountInputComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
