@@ -47,6 +47,7 @@ import { SelectRankLevelInputComponent } from './coaching/coaching-services/sele
 import { SelectLpInputComponent } from './coaching/coaching-services/select-lp-input/select-lp-input.component';
 import { SelectSessionCountInputComponent } from './coaching/coaching-services/select-session-count-input/select-session-count-input.component';
 import { LoginComponent } from './login-page/login/login.component';
+import { RegistrationComponent } from './registration-page/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { LoginComponent } from './login-page/login/login.component';
     SelectRankLevelInputComponent,
     SelectLpInputComponent,
     SelectSessionCountInputComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
