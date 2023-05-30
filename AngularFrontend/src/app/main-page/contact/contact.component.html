@@ -4,27 +4,27 @@
       <h2 class="section-heading text-uppercase">Contact Us</h2>
       <h3 class="section-subheading text-muted">You can leave a feedback or review here.</h3>
     </div>
-    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+    <form #userDetails="ngForm" (ngSubmit)="submitMessage(userDetails)" id="contactForm" >
       <div class="row align-items-stretch mb-5">
         <div class="col-md-6">
           <div class="form-group">
-            <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+            <input class="form-control" id="name" name="name" type="text" placeholder="Your Name *" ngModel required />
+            <div class="invalid-feedback">A name is required.</div>
           </div>
           <div class="form-group">
-            <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+            <input class="form-control" id="email" name="email" type="email" placeholder="Your Email *" ngModel required />
+            <div class="invalid-feedback">An email is required.</div>
+            <div class="invalid-feedback">Email is not valid.</div>
           </div>
           <div class="form-group mb-md-0">
-            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+            <input class="form-control" id="phone" name="discord" type="tel" placeholder="Your Discord *" ngModel required />
+            <div class="invalid-feedback">Discord name is required.</div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group form-group-textarea mb-md-0">
-            <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+            <textarea class="form-control" id="message" name="message" placeholder="Your Message *" ngModel required ></textarea>
+            <div class="invalid-feedback">A message is required.</div>
           </div>
         </div>
       </div>
