@@ -8,7 +8,7 @@ import { LoginComponent } from '../../login-page/login/login.component';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
-  constructor(private http: HttpClient, private loginComponent: LoginComponent) { }
+  constructor(private http: HttpClient) { }
 
   submit(userForm: any) {
     let payload: User = {
