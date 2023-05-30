@@ -13,10 +13,10 @@ export class NavMenuComponent implements OnInit {
   isExpanded = false;
   userLoggedIn: boolean | undefined;
 
-  constructor(private router: Router, private guard: AuthGuard, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
-    if (this.guard.canActivate()) {
+    if (sessionStorage.getItem("username")) {
       this.userLoggedIn = true
     }
   }
