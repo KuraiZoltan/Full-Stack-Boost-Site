@@ -108,7 +108,7 @@ import { RegistrationComponent } from './registration-page/registration/registra
       { path: 'privacy-policy', component: PrivacyComponent },
       { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard] },
       { path: 'coaching', component: CoachingComponent, canActivate: [AuthGuard] },
-      { path: 'boosting', component: BoostingComponent },
+      { path: 'boosting', component: BoostingComponent, canActivate: [AuthGuard] },
     ]),
     NgbModule
   ],
