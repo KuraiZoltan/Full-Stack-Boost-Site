@@ -1,6 +1,7 @@
 ﻿using EmailSender.Models;
 using MailKit.Net.Smtp;
 using MimeKit;
+using Org.BouncyCastle.Crypto.Macs;
 
 namespace EmailSender.Services
 {
@@ -46,6 +47,29 @@ namespace EmailSender.Services
                 $"<p><b>Current rank:</b> {orderDetails.Rank}</p> " +
                 $"<p><b>Reserved sessions:</b> {orderDetails.SessionCount}</p>" +
                 "<h2>Thank You for your order, FB will contact you soon!</h2>"
+            };
+
+            using var smtp = new SmtpClient();
+            smtp.Connect("smtp.gmail.com", 465, MailKit.Security.SecureSocketOptions.SslOnConnect);
+            smtp.Authenticate("fakebboost@gmail.com", "gconlzshnpusjupa");
+            smtp.Send(email);
+            smtp.Disconnect(true);
+        }
+
+        internal void SendMessageEmail(Message message)
+        {
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("fakebboost@gmail.com"));
+            email.To.Add(MailboxAddress.Parse("fakebboost@gmail.com"));
+            email.Subject = "FB Order Confirmation";
+            email.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            {
+                Text =
+                $"<h1>FB Contact Message</h1> "+
+                $"<h1>Name</h1> {message.Name}" +
+                $"<h1>Discord</h1> {message.Discord}" +
+                $"<h1>Email</h1>  {message.Email}" +
+                $"<h1>Message</h1>  {message.MessageText}" 
             };
 
             using var smtp = new SmtpClient();
