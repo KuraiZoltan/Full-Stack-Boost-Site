@@ -36,5 +36,13 @@ namespace EmailSender.Controllers
             _emailService.SendCoachingEmail(orderDetails);
             return Ok();
         }
+
+        [HttpPost]
+        [Route("message")]
+        public IActionResult Message([FromBody] Message message)
+        {
+            _emailService.SendMessageEmail(message);
+            return Ok();
+        }
     }
 }
