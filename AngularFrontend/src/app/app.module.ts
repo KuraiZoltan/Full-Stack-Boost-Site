@@ -46,6 +46,7 @@ import { SelectLaneInputComponent } from './coaching/coaching-services/select-la
 import { SelectRankLevelInputComponent } from './coaching/coaching-services/select-rank-level-input/select-rank-level-input.component';
 import { SelectLpInputComponent } from './coaching/coaching-services/select-lp-input/select-lp-input.component';
 import { SelectSessionCountInputComponent } from './coaching/coaching-services/select-session-count-input/select-session-count-input.component';
+import { LoginComponent } from './login-page/login/login.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { SelectSessionCountInputComponent } from './coaching/coaching-services/s
     SelectLaneInputComponent,
     SelectRankLevelInputComponent,
     SelectLpInputComponent,
-    SelectSessionCountInputComponent
+    SelectSessionCountInputComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
