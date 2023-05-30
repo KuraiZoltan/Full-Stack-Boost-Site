@@ -28,7 +28,7 @@ export class LoginComponent {
         sessionStorage.setItem("role", token.role)
         sessionStorage.setItem("username", token.username)
         this.invalidLogin = false
-        window.location.href = "/"
+        window.location.href = "/boosting"
       }, err => {
         this.invalidLogin = true
       })
