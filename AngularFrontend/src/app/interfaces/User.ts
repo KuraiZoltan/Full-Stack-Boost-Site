@@ -1,7 +1,7 @@
 export interface User {
-  DiscordName: string | null;
-  Email: string | null;
-  UserId: number
-  Username: string | null;
-  Role: string | null
+  discordName: string | null;
+  email: string | null;
+  userId: number
+  username: string | null;
+  role: string | null
 }
