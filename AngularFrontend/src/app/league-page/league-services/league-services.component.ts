@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Order } from '../../interfaces/Order';
+import { Rank } from '../../interfaces/Rank';
 
 @Component({
   selector: 'app-league-services',
@@ -8,18 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeagueServicesComponent {
   public order: Order = {
-    UserId: 0,
-    Username: "",
-    CurrentRank: "",
-    CurrentRankLevel: "",
-    CurrentRankPoints: "",
-    OrderedRank: "",
-    OrderedRankLevel: "",
-    SelectedRegion: "",
-    DiscordName: "",
-    Email: "",
-    GameName: "League of Legends",
-    Status: "Processing",
+      userId: 0,
+      username: "",
+      currentRank: "",
+      currentRankLevel: "",
+      currentRankPoints: "",
+      orderedRank: "",
+      orderedRankLevel: "",
+      selectedRegion: "",
+      discordName: "",
+      email: "",
+      gameName: "League of Legends",
+      status: "Processing",
+      id: 0
   };
   public ranks: Rank[] = [
     { name: "Iron", image: "https://boostroyal.no/assets/images/divisions/lol/iron.png" },
@@ -33,27 +35,4 @@ export class LeagueServicesComponent {
   public rankOptions: string[] = ['Solo/Duo', 'Flex']
 
   public rankLevels: string[] = ['I', 'II', 'III', 'IV']
-  
 }
-
-interface Order {
-  Username: string | null;
-  UserId: number
-  CurrentRank: string | null;
-  CurrentRankLevel: string | null;
-  CurrentRankPoints: string | null;
-  OrderedRank: string | null;
-  OrderedRankLevel: string | null;
-  SelectedRegion: string | null;
-  DiscordName: string | null;
-  Email: string | null;
-  GameName: string | null;
-  Status: string | null
-}
-
-interface Rank {
-  name: string;
-  image: string
-}
-
-

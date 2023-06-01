@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { Order } from '../../../interfaces/Order';
 
 @Component({
   selector: 'app-valorant-confirm-order',
@@ -23,10 +24,10 @@ export class ValorantConfirmOrderComponent implements OnInit {
     if (sessionStorage.getItem("username")) {
       this.isUserLoggedIn = true
       this.getUserDetails()
-      this.order.DiscordName = this.loggedInUser.DiscordName
-      this.order.Email = this.loggedInUser.Email
-      this.order.UserId = this.loggedInUser.UserId
-      this.order.Username = this.loggedInUser.Username
+      this.order.discordName = this.loggedInUser.DiscordName as string
+      this.order.email = this.loggedInUser.Email as string
+      this.order.userId = this.loggedInUser.UserId
+      this.order.username = this.loggedInUser.Username as string
     }
   }
 
@@ -39,8 +40,8 @@ export class ValorantConfirmOrderComponent implements OnInit {
 
   submitDetails(ngForm: any) {
     let user = ngForm.form.controls
-    this.order.DiscordName = user.DiscordName.value
-    this.order.Email = user.Email.value
+    this.order.discordName = user.DiscordName.value
+    this.order.email = user.Email.value
     console.log(this.order)
   }
 
@@ -63,29 +64,14 @@ export class ValorantConfirmOrderComponent implements OnInit {
   }
 
   verifyOrder() {
-    if (this.order.CurrentRank && this.order.CurrentRankLevel && this.order.CurrentRankPoints && this.order.SelectedRegion &&
-      this.order.OrderedRank && this.order.OrderedRankLevel &&
-      this.order.Email && this.order.DiscordName
+    if (this.order.currentRank && this.order.currentRankLevel && this.order.currentRankPoints && this.order.selectedRegion &&
+      this.order.orderedRank && this.order.orderedRankLevel &&
+      this.order.email && this.order.discordName
     ) {
       return true
     }
     return false
   }
-}
-
-interface Order {
-  UserId: number;
-  Username: string | null;
-  CurrentRank: string | null;
-  CurrentRankLevel: string | null;
-  CurrentRankPoints: string | null;
-  OrderedRank: string | null;
-  OrderedRankLevel: string | null;
-  SelectedRegion: string | null;
-  DiscordName: string | null;
-  Email: string | null;
-  GameName: string | null;
-  Status: string | null;
 }
 
 interface User {

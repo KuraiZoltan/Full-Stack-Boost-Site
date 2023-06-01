@@ -13,7 +13,7 @@ export class UserOrderCardComponent {
 
   constructor(private http: HttpClient, userProfile: UserProfileComponent) {
     const headers = { 'Content-Type': 'application/json' }
-    this.http.get<Order[]>(`https://localhost:7196/Order/getOrders/${userProfile.loggedInUser.UserId}`, { 'headers': headers, withCredentials: true }).subscribe(result => {
+    this.http.get<Order[]>(`https://localhost:7196/Order/getOrders/${userProfile.loggedInUser.userId}`, { 'headers': headers, withCredentials: true }).subscribe(result => {
       var ordersObject = result;
       for (let i = 0; i < ordersObject.length; i++) {
         this.orders.push(ordersObject[i])

@@ -10,11 +10,11 @@ import { Order } from '../interfaces/Order'
 export class UserProfileComponent implements OnInit {
   public orders: Order[] = [];
   public loggedInUser: User = {
-    Email: "",
-    DiscordName: "",
-    UserId: 0,
-    Username: null,
-    Role: null
+    email: "",
+    discordName: "",
+    userId: 0,
+    username: null,
+    role: null
   }
   
   public adminUser: boolean | undefined
@@ -27,15 +27,15 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUserDetails() {
-    this.loggedInUser.DiscordName = sessionStorage.getItem("discord_name")
-    this.loggedInUser.Email = sessionStorage.getItem("email")
-    this.loggedInUser.UserId = parseInt(sessionStorage.getItem("user_id") as string)
-    this.loggedInUser.Username = sessionStorage.getItem("username")
-    this.loggedInUser.Role = sessionStorage.getItem("role")
+    this.loggedInUser.discordName = sessionStorage.getItem("discord_name")
+    this.loggedInUser.email = sessionStorage.getItem("email")
+    this.loggedInUser.userId = parseInt(sessionStorage.getItem("user_id") as string)
+    this.loggedInUser.username = sessionStorage.getItem("username")
+    this.loggedInUser.role = sessionStorage.getItem("role")
   }
 
   isAdminUser() {
-    if (this.loggedInUser.Role === "Admin") {
+    if (this.loggedInUser.role === "Admin") {
       this.adminUser = true
     } else {
       this.adminUser = false

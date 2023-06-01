@@ -9,22 +9,22 @@
 </div>
 <div *ngIf="isOrderCorrect" class="summary-component">
   <h3>Order sent</h3>
-  <p>Discord Name: {{ order.DiscordName }}</p>
-  <p>Contact Email: {{ order.Email }}</p>
-  <p>Current Rank: {{ order.CurrentRank }} {{ order.CurrentRankLevel }}, {{ order.CurrentRankPoints }} LP</p>
-  <p>Desired Rank: {{ order.OrderedRank }} {{ order.OrderedRankLevel }}</p>
-  <p>Region: {{ order.SelectedRegion }}</p>
+  <p>Discord Name: {{ order.discordName }}</p>
+  <p>Contact Email: {{ order.email }}</p>
+  <p>Current Rank: {{ order.currentRank }} {{ order.currentRankLevel }}, {{ order.currentRankPoints }} LP</p>
+  <p>Desired Rank: {{ order.orderedRank }} {{ order.orderedRankLevel }}</p>
+  <p>Region: {{ order.selectedRegion }}</p>
 </div>
 <div *ngIf="wrongData" class="alert alert-danger">
   <p>Missing or wrong data!</p>
 </div>
 <div *ngIf="wrongData" class="summary-component">
-  <p *ngIf="!order.DiscordName">Discord Name</p>
-  <p *ngIf="!order.Email">Email</p>
-  <p *ngIf="!order.CurrentRank">Current Rank</p>
-  <p *ngIf="!order.OrderedRank">Desired Rank</p>
-  <p *ngIf="!order.SelectedRegion">Region</p>
-  <p *ngIf="!order.CurrentRankLevel">Rank level</p>
-  <p *ngIf="!order.CurrentRankPoints">Current LP</p>
-  <p *ngIf="!order.OrderedRankLevel">Desired Rank Level</p>
+  <p *ngIf="!order.discordName">Discord Name</p>
+  <p *ngIf="!order.email">Email</p>
+  <p *ngIf="!order.currentRank">Current Rank</p>
+  <p *ngIf="!order.orderedRank">Desired Rank</p>
+  <p *ngIf="!order.selectedRegion">Region</p>
+  <p *ngIf="!order.currentRankLevel">Rank level</p>
+  <p *ngIf="!order.currentRankPoints">Current LP</p>
+  <p *ngIf="!order.orderedRankLevel">Desired Rank Level</p>
 </div>

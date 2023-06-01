@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Order } from '../../interfaces/Order';
+import { User } from '../../interfaces/User';
+import { Rank } from '../../interfaces/Rank';
 
 @Component({
   selector: 'app-valorant-services',
@@ -8,18 +10,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ValorantServicesComponent {
   public order: Order = {
-    UserId: 0,
-    Username: "",
-    CurrentRank: "",
-    CurrentRankLevel: "",
-    CurrentRankPoints: "",
-    OrderedRank: "",
-    OrderedRankLevel: "",
-    SelectedRegion: "",
-    DiscordName: "",
-    Email: "",
-    GameName: "Valorant",
-    Status: "Processing"
+      userId: 0,
+      username: "",
+      currentRank: "",
+      currentRankLevel: "",
+      currentRankPoints: "",
+      orderedRank: "",
+      orderedRankLevel: "",
+      selectedRegion: "",
+      discordName: "",
+      email: "",
+      gameName: "Valorant",
+      status: "Processing",
+      id: 0
   };
   public ranks: Rank[] = [
     { name: "Iron", image: "https://boostroyal.com/assets/images/divisions/valorant/ironiii.png" },
@@ -37,36 +40,10 @@ export class ValorantServicesComponent {
   public isOrderCorrect: boolean | undefined;
   public wrongData: boolean | undefined;
   public loggedInUser: User = {
-    Email: "",
-    DiscordName: "",
-    UserId: 0,
-    Username: null
+      email: "",
+      discordName: "",
+      userId: 0,
+      username: null,
+      role: null
   }
-}
-
-interface Rank {
-  name: string;
-  image: string
-}
-
-interface Order {
-  UserId: number;
-  Username: string | null;
-  CurrentRank: string | null;
-  CurrentRankLevel: string | null;
-  CurrentRankPoints: string | null;
-  OrderedRank: string | null;
-  OrderedRankLevel: string | null;
-  SelectedRegion: string | null;
-  DiscordName: string | null;
-  Email: string | null;
-  GameName: string | null;
-  Status: string | null;
-}
-
-interface User {
-  DiscordName: string | null;
-  Email: string | null;
-  UserId: number;
-  Username: string | null;
 }

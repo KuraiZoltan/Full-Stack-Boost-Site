@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Order } from '../../../interfaces/Order';
+import { Rank } from '../../../interfaces/Rank';
 
 @Component({
   selector: 'app-valorant-select-rank-from',
@@ -13,13 +15,13 @@ export class ValorantSelectRankFromComponent {
   public rrRangeOptions = ["0-20", "21-40", "41-60", "61-80", "81-100"]
 
   saveCurrentRank(CurrentRank: any) {
-    this.order.CurrentRank = CurrentRank
+    this.order.currentRank = CurrentRank
     console.log(this.order)
   }
 
   saveCurrentRankLevel(level: any) {
 
-    this.order.CurrentRankLevel = level
+    this.order.currentRankLevel = level
     console.log(this.order)
   }
 
@@ -27,27 +29,7 @@ export class ValorantSelectRankFromComponent {
     if (event.currentTarget.value === 0) {
       alert("Please select a valid option!")
     } else {
-      this.order.CurrentRankPoints = event.currentTarget.value
+      this.order.currentRankPoints = event.currentTarget.value
     }
   }
-}
-
-interface Rank {
-  name: string;
-  image: string
-}
-
-interface Order {
-  UserId: number;
-  Username: string | null;
-  CurrentRank: string | null;
-  CurrentRankLevel: string | null;
-  CurrentRankPoints: string | null;
-  OrderedRank: string | null;
-  OrderedRankLevel: string | null;
-  SelectedRegion: string | null;
-  DiscordName: string | null;
-  Email: string | null;
-  GameName: string | null;
-  Status: string | null;
 }
