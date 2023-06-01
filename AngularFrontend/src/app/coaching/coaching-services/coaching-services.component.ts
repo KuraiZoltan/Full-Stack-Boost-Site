@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Rank } from '../../interfaces/CoachingRank';
+import { Order } from '../../interfaces/CoachingOrder';
 
 @Component({
   selector: 'app-coaching-services',
@@ -42,17 +44,4 @@ export class CoachingServicesComponent {
       this.incorrectData = true
     }
   }
-}
-
-interface Order {
-  DiscordName: string;
-  Rank: string;
-  Lane: string;
-  SessionCount: string;
-  Email: any;
-}
-
-interface Rank {
-  Rank: string;
-  Lp: string;
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Rank } from '../../../interfaces/CoachingRank';
 
 @Component({
   selector: 'app-select-rank-input',
@@ -19,9 +20,4 @@ export class SelectRankInputComponent {
       this.rank.Rank = event.currentTarget.value;
     }
   }
-}
-
-interface Rank {
-  Rank: string;
-  Lp: string;
 }

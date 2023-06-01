@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Rank } from '../../../interfaces/CoachingRank';
 
 @Component({
   selector: 'app-select-rank-level-input',
@@ -21,7 +22,3 @@ export class SelectRankLevelInputComponent {
   }
 }
 
-interface Rank {
-  Rank: string;
-  Lp: string;
-}

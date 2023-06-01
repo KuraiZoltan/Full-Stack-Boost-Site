@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Order } from '../../../interfaces/CoachingOrder';
 
 @Component({
   selector: 'app-select-lane-input',
@@ -19,12 +20,4 @@ export class SelectLaneInputComponent {
       this.order.Lane = event.currentTarget.value
     }
   }
-}
-
-interface Order {
-  DiscordName: string;
-  Rank: string;
-  Lane: string;
-  SessionCount: string;
-  Email: any;
 }
