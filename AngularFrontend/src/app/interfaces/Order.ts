@@ -1,13 +1,17 @@
 export interface Order {
   id: number;
-  currentRank: string;
-  currentRankLevel: string;
-  currentRankPoints: string;
-  orderedRank: string;
+  userId: number;
+  username: string; 
+  currentRank: string; 
+  currentRankLevel: string; 
+  currentRankPoints: string; 
+  orderedRank: string; 
   orderedRankLevel: string;
-  gameName: string;
-  username: string;
-  email: string;
   selectedRegion: string;
+  discordName: string;
+  email: string; 
+  gameName: string; 
   status: string;
 }
+
+
