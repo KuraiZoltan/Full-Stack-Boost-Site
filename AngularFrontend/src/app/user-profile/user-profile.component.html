@@ -1,51 +1,11 @@
 <h1>Orders</h1>
 <div class="orders">
   <div *ngIf="adminUser" class="order">
-    <table>
-      <tr>
-        <th>Order Id</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Game</th>
-        <th>Current Rank</th>
-        <th>Desired Rank</th>
-        <th>Region</th>
-        <th>Status</th>
-        <th></th>
-      </tr>
-      <tr *ngFor="let order of orders">
-        <td class="table-data">{{ order.id }}</td>
-        <td class="table-data">{{ order.username }}</td>
-        <td class="table-data">{{ order.email }}</td>
-        <td class="table-data">{{ order.gameName }}</td>
-        <td class="table-data">{{ order.currentRank }} {{ order.currentRankLevel }}, {{ order.currentRankPoints }}</td>
-        <td class="table-data">{{ order.orderedRank }} {{ order.orderedRankLevel }}</td>
-        <td class="table-data">{{ order.selectedRegion }}</td>
-        <td class="table-data">
-          <select (change)="saveStatus($event, order.id)">
-            <option>{{ order.status }}</option>
-            <option *ngIf="order.status !== 'Boosting'">Boosting</option>
-            <option *ngIf="order.status !== 'Processing'">Processing</option>
-            <option *ngIf="order.status !== 'Finished'">Finished</option>
-          </select>
-        </td>
-        <td class="table-data"><button (click)="deleteOrder(order.id)">Delete order</button></td>
-      </tr>
-    </table>
+    <app-admin-order-table [orders]="orders"></app-admin-order-table>
   </div>
   <div *ngIf="!adminUser" class="container">
     <div class="row">
-      <div *ngFor="let order of orders" class="order-card col-sm">
-        <h2>Order Id: {{ order.id }}</h2>
-        <h3>Username: {{ order.username }}</h3>
-        <h3>Email adress: {{ order.email }}</h3>
-        <h3>Game: {{ order.gameName }}</h3>
-        <h3>Region: {{ order.selectedRegion }}</h3>
-        <h3>Current Rank: {{ order.currentRank }} {{ order.currentRankLevel }}, {{ order.currentRankPoints }}</h3>
-        <h3>Ordered Rank: {{ order.orderedRank }} {{ order.orderedRankLevel }}</h3>
-        <h3>Status: {{ order.status }}</h3>
-      </div>
+      <app-user-order-card [orders]="orders"></app-user-order-card>
     </div>
-    
   </div>
 </div>

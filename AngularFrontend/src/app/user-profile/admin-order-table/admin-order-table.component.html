@@ -1,0 +1,31 @@
+<table>
+  <tr>
+    <th>Order Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Game</th>
+    <th>Current Rank</th>
+    <th>Desired Rank</th>
+    <th>Region</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let order of orders">
+    <td class="table-data">{{ order.id }}</td>
+    <td class="table-data">{{ order.username }}</td>
+    <td class="table-data">{{ order.email }}</td>
+    <td class="table-data">{{ order.gameName }}</td>
+    <td class="table-data">{{ order.currentRank }} {{ order.currentRankLevel }}, {{ order.currentRankPoints }}</td>
+    <td class="table-data">{{ order.orderedRank }} {{ order.orderedRankLevel }}</td>
+    <td class="table-data">{{ order.selectedRegion }}</td>
+    <td class="table-data">
+      <select (change)="saveStatus($event, order.id)">
+        <option>{{ order.status }}</option>
+        <option *ngIf="order.status !== 'Boosting'">Boosting</option>
+        <option *ngIf="order.status !== 'Processing'">Processing</option>
+        <option *ngIf="order.status !== 'Finished'">Finished</option>
+      </select>
+    </td>
+    <td class="table-data"><button (click)="deleteOrder(order.id)">Delete order</button></td>
+  </tr>
+</table>

@@ -1,12 +1,13 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from '../interfaces/User'
+import { Order } from '../interfaces/Order'
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css']
 })
-export class UserProfileComponent {
+export class UserProfileComponent implements OnInit {
   public orders: Order[] = [];
   public loggedInUser: User = {
     Email: "",
@@ -15,29 +16,14 @@ export class UserProfileComponent {
     Username: null,
     Role: null
   }
+  
   public adminUser: boolean | undefined
 
-  constructor(private http: HttpClient) {
+  constructor() { }
+
+  ngOnInit() {
     this.getUserDetails()
     this.isAdminUser()
-    if (this.adminUser) {
-      const headers = { 'Content-Type': 'application/json' }
-      this.http.get<Order[]>(`https://localhost:7196/Order/getAllOrders`, { 'headers': headers, withCredentials: true }).subscribe(result => {
-        var ordersObject = result;
-        for (let i = 0; i < ordersObject.length; i++) {
-          this.orders.push(ordersObject[i])
-        }
-      }, error => console.error(error));
-    } else {
-      const headers = { 'Content-Type': 'application/json' }
-      this.http.get<Order[]>(`https://localhost:7196/Order/getOrders/${this.loggedInUser.UserId}`, { 'headers': headers, withCredentials: true }).subscribe(result => {
-        var ordersObject = result;
-        for (let i = 0; i < ordersObject.length; i++) {
-          this.orders.push(ordersObject[i])
-        }
-      }, error => console.error(error));
-    }
-    
   }
 
   getUserDetails() {
@@ -55,48 +41,6 @@ export class UserProfileComponent {
       this.adminUser = false
     }
   }
-
-  saveStatus(event: any, orderId: any) {
-    console.log(event.currentTarget.value, orderId)
-    let payload = {
-      Status: event.currentTarget.value,
-      OrderId: orderId
-    }
-    const headers = {
-      'Content-Type': 'application/json',
-    }
-    this.http.put('https://localhost:7196/Order/changeStatus', payload, { 'headers': headers, withCredentials: true }).subscribe(response => {
-      console.log(response)
-    })
-  }
-
-  deleteOrder(orderId: any) {
-    const headers = { 'Content-Type': 'application/json' }
-    this.http.post('https://localhost:7196/Order/deleteOrder', orderId, { 'headers': headers, withCredentials: true }).subscribe(response => {
-      console.log(response)
-      window.location.reload()
-    })
-  }
 }
 
-interface Order {
-  id: number;
-  currentRank: string;
-  currentRankLevel: string;
-  currentRankPoints: string;
-  orderedRank: string;
-  orderedRankLevel: string;
-  gameName: string;
-  username: string;
-  email: string;
-  selectedRegion: string;
-  status: string;
-}
 
-interface User {
-  DiscordName: string | null;
-  Email: string | null;
-  UserId: number
-  Username: string | null;
-  Role: string | null
-}

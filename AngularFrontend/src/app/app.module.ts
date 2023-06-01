@@ -48,6 +48,8 @@ import { SelectLpInputComponent } from './coaching/coaching-services/select-lp-i
 import { SelectSessionCountInputComponent } from './coaching/coaching-services/select-session-count-input/select-session-count-input.component';
 import { LoginComponent } from './login-page/login/login.component';
 import { RegistrationComponent } from './registration-page/registration/registration.component';
+import { AdminOrderTableComponent } from './user-profile/admin-order-table/admin-order-table.component';
+import { UserOrderCardComponent } from './user-profile/user-order-card/user-order-card.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +94,9 @@ import { RegistrationComponent } from './registration-page/registration/registra
     SelectLpInputComponent,
     SelectSessionCountInputComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AdminOrderTableComponent,
+    UserOrderCardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
