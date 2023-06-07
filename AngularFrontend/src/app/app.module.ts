@@ -50,6 +50,7 @@ import { LoginComponent } from './login-page/login/login.component';
 import { RegistrationComponent } from './registration-page/registration/registration.component';
 import { AdminOrderTableComponent } from './user-profile/admin-order-table/admin-order-table.component';
 import { UserOrderCardComponent } from './user-profile/user-order-card/user-order-card.component';
+import { UserProfileHeaderComponent } from './user-profile/user-profile-header/user-profile-header.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { UserOrderCardComponent } from './user-profile/user-order-card/user-orde
     LoginComponent,
     RegistrationComponent,
     AdminOrderTableComponent,
-    UserOrderCardComponent
+    UserOrderCardComponent,
+    UserProfileHeaderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
