@@ -1,11 +1,9 @@
-<h1>Orders</h1>
+<app-user-profile-header></app-user-profile-header>
 <div class="orders">
   <div *ngIf="adminUser" class="order">
     <app-admin-order-table [orders]="orders"></app-admin-order-table>
   </div>
   <div *ngIf="!adminUser" class="container">
-    <div class="row">
       <app-user-order-card [orders]="orders"></app-user-order-card>
-    </div>
   </div>
 </div>
