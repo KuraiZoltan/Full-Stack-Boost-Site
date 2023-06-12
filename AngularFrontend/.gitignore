@@ -45,3 +45,7 @@ Thumbs.db
 obj/
 AngularFrontend.esproj.user
 *.suo
+nuget.config
+.vscode
+obj/debug
+.sln
