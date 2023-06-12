@@ -14,28 +14,28 @@ export class ValorantConfirmOrderComponent implements OnInit {
   public wrongData: boolean | undefined;
   public isUserLoggedIn: boolean | undefined;
   public loggedInUser: User = {
-    Email: "",
-    DiscordName: "",
-    UserId: 0,
-    Username: null
+    email: "",
+    discordName: "",
+    userId: 0,
+    username: null
   }
 
   ngOnInit() {
     if (sessionStorage.getItem("username")) {
       this.isUserLoggedIn = true
       this.getUserDetails()
-      this.order.discordName = this.loggedInUser.DiscordName as string
-      this.order.email = this.loggedInUser.Email as string
-      this.order.userId = this.loggedInUser.UserId
-      this.order.username = this.loggedInUser.Username as string
+      this.order.discordName = this.loggedInUser.discordName as string
+      this.order.email = this.loggedInUser.email as string
+      this.order.userId = this.loggedInUser.userId
+      this.order.username = this.loggedInUser.username as string
     }
   }
 
   getUserDetails() {
-    this.loggedInUser.DiscordName = sessionStorage.getItem("discord_name")
-    this.loggedInUser.Email = sessionStorage.getItem("email")
-    this.loggedInUser.UserId = parseInt(sessionStorage.getItem("user_id") as string)
-    this.loggedInUser.Username = sessionStorage.getItem("username")
+    this.loggedInUser.discordName = sessionStorage.getItem("discord_name")
+    this.loggedInUser.email = sessionStorage.getItem("email")
+    this.loggedInUser.userId = parseInt(sessionStorage.getItem("user_id") as string)
+    this.loggedInUser.username = sessionStorage.getItem("username")
   }
 
   submitDetails(ngForm: any) {
@@ -75,8 +75,8 @@ export class ValorantConfirmOrderComponent implements OnInit {
 }
 
 interface User {
-  DiscordName: string | null;
-  Email: string | null;
-  UserId: number;
-  Username: string | null;
+  discordName: string | null;
+  email: string | null;
+  userId: number;
+  username: string | null;
 }
