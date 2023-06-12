@@ -26,7 +26,7 @@ export class RegistrationComponent {
   }
 
   checkResponse(result: any) {
-    if (result.statusCode === 200) {
+    if (result === true) {
       window.location.href = '/login'
       alert("Registered successfully")
     } else {
