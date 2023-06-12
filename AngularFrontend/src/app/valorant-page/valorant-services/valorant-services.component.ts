@@ -25,13 +25,13 @@ export class ValorantServicesComponent {
       id: 0
   };
   public ranks: Rank[] = [
-    { name: "Iron", image: "https://boostroyal.com/assets/images/divisions/valorant/ironiii.png" },
-    { name: "Bronze", image: "https://boostroyal.com/assets/images/divisions/valorant/bronzeiii.png" },
-    { name: "Silver", image: "https://boostroyal.com/assets/images/divisions/valorant/silveriii.png" },
-    { name: "Gold", image: "https://boostroyal.com/assets/images/divisions/valorant/goldiii.png" },
-    { name: "Platinum", image: "https://boostroyal.com/assets/images/divisions/valorant/platinumiii.png" },
-    { name: "Diamond", image: "https://boostroyal.com/assets/images/divisions/valorant/diamondiii.png" },
-    { name: "Ascendant", image: "https://boostroyal.com/assets/images/divisions/valorant/ascendantiii.png" },
+    { name: "Iron", image: "https://qwik.boostroyal.com/cdn-cgi/image/width=75,quality=95,format=auto/images/divisions/valorant/ironiii.png" },
+    { name: "Bronze", image: "https://qwik.boostroyal.com/cdn-cgi/image/width=75,quality=95,format=auto/images/divisions/valorant/bronzeiii.png" },
+    { name: "Silver", image: "https://qwik.boostroyal.com/cdn-cgi/image/width=75,quality=95,format=auto/images/divisions/valorant/silveriii.png" },
+    { name: "Gold", image: "https://qwik.boostroyal.com/cdn-cgi/image/width=75,quality=95,format=auto/images/divisions/valorant/goldiii.png" },
+    { name: "Platinum", image: "https://qwik.boostroyal.com/cdn-cgi/image/width=75,quality=95,format=auto/images/divisions/valorant/platinumiii.png" },
+    { name: "Diamond", image: "https://qwik.boostroyal.com/cdn-cgi/image/width=75,quality=95,format=auto/images/divisions/valorant/diamondiii.png" },
+    { name: "Ascendant", image: "https://qwik.boostroyal.com/cdn-cgi/image/width=75,quality=95,format=auto/images/divisions/valorant/ascendantiii.png" },
   ];
   public rankOptions: string[] = ['Solo/Duo', 'Flex']
 

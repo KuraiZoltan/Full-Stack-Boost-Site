@@ -24,13 +24,13 @@ export class LeagueServicesComponent {
       id: 0
   };
   public ranks: Rank[] = [
-    { name: "Iron", image: "https://boostroyal.no/assets/images/divisions/lol/iron.png" },
-    { name: "Bronze", image: "https://boostroyal.no/assets/images/divisions/lol/bronze.png" },
-    { name: "Silver", image: "https://boostroyal.no/assets/images/divisions/lol/silver.png" },
-    { name: "Gold", image: "https://boostroyal.no/assets/images/divisions/lol/gold.png" },
-    { name: "Platinum", image: "https://boostroyal.no/assets/images/divisions/lol/platinum.png" },
-    { name: "Diamond", image: "https://boostroyal.no/assets/images/divisions/lol/diamond.png" },
-    { name: "Master", image: "https://boostroyal.no/assets/images/divisions/lol/master.png" },
+    { name: "Iron", image: "https://odinboost.com/_ipx/f_webp/img/leagues/iron1.png" },
+    { name: "Bronze", image: "https://odinboost.com/_ipx/f_webp/img/leagues/bronze1.png" },
+    { name: "Silver", image: "https://odinboost.com/_ipx/f_webp/img/leagues/silver1.png" },
+    { name: "Gold", image: "https://odinboost.com/_ipx/f_webp/img/leagues/gold1.png" },
+    { name: "Platinum", image: "https://odinboost.com/_ipx/f_webp/img/leagues/platinum1.png" },
+    { name: "Diamond", image: "https://odinboost.com/_ipx/f_webp/img/leagues/diamond1.png" },
+    { name: "Master", image: "https://odinboost.com/_ipx/f_webp/img/leagues/master1.png" },
   ];
   public rankOptions: string[] = ['Solo/Duo', 'Flex']
 
