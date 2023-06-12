@@ -90,6 +90,17 @@
     scroll-behavior: smooth;
   }
 }
+.profile-details {
+  padding: 1rem;
+}
+
+.summary-component p {
+  display: flex;
+}
+
+.summary-component {
+    padding: 2rem;
+}
 
 body {
   margin: 0;
@@ -12413,6 +12424,13 @@ section#contact form#contactForm :-ms-input-placeholder {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: center;
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-content: center;
 }
 
