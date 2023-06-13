@@ -6,12 +6,12 @@
     <form #user="ngForm" (ngSubmit)="submit(user)">
       <div class="form-group">
         <label for="username">Username</label><br />
-        <input type="text" name="username" class="form-control" ngModel required>
+        <input type="text" name="username" class="form-control" placeholder="Username" ngModel required>
       </div>
       <pre></pre>
       <div class="form-group">
         <label for="email">Email</label><br />
-        <input type="email" name="email" class="form-control" ngModel required>
+        <input type="email" name="email" class="form-control" placeholder="example@fakeboy.com" ngModel required>
       </div>
       <pre></pre>
       <label>Discord name</label>
@@ -19,19 +19,19 @@
         <tr>
         </tr>
         <tr>
-          <td><input type="text" name="discord-name" class="form-control" ngModel required></td>
-          <td><input type="text" name="discord-tag" class="form-control" ngModel required></td>
+          <td><input type="text" name="discord-name" class="form-control" placeholder="Example" ngModel required></td>
+          <td><input type="text" name="discord-tag" class="form-control" placeholder="1234" ngModel required></td>
         </tr>
       </table>
       <pre></pre>
       <div class="form-group">
         <label for="password">Password</label><br />
-        <input type="password" name="password" class="form-control" ngModel required>
+        <input type="password" name="password" class="form-control" placeholder="Password" ngModel required>
       </div>
       <pre></pre>
       <div class="form-group">
         <label for="confirm-password">Confirm Password</label><br />
-        <input type="password" name="confirm-password" class="form-control" ngModel required>
+        <input type="password" name="confirm-password" class="form-control" placeholder="Confirm password" ngModel required>
       </div>
       <pre></pre>
       <button class="btn btn-light" type="submit">Sign up</button>
