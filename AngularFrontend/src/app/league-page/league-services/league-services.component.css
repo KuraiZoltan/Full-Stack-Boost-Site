@@ -1,3 +1,34 @@
+.profile-details {
+  padding: 1rem;
+}
+
+.summary-component p {
+  display: flex;
+}
+
+.summary-component {
+  padding: 2rem;
+}
+
+.league-rank-button {
+  background: #00000047;
+  border-radius: 1rem;
+  border: none;
+  margin: 0.1rem;
+}
+
+.league-rank-button:hover {
+  background: #1c287c6e;
+}
+
+.league-rank-button:active {
+  background: #1c287ca3;
+}
+
+.rank-form-title {
+  padding: 1rem
+}
+
 @charset "UTF-8";
 /*!
 * Start Bootstrap - Agency v7.0.12 (https://startbootstrap.com/theme/agency)
@@ -89,17 +120,6 @@
   :root {
     scroll-behavior: smooth;
   }
-}
-.profile-details {
-  padding: 1rem;
-}
-
-.summary-component p {
-  display: flex;
-}
-
-.summary-component {
-    padding: 2rem;
 }
 
 body {
@@ -11837,7 +11857,7 @@ p {
   }
 
 .dark-section {
-  background: #151a30;
+  background: #441119;
   color: white;
 }
 
@@ -12157,7 +12177,7 @@ header.masthead {
       color: white;
       border: 7px solid #e9ecef;
       border-radius: 100%;
-      background-color: #78c7d4;
+      background-color: #ff4763;
     }
 
       .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
@@ -12377,12 +12397,17 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+#submit-btn {
+    margin: 1rem;
+}
+
 .select-from-buttons, .select-to-buttons {
   color: white;
   background-image: linear-gradient(#1e1e3be8, #4040837a);
   border-radius: 1rem;
   box-shadow: 4px 3px 8px #000000b0;
   margin: 1rem;
+  padding: 2rem;
 }
 
 .input-details-container {
@@ -12394,23 +12419,6 @@ section#contact form#contactForm :-ms-input-placeholder {
   min-height: 495px;
   padding: 2rem;
 }
-
-.league-rank-button {
-  background: #00000047;
-  border-radius: 1rem;
-  border: none;
-  margin: 0.1rem;
-}
-
-  .league-rank-button:hover {
-    background: #1c287c6e;
-  }
-
-  .league-rank-button:active {
-    background: #1c287ca3;
-  }
-
-
 
 .rank-form-title {
   padding: 1rem
@@ -12424,13 +12432,6 @@ section#contact form#contactForm :-ms-input-placeholder {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
-}
-
-.input-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   align-content: center;
 }
 

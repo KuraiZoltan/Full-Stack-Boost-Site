@@ -1,18 +1,20 @@
 <section class="page-section" id="services">
-  <div class="container text-center row">
-    <div class="col block-container">
-      <div class="text-center row">
-        <div class="select-from-buttons">
-          <app-select-rank-from [order]="order" [ranks]="ranks" [rankOptions]="rankOptions" [rankLevels]="rankLevels"></app-select-rank-from>
+  <div class="container">
+    <div class="block-container">
+      <div>
+        <div class="input-block row">
+          <div class="col">
+            <div class="select-from-buttons">
+              <app-select-rank-from [ranks]="ranks" [order]="order" [rankLevels]="rankLevels"></app-select-rank-from>
+            </div>
+            <div class="row select-to-buttons">
+              <app-select-rank-to [ranks]="ranks" [order]="order" [rankLevels]="rankLevels"></app-select-rank-to>
+            </div>
+          </div>
+          <div class="input-details-container block-container col">
+            <app-confirm-order [order]="order"></app-confirm-order>
+          </div>
         </div>
-        <div class="row select-to-buttons">
-          <app-select-rank-to [order]="order" [ranks]="ranks" [rankOptions]="rankOptions" [rankLevels]="rankLevels"></app-select-rank-to>
-        </div>
-      </div>
-    </div>
-    <div class="col input-details-container block-container">
-      <div class="input-block">
-        <app-confirm-order [order]="order"></app-confirm-order>
       </div>
     </div>
   </div>

@@ -10,16 +10,6 @@
   padding: 2rem;
 }
 
-.valorant-select-to-buttons, .valorant-select-from-buttons {
-  color: white;
-  margin: 2rem;
-  background-image: linear-gradient(#1e1e3be8, #4040837a);
-  border-radius: 1rem;
-  box-shadow: 4px 3px 8px #000000b0;
-  min-width: 350px;
-  max-width: 450px;
-}
-
 .valorant-rank-button {
   background: #987878;
   border-radius: 1rem;
@@ -30,25 +20,16 @@
   margin: 0.1rem;
 }
 
-  .valorant-rank-button:hover {
-    background: #836767b5;
-  }
+.valorant-rank-button:hover {
+  background: #836767b5;
+}
 
-  .valorant-rank-button:active {
-    background: #7c6262;
-  }
+.valorant-rank-button:active {
+  background: #7c6262;
+}
 
 .rank-form-title {
   padding: 1rem
-}
-
-.select-from-buttons, .select-to-buttons, .input-details-container {
-  color: white;
-  margin: 2rem;
-  background-image: linear-gradient(#1e1e3be8, #4040837a);
-  border-radius: 1rem;
-  box-shadow: 4px 3px 8px #000000b0;
-  max-width: 400px;
 }
 
 @charset "UTF-8";
@@ -12419,12 +12400,17 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+#submit-btn {
+  margin: 1rem;
+}
+
 .select-from-buttons, .select-to-buttons {
   color: white;
   background-image: linear-gradient(#903030e8, #9e363657);
   border-radius: 1rem;
   box-shadow: 4px 3px 8px #000000b0;
   margin: 1rem;
+  padding: 2rem;
 }
 
 .input-details-container {
