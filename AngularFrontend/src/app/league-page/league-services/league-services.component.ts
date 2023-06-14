@@ -21,7 +21,8 @@ export class LeagueServicesComponent {
       email: "",
       gameName: "League of Legends",
       status: "Processing",
-      id: 0
+      id: 0,
+      rankedType: ""
   };
   public ranks: Rank[] = [
     { name: "Iron", image: "https://odinboost.com/_ipx/f_webp/img/leagues/iron1.png" },

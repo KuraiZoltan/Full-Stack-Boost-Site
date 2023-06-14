@@ -22,7 +22,8 @@ export class ValorantServicesComponent {
       email: "",
       gameName: "Valorant",
       status: "Processing",
-      id: 0
+      id: 0,
+      rankedType: ""
   };
   public ranks: Rank[] = [
     { name: "Iron", image: "https://qwik.boostroyal.com/cdn-cgi/image/width=75,quality=95,format=auto/images/divisions/valorant/ironiii.png" },
