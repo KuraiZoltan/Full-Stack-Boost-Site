@@ -12,9 +12,6 @@ export class ValorantSelectRankToComponent {
   @Input() ranks!: Rank[];
   @Input() rankLevels!: string[];
 
-  public isSoloDuo: boolean = false;
-  public isFlex: boolean = false;
-
   saveDesiredRank(OrderedRank: any) {
     this.order.orderedRank = OrderedRank
   }
@@ -25,20 +22,6 @@ export class ValorantSelectRankToComponent {
 
   saveRegion(event: any) {
     this.order.selectedRegion = event.currentTarget.value
-  }
-
-  saveSoloDuoInput() {
-    this.isFlex = false
-    this.isSoloDuo = true;
-    this.order.rankedType = "Solo/Duo"
-    console.log(this.order)
-  }
-
-  saveFlexInput() {
-    this.isSoloDuo = false
-    this.isFlex = true;
-    this.order.rankedType = "Flex"
-    console.log(this.order)
   }
 }
 
