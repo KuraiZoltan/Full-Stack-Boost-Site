@@ -72,7 +72,7 @@ export class ConfirmOrderComponent implements OnInit {
   verifyOrder() {
     if (this.order.currentRank && this.order.currentRankLevel && this.order.currentRankPoints && this.order.selectedRegion &&
       this.order.orderedRank && this.order.orderedRankLevel &&
-      this.order.email && this.order.discordName
+      this.order.email && this.order.discordName && this.order.rankedType
     ) {
       return true
     }
