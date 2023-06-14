@@ -12,6 +12,7 @@ export interface Order {
   email: string; 
   gameName: string; 
   status: string;
+  rankedType: string;
 }
 
 
