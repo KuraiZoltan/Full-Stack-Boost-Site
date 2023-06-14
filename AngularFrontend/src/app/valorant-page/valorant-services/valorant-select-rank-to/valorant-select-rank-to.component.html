@@ -12,11 +12,11 @@
       <div>
         <label>
           <h5>Solo/Duo</h5>
-          <input type="radio" />
+          <input type="radio" required name="rankedType" (change)="saveSoloDuoInput()" />
         </label>
         <label>
           <h5>Flex</h5>
-          <input type="radio" />
+          <input type="radio" required name="rankedType" (change)="saveFlexInput()" />
         </label>
       </div>
     </div>
