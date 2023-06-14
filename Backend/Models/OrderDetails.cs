@@ -19,5 +19,6 @@ namespace EmailSender.Models
         public string Email { get; set; }
         public string GameName { get; set; }
         public string Status { get; set; }
+        public string RankedType { get; set; }
     }
 }
