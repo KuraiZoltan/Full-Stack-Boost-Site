@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmailSender.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230503112016_user-update")]
-    partial class userupdate
+    [Migration("20230626095946_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -101,6 +101,10 @@ namespace EmailSender.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OrderedRankLevel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RankedType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

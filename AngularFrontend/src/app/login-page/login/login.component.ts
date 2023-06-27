@@ -19,7 +19,7 @@ export class LoginComponent {
     }
     const headers = { 'Content-Type': 'application/json' }
     const body = JSON.stringify(payload)
-    this.http.post("https://localhost:7196/User/loginUser", body, { "headers": headers, withCredentials: true, observe: 'response' as 'response' })
+    this.http.post("http://localhost:7196/User/loginUser", body, { "headers": headers, withCredentials: true, observe: 'response' as 'response' })
       .subscribe(response => {
         const token = (<any>response.body)
         sessionStorage.setItem("email", token.email)

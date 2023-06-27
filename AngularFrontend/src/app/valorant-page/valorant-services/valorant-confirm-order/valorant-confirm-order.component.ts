@@ -57,7 +57,7 @@ export class ValorantConfirmOrderComponent implements OnInit {
         'Content-Type': 'application/json',
       }
       const body = JSON.stringify(payload)
-      this.http.post("https://localhost:7196/Email/sendEmail", body, { 'headers': headers, withCredentials: true }).subscribe(r => { console.log(r) })
+      this.http.post("http://localhost:7196/Email/sendEmail", body, { 'headers': headers, withCredentials: true }).subscribe(r => { console.log(r) })
     } else {
       this.wrongData = true
     }
