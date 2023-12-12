@@ -31,7 +31,7 @@ export class NavMenuComponent implements OnInit {
 
   async onLogout() {
     const headers = { 'Content-Type': 'application/json' }
-    this.http.get("https://localhost:7196/User/logout", { 'headers': headers, withCredentials: true, observe: 'response' as 'response' }).subscribe(r => { console.log(r) })
+    this.http.get("http://localhost:7196/User/logout", { 'headers': headers, withCredentials: true, observe: 'response' as 'response' }).subscribe(r => { console.log(r) })
     sessionStorage.removeItem("email")
     sessionStorage.removeItem("discord_name")
     sessionStorage.removeItem("user_id")

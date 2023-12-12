@@ -20,7 +20,7 @@ export class RegistrationComponent {
     }
     const headers = { 'Content-Type': 'application/json' }
     const body = JSON.stringify(payload)
-    return this.http.post("https://localhost:7196/User/registrate", body, { 'headers': headers }).subscribe(r => {
+    return this.http.post("http://localhost:7196/User/registrate", body, { 'headers': headers }).subscribe(r => {
       this.checkResponse(r)
     })
   }

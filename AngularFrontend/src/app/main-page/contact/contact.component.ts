@@ -21,7 +21,7 @@ export class ContactComponent {
     }
     const headers = { 'Content-Type': 'application/json' }
     const body = JSON.stringify(payload)
-    return this.http.post("https://localhost:7196/Email/message", body, { 'headers': headers }).subscribe(r => {
+    return this.http.post("http://localhost:7196/Email/message", body, { 'headers': headers }).subscribe(r => {
       console.log(r)
     })
   }

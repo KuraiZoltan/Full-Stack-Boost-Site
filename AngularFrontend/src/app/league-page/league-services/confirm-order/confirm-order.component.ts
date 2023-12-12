@@ -63,7 +63,7 @@ export class ConfirmOrderComponent implements OnInit {
       let payload = this.order
       const headers = { 'Content-Type': 'application/json' }
       const body = JSON.stringify(payload)
-      this.http.post("https://localhost:7196/Email/sendEmail", body, { 'headers': headers, withCredentials: true }).subscribe(r => { console.log(r) })
+      this.http.post("http://localhost:7196/Email/sendEmail", body, { 'headers': headers, withCredentials: true }).subscribe(r => { console.log(r) })
     } else {
       this.wrongData = true
     }

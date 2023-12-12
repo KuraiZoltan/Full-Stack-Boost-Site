@@ -12,7 +12,7 @@ export class AdminOrderTableComponent {
 
   constructor(private http: HttpClient) {
       const headers = { 'Content-Type': 'application/json' }
-      this.http.get<Order[]>(`https://localhost:7196/Order/getAllOrders`, { 'headers': headers, withCredentials: true }).subscribe(result => {
+      this.http.get<Order[]>(`http://localhost:7196/Order/getAllOrders`, { 'headers': headers, withCredentials: true }).subscribe(result => {
         var ordersObject = result;
         for (let i = 0; i < ordersObject.length; i++) {
           this.orders.push(ordersObject[i])
@@ -29,14 +29,14 @@ export class AdminOrderTableComponent {
     const headers = {
       'Content-Type': 'application/json',
     }
-    this.http.put('https://localhost:7196/Order/changeStatus', payload, { 'headers': headers, withCredentials: true }).subscribe(response => {
+    this.http.put('http://localhost:7196/Order/changeStatus', payload, { 'headers': headers, withCredentials: true }).subscribe(response => {
       console.log(response)
     })
   }
 
   deleteOrder(orderId: any) {
     const headers = { 'Content-Type': 'application/json' }
-    this.http.post('https://localhost:7196/Order/deleteOrder', orderId, { 'headers': headers, withCredentials: true }).subscribe(response => {
+    this.http.post('http://localhost:7196/Order/deleteOrder', orderId, { 'headers': headers, withCredentials: true }).subscribe(response => {
       console.log(response)
       window.location.reload()
     })
